@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Opening SnapWOD…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0b0f12; color: #e5eef7; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+      .card { padding: 24px; background: #131a20; border: 1px solid #1f2a33; border-radius: 16px; max-width: 480px; width: 92%; text-align: center; }
+      h1 { font-size: 22px; margin-bottom: 12px; }
+      p { margin: 0 0 12px; line-height: 1.4; color: #9fb3c8; }
+      a { color: #00e0ff; }
+    </style>
+    <script>
+      function getQueryParam(name) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(name);
+      }
+
+      function buildWorkoutUrl(id) {
+        return "wodbrain://plan?w=" + encodeURIComponent(id);
+      }
+
+      function openApp() {
+        const id = getQueryParam("w");
+        if (!id) {
+          document.getElementById("status").textContent = "Missing workout ID. Check your link.";
+          return;
+        }
+
+        const ua = navigator.userAgent || "";
+        const isIOS = /iPhone|iPad|iPod/i.test(ua);
+        const isAndroid = /Android/i.test(ua);
+
+        // Optional store URLs. Leave blank to skip store fallback.
+        const iosStoreUrl = ""; // e.g., https://apps.apple.com/app/id1234567890
+        const androidStoreUrl = ""; // e.g., https://play.google.com/store/apps/details?id=com.anonymous.wodbrain
+
+        const appUrl = buildWorkoutUrl(id);
+        const storeUrl = isIOS ? iosStoreUrl : isAndroid ? androidStoreUrl : "";
+        const canFallbackToStore = Boolean(storeUrl);
+
+        const start = Date.now();
+        const timer = setTimeout(function () {
+          const elapsed = Date.now() - start;
+          if (elapsed < 1800 && canFallbackToStore) {
+            window.location.href = storeUrl;
+          }
+        }, 800);
+
+        window.location.href = appUrl;
+        document.getElementById("status").textContent = "Opening SnapWOD…";
+
+        document.addEventListener("visibilitychange", function () {
+          if (document.hidden) {
+            clearTimeout(timer);
+          }
+        });
+      }
+
+      window.addEventListener("load", openApp);
+    </script>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Opening SnapWOD…</h1>
+      <p id="status">If nothing happens, open SnapWOD from your home screen.</p>
+      <p style="margin-top:16px;font-size:14px;">If the app is installed, it will open automatically. Fallback to the store only happens when a store URL is configured.</p>
+    </div>
+  </body>
+</html>

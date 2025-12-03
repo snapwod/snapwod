@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic SEO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnapWOD – AI CrossFit & HYROX Workout Timer</title>
+  <meta name="description" content="SnapWOD instantly turns any CrossFit, HYROX, hybrid or functional fitness workout into a fully structured training timer. Snap a photo, upload a screenshot, or paste text and start EMOM, AMRAP, interval, Tabata and HYROX-style timers in seconds." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Canonical (update to your live domain) -->
+  <link rel="canonical" href="https://snapwod.github.io/snapwod/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SnapWOD – AI CrossFit & HYROX Workout Timer" />
+  <meta property="og:description" content="Turn any CrossFit, HYROX, hybrid or functional fitness workout into a precise, multi-part training timer in seconds with AI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://snapwod.github.io/snapwod/" />
+  <meta property="og:image" content="https://snapwod.github.io/snapwod/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SnapWOD – AI CrossFit & HYROX Workout Timer" />
+  <meta name="twitter:description" content="Snap a photo, upload a screenshot, or paste text and SnapWOD builds EMOM, AMRAP, interval and HYROX-style timers for you." />
+  <meta name="twitter:image" content="https://snapwod.github.io/snapwod/snapwod-logo.png" />
+
+  <!-- Structured Data: Mobile App -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "SnapWOD",
+    "operatingSystem": "iOS",
+    "applicationCategory": "https://schema.org/HealthAndFitnessApplication",
+    "description": "SnapWOD turns any CrossFit, HYROX, hybrid training, or functional fitness workout into a fully structured training timer in seconds. Snap a photo, upload a screenshot, or paste text, and SnapWOD instantly parses EMOMs, AMRAPs, intervals, HERO workouts, chippers, hybrid circuits, and complex multi-part sessions.",
+    "url": "https://snapwod.github.io/snapwod/",
+    "image": "https://snapwod.github.io/snapwod/snapwod-logo-image.png",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Robert Dixon"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "ratingCount": "2"
+    },
+    "softwareVersion": "1.0",
+    "downloadUrl": "https://apps.apple.com/us/app/snapwod/id6755497026",
+    "operatingSystemVersion": "iOS 16.0 or later"
+  }
+  </script>
+
+  <!-- Styles (simple, mobile-first) -->
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-alt: #0d0d16;
+      --accent: #ff6b3d;
+      --accent-soft: rgba(255, 107, 61, 0.1);
+      --text: #f8fafc;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --radius-lg: 1.25rem;
+      --radius-md: 0.75rem;
+      --max-width: 1100px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827, #020617 55%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem 4rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.6));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 0.9rem;
+      background: radial-gradient(circle at 30% 0%, #f97316, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(248, 113, 113, 0.5);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+      line-height: 1.1;
+    }
+
+    .logo-text span:first-child {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .logo-text span:last-child {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+    }
+
+    .nav-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: linear-gradient(135deg, #f97316, #ec4899);
+      box-shadow: 0 14px 35px rgba(248, 113, 113, 0.55);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .nav-cta span.badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.15rem 0.6rem 0.15rem 0.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: radial-gradient(circle at 0 0, rgba(248, 113, 113, 0.4), rgba(15, 23, 42, 0.95));
+      font-size: 0.75rem;
+      color: #e5e7eb;
+      margin-bottom: 1.2rem;
+    }
+
+    .eyebrow-pill {
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin: 0 0 0.8rem;
+      letter-spacing: -0.035em;
+    }
+
+    .hero h1 span.highlight {
+      background: linear-gradient(135deg, #f97316, #ec4899);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.3rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #f97316, #ec4899);
+      box-shadow: var(--shadow-soft);
+      color: #0b1120;
+      font-weight: 650;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary span.chevron {
+      font-size: 1rem;
+      translate: 0 1px;
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.75rem 1.1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .btn-ghost span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-meta strong {
+      color: #e5e7eb;
+    }
+
+    .bullet-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.9);
+    }
+
+    /* Phone preview */
+    .phone-card {
+      max-width: 340px;
+      margin: 0 auto;
+      border-radius: 2.2rem;
+      padding: 0.9rem;
+      background: radial-gradient(circle at 0 0, #f97316, #111827 40%);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      position: relative;
+    }
+
+    .phone-inner {
+      border-radius: 1.8rem;
+      padding: 1rem;
+      background: radial-gradient(circle at top, #020617, #020617 40%, #030712 80%);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.6rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .timer-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 999px;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.65rem;
+      color: var(--muted);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      margin-bottom: 0.9rem;
+    }
+
+    .timer-chip span.pill {
+      padding: 0.15rem 0.4rem;
+      border-radius: 999px;
+      background: rgba(248, 113, 113, 0.15);
+      color: #fed7aa;
+      font-weight: 600;
+      font-size: 0.65rem;
+    }
+
+    .timer-main {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .timer-main h2 {
+      font-size: 2.5rem;
+      margin: 0 0 0.2rem;
+      letter-spacing: 0.08em;
+    }
+
+    .timer-main p {
+      margin: 0;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .segments {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .segment-card {
+      border-radius: 0.9rem;
+      padding: 0.6rem 0.7rem;
+      background: radial-gradient(circle at 0 0, rgba(248, 113, 113, 0.24), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.7rem;
+    }
+
+    .segment-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+    }
+
+    .segment-title span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      font-size: 0.6rem;
+      color: #e5e7eb;
+    }
+
+    .segment-title span.time {
+      font-size: 0.7rem;
+      color: #fee2e2;
+    }
+
+    .segment-body {
+      color: #e5e7eb;
+      font-size: 0.7rem;
+      line-height: 1.2;
+    }
+
+    .parse-strip {
+      border-radius: 0.9rem;
+      padding: 0.6rem 0.7rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(148, 163, 184, 0.45);
+      font-size: 0.68rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .parse-strip strong {
+      color: #e5e7eb;
+    }
+
+    .parse-pill {
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.15);
+      color: #bbf7d0;
+      font-size: 0.65rem;
+      font-weight: 600;
+    }
+
+    /* Sections */
+    section {
+      margin-top: 3.5rem;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    section > p.section-intro {
+      margin-top: 0;
+      margin-bottom: 1.8rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 620px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .pill {
+      font-size: 0.72rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    @media (min-width: 800px) {
+      .nav-links {
+        display: flex;
+      }
+      .hero {
+        padding-top: 4.5rem;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+      padding: 1.1rem 1.1rem 1.2rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      font-size: 0.97rem;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .badge-accent {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.12rem 0.6rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #fed7aa;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+
+    .list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.4rem 0 0;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .list li span.bullet {
+      margin-top: 0.3rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(248, 113, 113, 0.9);
+      flex-shrink: 0;
+    }
+
+    /* Split sections */
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 900px) {
+      .split {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 0.75rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-answer {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    /* Download section */
+    .download-section {
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 0 0, #f97316, #020617 45%);
+      border: 1px solid rgba(248, 250, 252, 0.12);
+      padding: 1.6rem 1.4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr);
+      gap: 1.2rem;
+      align-items: center;
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.9);
+    }
+
+    @media (min-width: 900px) {
+      .download-section {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        padding: 1.8rem 1.8rem;
+      }
+    }
+
+    .download-section h2 {
+      margin-bottom: 0.4rem;
+    }
+
+    .download-section p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      max-width: 520px;
+    }
+
+    .store-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .store-badges img {
+      height: 40px;
+      border-radius: 0.7rem;
+      border: 1px solid rgba(15, 23, 42, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .download-meta {
+      font-size: 0.78rem;
+      color: #e5e7eb;
+    }
+
+    .download-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-right: 0.8rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
+      background: #020617;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.4rem 1.5rem 1.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header / Nav -->
+    <header>
+      <div class="nav">
+        <div class="nav-left">
+          <div class="logo-mark">
+  <img src="snapwod-logo.png" alt="SnapWOD logo" style="width: 100%; height: 100%; object-fit: contain;" />
+</div>
+<div class="logo-text">
+  <span>SnapWOD</span>
+  <span>AI CrossFit & HYROX Timer</span>
+</div>
+        </div>
+        <nav class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#who-for">Who it’s for</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="nav-cta">
+          <a href="https://apps.apple.com/us/app/snapwod/id6755497026" target="_blank" rel="noreferrer">
+            <span>Download on iPhone</span>
+            <span class="badge">Free · In-App Upgrade</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="shell">
+        <!-- Hero -->
+        <section class="hero">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-pill">New • iOS</span>
+                <span>Turn written WODs into precise timers in seconds.</span>
+              </div>
+              <h1>
+                SnapWOD is your
+                <span class="highlight">AI workout timer</span>
+                for CrossFit & HYROX.
+              </h1>
+              <p class="hero-subtitle">
+                Snap a photo, upload a screenshot, or paste text — SnapWOD instantly parses
+                <strong>EMOMs, AMRAPs, intervals, Tabata, HYROX-style circuits and multi-part sessions</strong>
+                into a clean, athlete-friendly training timer.
+              </p>
+              <div class="hero-cta">
+                <a class="btn-primary" href="https://apps.apple.com/us/app/snapwod/id6755497026" target="_blank" rel="noreferrer">
+                  <span>Get SnapWOD on the App Store</span>
+                  <span class="chevron">➜</span>
+                </a>
+                <div class="btn-ghost">
+                  <span class="dot"></span>
+                  <span>Works offline for timers · AI parsing with Premium</span>
+                </div>
+              </div>
+              <div class="hero-meta">
+                <span><strong>CrossFit · HYROX · Hybrid</strong></span>
+                <span class="bullet-dot"></span>
+                <span>Timers for EMOM, AMRAP, Intervals, For Time, Tabata</span>
+                <span class="bullet-dot"></span>
+                <span>Build multi-part strength & conditioning sessions</span>
+              </div>
+            </div>
+
+            <!-- Phone Preview -->
+            <div>
+              <div class="phone-card" aria-hidden="true">
+                <div class="phone-inner">
+                  <img src="snapwod-timer.png"
+           alt="SnapWOD workout timer screenshot"
+           style="width: 100%; border-radius: 1.2rem; display: block;" />
+                </div>
+               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features">
+          <h2>Timers built for real CrossFit, HYROX & hybrid training</h2>
+          <p class="section-intro">
+            Generic interval timers can’t keep up with complex WODs. SnapWOD is built specifically for
+            <strong>EMOMs, AMRAPs, interval blocks, HERO workouts, chippers and multi-part sessions</strong> —
+            exactly how you actually train.
+          </p>
+
+          <div class="pill-row">
+            <div class="pill">AI workout parsing</div>
+            <div class="pill">EMOM · AMRAP · Intervals · For Time · Tabata</div>
+            <div class="pill">HYROX-style race prep</div>
+            <div class="pill">Multi-part builder</div>
+            <div class="pill">Offline timers</div>
+          </div>
+
+          <div class="grid-3">
+            <div class="card">
+              <div class="badge-accent">AI Workout Parsing</div>
+              <h3>Snap, paste or upload your WOD</h3>
+              <p>
+                Take a photo of the whiteboard, upload a screenshot from your programming app, or paste a text workout.
+                SnapWOD’s AI converts it into clean timer blocks with rounds, sets, rest periods and labels already set.
+              </p>
+              <ul class="list">
+                <li><span class="bullet"></span><span>Supports EMOMs, AMRAPs, intervals, Tabata, For Time and more.</span></li>
+                <li><span class="bullet"></span><span>Understands HERO workouts, chippers and hybrid circuits.</span></li>
+                <li><span class="bullet"></span><span>Available with Premium, so you only pay if you use AI parsing.</span></li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="badge-accent">Timers for Every Style</div>
+              <h3>One app for every session you run</h3>
+              <p>
+                From pure conditioning days to long engine builders and heavy strength pieces, SnapWOD handles it all
+                without you ever touching a stopwatch.
+              </p>
+              <ul class="list">
+                <li><span class="bullet"></span><span>EMOM, AMRAP, Intervals, For Time, Tabata and custom timers.</span></li>
+                <li><span class="bullet"></span><span>Label segments clearly so athletes always know what’s next.</span></li>
+                <li><span class="bullet"></span><span>Perfect for solo training, partner WODs or coaching a class.</span></li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="badge-accent">Multi-Part Sessions</div>
+              <h3>Strength, conditioning & skill in one flow</h3>
+              <p>
+                Build complete sessions that move seamlessly from strength work into conditioning, then accessory or
+                skill pieces — with transitions and rest baked in.
+              </p>
+              <ul class="list">
+                <li><span class="bullet"></span><span>Combine multiple parts into one continuous workout timeline.</span></li>
+                <li><span class="bullet"></span><span>Save and reuse your favourite sessions with one tap.</span></li>
+                <li><span class="bullet"></span><span>Run timers offline so you can train anywhere.</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- How it works -->
+        <section id="how-it-works">
+          <div class="split">
+            <div>
+              <h2>How SnapWOD works</h2>
+              <p class="section-intro">
+                The goal is simple: <strong>less time programming timers, more time training</strong>.
+                SnapWOD removes the friction between reading a workout and starting your first rep.
+              </p>
+
+              <div class="card">
+                <h3>1. Capture your workout</h3>
+                <p>
+                  Point your camera at the whiteboard, upload a screenshot from your gym’s app or paste text from your
+                  programming notes. SnapWOD reads the workout exactly how it’s written.
+                </p>
+              </div>
+
+              <div class="card" style="margin-top: 0.9rem;">
+                <h3>2. Let AI build the timer</h3>
+                <p>
+                  With Premium, SnapWOD parses the workout into structured timer blocks: parts, rounds, work/rest,
+                  time caps and labels. You can tweak anything before you hit start.
+                </p>
+              </div>
+
+              <div class="card" style="margin-top: 0.9rem;">
+                <h3>3. Hit start and just train</h3>
+                <p>
+                  Clear numbers, distinct transitions and simple controls mean you never wonder what’s next.
+                  SnapWOD keeps the clock honest while you focus on effort, pacing and execution.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <div class="card">
+                <div class="badge-accent">Designed for Athletes</div>
+                <h3>Clean, athlete-friendly UI</h3>
+                <p>
+                  SnapWOD is designed for noisy training environments, not quiet labs. Big numbers, obvious phase
+                  changes and intuitive navigation mean you can keep your eyes on the work, not the screen.
+                </p>
+                <ul class="list">
+                  <li><span class="bullet"></span><span>Large, high-contrast timer display for quick glances mid-WOD.</span></li>
+                  <li><span class="bullet"></span><span>See the current segment and what’s coming up next at a glance.</span></li>
+                  <li><span class="bullet"></span><span>Run timers offline when you’re travelling, outdoors or in patchy gyms.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Who it's for -->
+        <section id="who-for">
+          <h2>Built for serious CrossFit, HYROX & hybrid athletes</h2>
+          <p class="section-intro">
+            Whether you’re chasing a HYROX podium, pushing CrossFit Open scores or just trying to stay consistent,
+            SnapWOD gives structure to every session so you can track, compare and progress.
+          </p>
+
+          <div class="grid-3">
+            <div class="card">
+              <h3>CrossFit athletes & boxes</h3>
+              <p>
+                Turn daily WODs into precise timers without rewriting anything. Ideal for athletes who follow online
+                programming or coaches who need simple, reliable timing for class.
+              </p>
+            </div>
+            <div class="card">
+              <h3>HYROX & hybrid competitors</h3>
+              <p>
+                Build race-prep sessions with alternating machines, sled work, running blocks and stations.
+                SnapWOD handles mixed EMOM/interval setups common in hybrid training.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Functional fitness & engine work</h3>
+              <p>
+                Use SnapWOD for conditioning blocks, zone 2, threshold intervals and mixed modal circuits.
+                Save your favourite progressions and re-run them to track improvement.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Comparison -->
+        <section>
+          <h2>Why SnapWOD over a generic interval timer?</h2>
+          <p class="section-intro">
+            Most timers only understand “work” and “rest”. SnapWOD understands
+            <strong>workouts</strong> — the structure, progression and intent behind modern functional training.
+          </p>
+
+          <div class="split">
+            <div class="card">
+              <div class="badge-accent">Generic Timers</div>
+              <h3>Good for Tabata. Bad for complex WODs.</h3>
+              <ul class="list">
+                <li><span class="bullet"></span><span>Manual setup for every part of the workout.</span></li>
+                <li><span class="bullet"></span><span>No understanding of EMOM vs AMRAP vs For Time blocks.</span></li>
+                <li><span class="bullet"></span><span>Challenging to run multi-part strength + conditioning sessions.</span></li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="badge-accent">SnapWOD</div>
+              <h3>Understands the way you actually train.</h3>
+              <ul class="list">
+                <li><span class="bullet"></span><span>AI parses written or screenshot WODs into structured timers.</span></li>
+                <li><span class="bullet"></span><span>Built-in modes for EMOM, AMRAP, Intervals, For Time & Tabata.</span></li>
+                <li><span class="bullet"></span><span>Multi-part builder for complete sessions with clear transitions.</span></li>
+                <li><span class="bullet"></span><span>Save and reuse workouts; run timers offline when needed.</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+          <h2>Frequently asked questions</h2>
+          <p class="section-intro">
+            A few quick answers about how SnapWOD works, what’s free and what’s included with Premium.
+          </p>
+
+          <div class="faq-item">
+            <div class="faq-question">Is SnapWOD free?</div>
+            <div class="faq-answer">
+              SnapWOD is free to download and use as a powerful workout timer, including offline use for running timers.
+              There’s an optional Premium upgrade that unlocks full access to AI workout parsing and sharing workflows.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">What workouts can SnapWOD handle?</div>
+            <div class="faq-answer">
+              SnapWOD is designed for CrossFit, HYROX, hybrid and functional fitness training. It supports EMOMs, AMRAPs,
+              interval blocks, Tabata, For Time pieces, HERO workouts, chippers, hybrid circuits and complex multi-part
+              sessions.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">How does AI workout parsing work?</div>
+            <div class="faq-answer">
+              With Premium enabled, you can snap a photo of a whiteboard, upload a screenshot or paste text. SnapWOD’s AI
+              reads the workout, identifies each part and automatically builds timer blocks with durations, rounds,
+              rest periods and labels. You can review and edit everything before starting the timer.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Does SnapWOD work offline?</div>
+            <div class="faq-answer">
+              Yes. Once your workouts and timers are set up, you can build and run timers offline — perfect for training
+              outdoors, when travelling, or in gyms with poor signal.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Do I need to be a coach to use SnapWOD?</div>
+            <div class="faq-answer">
+              Not at all. SnapWOD is built for individuals and coaches. If you follow programming from a box, HYROX plan
+              or online coach, you can use SnapWOD to turn that programming into structured timers without manual setup.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Which devices does SnapWOD support?</div>
+            <div class="faq-answer">
+              SnapWOD is currently available for iPhone running iOS 16.0 or later. Support for additional platforms may
+              be explored in the future.
+            </div>
+          </div>
+        </section>
+
+        <!-- Download CTA -->
+        <section class="download-section" id="download">
+          <div>
+            <h2>Train with structure, not guesswork.</h2>
+            <p>
+              Download SnapWOD and turn every CrossFit, HYROX or hybrid training session into a precise, repeatable
+              workout you can trust — with AI taking care of the timer setup.
+            </p>
+
+            <div class="store-badges">
+              <!-- Replace the image src with your own App Store badge asset -->
+              <a href="https://apps.apple.com/us/app/snapwod/id6755497026" target="_blank" rel="noreferrer">
+                <img src="app-store-badge.svg" alt="Download SnapWOD on the App Store" />
+              </a>
+            </div>
+
+            <div class="download-meta" style="margin-top: 0.75rem;">
+              <span>Free download</span>
+              <span>Optional Premium for AI parsing & sharing</span>
+              <span>Requires iOS 16.0 or later</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="card">
+              <div class="badge-accent">Snapshot</div>
+              <h3>What SnapWOD gives you</h3>
+              <ul class="list">
+                <li><span class="bullet"></span><span>AI-powered parsing for written and screenshot workouts.</span></li>
+                <li><span class="bullet"></span><span>Dedicated timers for EMOM, AMRAP, Intervals, For Time & Tabata.</span></li>
+                <li><span class="bullet"></span><span>Multi-part builder to link strength, conditioning & accessory work.</span></li>
+                <li><span class="bullet"></span><span>Offline-friendly timers for consistent training anywhere.</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> SnapWOD. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="https://snapwod.github.io/snapwod/privacy.html" target="_blank" rel="noreferrer">Privacy Policy</a>
+          <a href="https://snapwod.github.io/snapwod/terms.html" target="_blank" rel="noreferrer">Terms of Use</a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Auto-update footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+index

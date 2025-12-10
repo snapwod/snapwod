@@ -31,7 +31,7 @@
     "@context": "https://schema.org",
     "@type": "MobileApplication",
     "name": "SnapWOD",
-    "operatingSystem": "iOS",
+    "operatingSystem": ["iOS", "Android"],
     "applicationCategory": "https://schema.org/HealthAndFitnessApplication",
     "description": "SnapWOD turns any CrossFit, HYROX, hybrid training, or functional fitness workout into a fully structured training timer in seconds. Snap a photo, upload a screenshot, or paste text, and SnapWOD instantly parses EMOMs, AMRAPs, intervals, HERO workouts, chippers, hybrid circuits, and complex multi-part sessions.",
     "url": "https://snapwod.github.io/snapwod/",
@@ -51,8 +51,11 @@
       "ratingCount": "2"
     },
     "softwareVersion": "1.0",
-    "downloadUrl": "https://apps.apple.com/us/app/snapwod/id6755497026",
-    "operatingSystemVersion": "iOS 16.0 or later"
+    "downloadUrl": [
+      "https://apps.apple.com/us/app/snapwod/id6755497026",
+      "https://play.google.com/store/apps/details?id=com.anonymous.wodbrain"
+    ],
+    "operatingSystemVersion": "Requires iOS 16.0 or later, or a compatible Android device"
   }
   </script>
 
@@ -169,6 +172,12 @@
 
     .nav-links a:hover {
       color: #e5e7eb;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
     .nav-cta a {
@@ -720,12 +729,12 @@
       <div class="nav">
         <div class="nav-left">
           <div class="logo-mark">
-  <img src="snapwod-logo.png" alt="SnapWOD logo" style="width: 100%; height: 100%; object-fit: contain;" />
-</div>
-<div class="logo-text">
-  <span>SnapWOD</span>
-  <span>AI CrossFit & HYROX Timer</span>
-</div>
+            <img src="snapwod-logo.png" alt="SnapWOD logo" style="width: 100%; height: 100%; object-fit: contain;" />
+          </div>
+          <div class="logo-text">
+            <span>SnapWOD</span>
+            <span>AI CrossFit & HYROX Timer</span>
+          </div>
         </div>
         <nav class="nav-links">
           <a href="#features">Features</a>
@@ -735,8 +744,11 @@
         </nav>
         <div class="nav-cta">
           <a href="https://apps.apple.com/us/app/snapwod/id6755497026" target="_blank" rel="noreferrer">
-            <span>Download on iPhone</span>
+            <span>iOS App Store</span>
             <span class="badge">Free · In-App Upgrade</span>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.anonymous.wodbrain" target="_blank" rel="noreferrer">
+            <span>Google Play · Android</span>
           </a>
         </div>
       </div>
@@ -749,7 +761,7 @@
           <div class="hero-grid">
             <div>
               <div class="eyebrow">
-                <span class="eyebrow-pill">New • iOS</span>
+                <span class="eyebrow-pill">New • iOS & Android</span>
                 <span>Turn written WODs into precise timers in seconds.</span>
               </div>
               <h1>
@@ -764,7 +776,11 @@
               </p>
               <div class="hero-cta">
                 <a class="btn-primary" href="https://apps.apple.com/us/app/snapwod/id6755497026" target="_blank" rel="noreferrer">
-                  <span>Get SnapWOD on the App Store</span>
+                  <span>Get SnapWOD on iOS</span>
+                  <span class="chevron">➜</span>
+                </a>
+                <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.anonymous.wodbrain" target="_blank" rel="noreferrer">
+                  <span>Get SnapWOD on Android</span>
                   <span class="chevron">➜</span>
                 </a>
                 <div class="btn-ghost">
@@ -786,8 +802,8 @@
               <div class="phone-card" aria-hidden="true">
                 <div class="phone-inner">
                   <img src="snapwod-timer.png"
-           alt="SnapWOD workout timer screenshot"
-           style="width: 100%; border-radius: 1.2rem; display: block;" />
+                       alt="SnapWOD workout timer screenshot"
+                       style="width: 100%; border-radius: 1.2rem; display: block;" />
                 </div>
                </div>
             </div>
@@ -990,12 +1006,13 @@
             </div>
           </div>
 
-<div class="faq-item">
-  <div class="faq-question">Can I share workouts or timers from SnapWOD?</div>
-  <div class="faq-answer">
-    Yes. Once you’ve created or parsed a workout, you can share it with others so they can follow the same structure. It’s ideal for sending sessions to training partners or athletes you coach.
-  </div>
-</div>
+          <div class="faq-item">
+            <div class="faq-question">Can I share workouts or timers from SnapWOD?</div>
+            <div class="faq-answer">
+              Yes. Once you’ve created or parsed a workout, you can share it with others so they can follow the same structure. It’s ideal for sending sessions to training partners or athletes you coach.
+            </div>
+          </div>
+
           <div class="faq-item">
             <div class="faq-question">What workouts can SnapWOD handle?</div>
             <div class="faq-answer">
@@ -1033,8 +1050,7 @@
           <div class="faq-item">
             <div class="faq-question">Which devices does SnapWOD support?</div>
             <div class="faq-answer">
-              SnapWOD is currently available for iPhone running iOS 16.0 or later. Support for additional platforms may
-              be explored in the future.
+              SnapWOD is available for iPhone (iOS 16.0 or later) via the App Store, and for Android phones via the Google Play Store.
             </div>
           </div>
         </section>
@@ -1049,16 +1065,20 @@
             </p>
 
             <div class="store-badges">
-              <!-- Replace the image src with your own App Store badge asset -->
+              <!-- App Store badge -->
               <a href="https://apps.apple.com/us/app/snapwod/id6755497026" target="_blank" rel="noreferrer">
                 <img src="app-store-badge.svg" alt="Download SnapWOD on the App Store" />
+              </a>
+              <!-- Google Play badge -->
+              <a href="https://play.google.com/store/apps/details?id=com.anonymous.wodbrain" target="_blank" rel="noreferrer">
+                <img src="google-play-badge.svg" alt="Get SnapWOD on Google Play" />
               </a>
             </div>
 
             <div class="download-meta" style="margin-top: 0.75rem;">
               <span>Free download</span>
               <span>Optional Premium for AI parsing & sharing</span>
-              <span>Requires iOS 16.0 or later</span>
+              <span>Requires iOS 16.0+ or a compatible Android device</span>
             </div>
           </div>
 

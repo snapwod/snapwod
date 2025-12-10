@@ -18,23 +18,20 @@
       }
 
       function buildWorkoutUrl(id) {
+        if (!id) return "wodbrain://";
         return "wodbrain://plan?w=" + encodeURIComponent(id);
       }
 
       function openApp() {
         const id = getQueryParam("w");
-        if (!id) {
-          document.getElementById("status").textContent = "Missing workout ID. Check your link.";
-          return;
-        }
 
         const ua = navigator.userAgent || "";
         const isIOS = /iPhone|iPad|iPod/i.test(ua);
         const isAndroid = /Android/i.test(ua);
 
         // Optional store URLs. Leave blank to skip store fallback.
-        const iosStoreUrl = "https://apps.apple.com/us/app/snapwod/id6755497026"; // e.g., https://apps.apple.com/app/id1234567890
-        const androidStoreUrl = "https://play.google.com/store/apps/details?id=com.anonymous.wodbrain"; // e.g., https://play.google.com/store/apps/details?id=com.anonymous.wodbrain
+        const iosStoreUrl = "https://apps.apple.com/us/app/snapwod/id6755497026";
+        const androidStoreUrl = "https://play.google.com/store/apps/details?id=com.anonymous.wodbrain";
 
         const appUrl = buildWorkoutUrl(id);
         const storeUrl = isIOS ? iosStoreUrl : isAndroid ? androidStoreUrl : "";

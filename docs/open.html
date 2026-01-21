@@ -2,14 +2,49 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Opening SnapWOD…</title>
+    <title>Opening SnapWOD</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0b0f12; color: #e5eef7; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-      .card { padding: 24px; background: #131a20; border: 1px solid #1f2a33; border-radius: 16px; max-width: 480px; width: 92%; text-align: center; }
+      .card { padding: 24px; background: #131a20; border: 1px solid #1f2a33; border-radius: 16px; max-width: 480px; width: 92%; text-align: center; box-shadow: 0 18px 40px rgba(0,0,0,0.35); }
       h1 { font-size: 22px; margin-bottom: 12px; }
       p { margin: 0 0 12px; line-height: 1.4; color: #9fb3c8; }
       a { color: #00e0ff; }
+      .cta {
+        appearance: none;
+        border: 0;
+        border-radius: 999px;
+        background: #00e0ff;
+        color: #041017;
+        padding: 10px 18px;
+        font-weight: 700;
+        cursor: pointer;
+        margin: 8px 0 6px;
+      }
+      .cta:active { transform: scale(0.98); }
+      .hint { font-size: 13px; color: #9fb3c8; }
+      .store-link { display: none; margin-top: 6px; font-size: 14px; }
+      .spinner {
+        margin: 12px auto 10px;
+        width: 36px;
+        height: 36px;
+        border: 4px solid rgba(255,255,255,0.18);
+        border-top-color: #00e0ff;
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .error {
+        color: #fca5a5;
+        background: rgba(252,165,165,0.1);
+        border: 1px solid rgba(252,165,165,0.35);
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 14px;
+      }
     </style>
     <script>
       function getQueryParam(name) {
@@ -22,9 +57,27 @@
         return "wodbrain://plan?w=" + encodeURIComponent(id);
       }
 
-      function openApp() {
-        const id = getQueryParam("w");
+      function isInAppBrowser(ua) {
+        return /Instagram|FBAN|FBAV|FB_IAB|FB4A|FBiOS/i.test(ua);
+      }
 
+      let appUrl = "";
+      let storeUrl = "";
+      let canFallbackToStore = false;
+
+      function setStoreLink(url) {
+        const link = document.getElementById("store-link");
+        if (!link) return;
+        if (url) {
+          link.href = url;
+          link.style.display = "inline-block";
+        } else {
+          link.style.display = "none";
+        }
+      }
+
+      function resolveUrls() {
+        const id = getQueryParam("w");
         const ua = navigator.userAgent || "";
         const isIOS = /iPhone|iPad|iPod/i.test(ua);
         const isAndroid = /Android/i.test(ua);
@@ -33,20 +86,33 @@
         const iosStoreUrl = "https://apps.apple.com/us/app/snapwod/id6755497026";
         const androidStoreUrl = "https://play.google.com/store/apps/details?id=com.anonymous.wodbrain";
 
-        const appUrl = buildWorkoutUrl(id);
-        const storeUrl = isIOS ? iosStoreUrl : isAndroid ? androidStoreUrl : "";
-        const canFallbackToStore = Boolean(storeUrl);
+        appUrl = buildWorkoutUrl(id);
+        storeUrl = isIOS ? iosStoreUrl : isAndroid ? androidStoreUrl : "";
+        canFallbackToStore = Boolean(storeUrl);
+        setStoreLink(storeUrl);
+      }
+
+      function openApp(auto) {
+        if (!appUrl) {
+          resolveUrls();
+        }
 
         const start = Date.now();
         const timer = setTimeout(function () {
           const elapsed = Date.now() - start;
-          if (elapsed < 1800 && canFallbackToStore) {
+          if (auto && elapsed < 1800 && canFallbackToStore) {
             window.location.href = storeUrl;
+          } else if (!auto && !canFallbackToStore) {
+            const err = document.getElementById("error");
+            if (err) {
+              err.textContent = "Could not open the app and no store link is configured.";
+              err.style.display = "block";
+            }
           }
         }, 800);
 
         window.location.href = appUrl;
-        document.getElementById("status").textContent = "Opening SnapWOD…";
+        document.getElementById("status").textContent = auto ? "Opening SnapWOD..." : "Trying to open SnapWOD...";
 
         document.addEventListener("visibilitychange", function () {
           if (document.hidden) {
@@ -55,14 +121,38 @@
         });
       }
 
-      window.addEventListener("load", openApp);
+      window.addEventListener("load", function () {
+        resolveUrls();
+        const ua = navigator.userAgent || "";
+        const inApp = isInAppBrowser(ua);
+        const manual = document.getElementById("manual");
+        if (inApp && manual) {
+          manual.style.display = "block";
+          document.getElementById("status").textContent =
+            "Tap the button below to open SnapWOD. If nothing happens, open this link in your browser.";
+          const btn = document.getElementById("open-btn");
+          if (btn) {
+            btn.addEventListener("click", function () {
+              openApp(false);
+            });
+          }
+          return;
+        }
+        openApp(true);
+      });
     </script>
   </head>
   <body>
     <div class="card">
-      <h1>Opening SnapWOD…</h1>
+      <h1>Opening SnapWOD</h1>
       <p id="status">If nothing happens, open SnapWOD from your home screen.</p>
+      <div id="manual" style="display:none;">
+        <button id="open-btn" class="cta" type="button">Open SnapWOD</button>
+        <p class="hint">Instagram and other in-app browsers may block auto-open. Use the menu to open in your browser if needed.</p>
+      </div>
+      <a id="store-link" class="store-link" rel="noopener">Get the app</a>
       <p style="margin-top:16px;font-size:14px;">If the app is installed, it will open automatically. Fallback to the store only happens when a store URL is configured.</p>
+      <div id="error" class="error" style="display:none;"></div>
     </div>
   </body>
 </html>

@@ -1,15 +1,43 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Opening SnapWOD</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <style>
-      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0b0f12; color: #e5eef7; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-      .card { padding: 24px; background: #131a20; border: 1px solid #1f2a33; border-radius: 16px; max-width: 480px; width: 92%; text-align: center; box-shadow: 0 18px 40px rgba(0,0,0,0.35); }
-      h1 { font-size: 22px; margin-bottom: 12px; }
-      p { margin: 0 0 12px; line-height: 1.4; color: #9fb3c8; }
-      a { color: #00e0ff; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #0b0f12;
+        color: #e5eef7;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      .card {
+        padding: 24px;
+        background: #131a20;
+        border: 1px solid #1f2a33;
+        border-radius: 16px;
+        max-width: 480px;
+        width: 92%;
+        text-align: center;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      }
+      h1 {
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+      p {
+        margin: 0 0 12px;
+        line-height: 1.4;
+        color: #9fb3c8;
+      }
+      a {
+        color: #00e0ff;
+      }
       .cta {
         appearance: none;
         border: 0;
@@ -19,33 +47,68 @@
         padding: 10px 18px;
         font-weight: 700;
         cursor: pointer;
-        margin: 8px 0 6px;
+        margin: 10px 0 6px;
+        width: 100%;
+        max-width: 320px;
       }
-      .cta:active { transform: scale(0.98); }
-      .hint { font-size: 13px; color: #9fb3c8; }
-      .store-link { display: none; margin-top: 6px; font-size: 14px; }
+      .cta:active {
+        transform: scale(0.98);
+      }
+      .hint {
+        font-size: 13px;
+        color: #9fb3c8;
+      }
+      .store-links {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .store-links a {
+        display: inline-block;
+        padding: 10px 14px;
+        border: 1px solid #1f2a33;
+        border-radius: 12px;
+        text-decoration: none;
+        color: #00e0ff;
+        font-size: 14px;
+      }
+      .store-link {
+        display: none;
+        margin-top: 8px;
+        font-size: 14px;
+      }
       .spinner {
         margin: 12px auto 10px;
         width: 36px;
         height: 36px;
-        border: 4px solid rgba(255,255,255,0.18);
+        border: 4px solid rgba(255, 255, 255, 0.18);
         border-top-color: #00e0ff;
         border-radius: 50%;
         animation: spin 0.9s linear infinite;
       }
       @keyframes spin {
-        to { transform: rotate(360deg); }
+        to {
+          transform: rotate(360deg);
+        }
       }
       .error {
         color: #fca5a5;
-        background: rgba(252,165,165,0.1);
-        border: 1px solid rgba(252,165,165,0.35);
+        background: rgba(252, 165, 165, 0.1);
+        border: 1px solid rgba(252, 165, 165, 0.35);
         border-radius: 10px;
         padding: 10px;
         margin-top: 10px;
         font-size: 14px;
+        display: none;
+      }
+      .small {
+        margin-top: 16px;
+        font-size: 14px;
       }
     </style>
+
     <script>
       function getQueryParam(name) {
         const params = new URLSearchParams(window.location.search);
@@ -58,12 +121,32 @@
       }
 
       function isInAppBrowser(ua) {
+        // Instagram + Facebook in-app browsers
         return /Instagram|FBAN|FBAV|FB_IAB|FB4A|FBiOS/i.test(ua);
       }
+
+      function getPlatform(ua) {
+        return {
+          isIOS: /iPhone|iPad|iPod/i.test(ua),
+          isAndroid: /Android/i.test(ua),
+        };
+      }
+
+      // Store URLs
+      const IOS_STORE_URL = "https://apps.apple.com/us/app/snapwod/id6755497026";
+      const ANDROID_STORE_URL =
+        "https://play.google.com/store/apps/details?id=com.anonymous.wodbrain";
 
       let appUrl = "";
       let storeUrl = "";
       let canFallbackToStore = false;
+      let inApp = false;
+      let platform = { isIOS: false, isAndroid: false };
+
+      function setVisible(el, visible) {
+        if (!el) return;
+        el.style.display = visible ? "block" : "none";
+      }
 
       function setStoreLink(url) {
         const link = document.getElementById("store-link");
@@ -79,58 +162,114 @@
       function resolveUrls() {
         const id = getQueryParam("w");
         const ua = navigator.userAgent || "";
-        const isIOS = /iPhone|iPad|iPod/i.test(ua);
-        const isAndroid = /Android/i.test(ua);
 
-        // Optional store URLs. Leave blank to skip store fallback.
-        const iosStoreUrl = "https://apps.apple.com/us/app/snapwod/id6755497026";
-        const androidStoreUrl = "https://play.google.com/store/apps/details?id=com.anonymous.wodbrain";
+        inApp = isInAppBrowser(ua);
+        platform = getPlatform(ua);
 
         appUrl = buildWorkoutUrl(id);
-        storeUrl = isIOS ? iosStoreUrl : isAndroid ? androidStoreUrl : "";
+        storeUrl = platform.isIOS
+          ? IOS_STORE_URL
+          : platform.isAndroid
+          ? ANDROID_STORE_URL
+          : "";
         canFallbackToStore = Boolean(storeUrl);
+
         setStoreLink(storeUrl);
+
+        // Populate explicit store buttons too
+        const iosBtn = document.getElementById("ios-store");
+        const androidBtn = document.getElementById("android-store");
+        if (iosBtn) iosBtn.href = IOS_STORE_URL;
+        if (androidBtn) androidBtn.href = ANDROID_STORE_URL;
+
+        // Hide irrelevant explicit store button when possible
+        if (platform.isIOS) {
+          if (androidBtn) androidBtn.style.display = "none";
+        } else if (platform.isAndroid) {
+          if (iosBtn) iosBtn.style.display = "none";
+        }
+      }
+
+      function setStatus(text) {
+        const el = document.getElementById("status");
+        if (el) el.textContent = text;
+      }
+
+      function showError(text) {
+        const el = document.getElementById("error");
+        if (!el) return;
+        el.textContent = text;
+        el.style.display = "block";
       }
 
       function openApp(auto) {
-        if (!appUrl) {
-          resolveUrls();
+        if (!appUrl) resolveUrls();
+
+        // If no store link configured, at least show a message.
+        if (!canFallbackToStore && auto) {
+          // Not fatal; we still try to open the app.
         }
 
-        const start = Date.now();
+        setStatus(auto ? "Opening SnapWOD..." : "Trying to open SnapWOD...");
+
+        // Conservative fallback timing:
+        // - Auto open: 2000ms (safer than 800ms)
+        // - Manual tap: 2500ms (give the OS more time)
+        const fallbackDelayMs = auto ? 2000 : 2500;
+
         const timer = setTimeout(function () {
-          const elapsed = Date.now() - start;
-          if (auto && elapsed < 1800 && canFallbackToStore) {
+          // Never auto-fallback inside in-app browsers; let user use the store buttons.
+          if (auto && inApp) return;
+
+          if (canFallbackToStore) {
             window.location.href = storeUrl;
-          } else if (!auto && !canFallbackToStore) {
-            const err = document.getElementById("error");
-            if (err) {
-              err.textContent = "Could not open the app and no store link is configured.";
-              err.style.display = "block";
-            }
+          } else if (!canFallbackToStore && !auto) {
+            showError("Could not open the app and no store link is configured.");
           }
-        }, 800);
+        }, fallbackDelayMs);
 
-        window.location.href = appUrl;
-        document.getElementById("status").textContent = auto ? "Opening SnapWOD..." : "Trying to open SnapWOD...";
+        // Cancel fallback if the app opens (page becomes hidden/unloaded).
+        const cancel = function () {
+          clearTimeout(timer);
+        };
 
-        document.addEventListener("visibilitychange", function () {
-          if (document.hidden) {
-            clearTimeout(timer);
+        window.addEventListener("pagehide", cancel, { once: true });
+        document.addEventListener(
+          "visibilitychange",
+          function () {
+            if (document.hidden) cancel();
+          },
+          { once: true }
+        );
+
+        // Attempt deep link
+        try {
+          window.location.href = appUrl;
+        } catch (e) {
+          // Some WebViews may throw; ensure store path still exists.
+          if (canFallbackToStore && !inApp) {
+            window.location.href = storeUrl;
+          } else {
+            showError("Could not open the app from this browser.");
           }
-        });
+        }
       }
 
       window.addEventListener("load", function () {
         resolveUrls();
-        const ua = navigator.userAgent || "";
-        const inApp = isInAppBrowser(ua);
+
         const manual = document.getElementById("manual");
-        if (inApp && manual) {
-          manual.style.display = "block";
-          document.getElementById("status").textContent =
-            "Tap the button below to open SnapWOD. If nothing happens, open this link in your browser.";
-          const btn = document.getElementById("open-btn");
+        const btn = document.getElementById("open-btn");
+        const hint = document.getElementById("hint");
+
+        // In-app browsers: do NOT auto-open. Show manual CTA + clear instructions.
+        if (inApp) {
+          setVisible(manual, true);
+          setStatus("Tap below to open SnapWOD.");
+          if (hint) {
+            hint.textContent =
+              "Instagram may block app opens. If nothing happens: tap ⋯ (top right) → Open in browser.";
+          }
           if (btn) {
             btn.addEventListener("click", function () {
               openApp(false);
@@ -138,21 +277,46 @@
           }
           return;
         }
+
+        // Normal browsers: auto-open
+        setVisible(manual, false);
+        if (hint) {
+          hint.textContent =
+            "If nothing happens, use the store button below or open SnapWOD from your home screen.";
+        }
+
         openApp(true);
       });
     </script>
   </head>
+
   <body>
     <div class="card">
       <h1>Opening SnapWOD</h1>
+      <div class="spinner" aria-hidden="true"></div>
+
       <p id="status">If nothing happens, open SnapWOD from your home screen.</p>
-      <div id="manual" style="display:none;">
+
+      <!-- Shown only for Instagram/FB in-app browsers -->
+      <div id="manual" style="display: none;">
         <button id="open-btn" class="cta" type="button">Open SnapWOD</button>
-        <p class="hint">Instagram and other in-app browsers may block auto-open. Use the menu to open in your browser if needed.</p>
+        <p id="hint" class="hint"></p>
       </div>
+
+      <!-- Explicit store buttons (best reliability in in-app browsers) -->
+      <div class="store-links" aria-label="Store links">
+        <a id="ios-store" rel="noopener" href="#">App Store</a>
+        <a id="android-store" rel="noopener" href="#">Google Play</a>
+      </div>
+
+      <!-- A single platform-specific store link (still useful) -->
       <a id="store-link" class="store-link" rel="noopener">Get the app</a>
-      <p style="margin-top:16px;font-size:14px;">If the app is installed, it will open automatically. Fallback to the store only happens when a store URL is configured.</p>
-      <div id="error" class="error" style="display:none;"></div>
+
+      <p class="small">
+        If the app is installed, it should open. If it doesn’t, use the store button above.
+      </p>
+
+      <div id="error" class="error"></div>
     </div>
   </body>
 </html>

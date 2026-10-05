@@ -1,0 +1,303 @@
+[
+ {
+  "coverage_id": "snapwod%20static%20pages%23all::static%20content%20exposure::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Obvious%20things",
+  "canonical_refs": {
+   "surface": "snapwod static pages#all",
+   "boundary": "static content exposure",
+   "subsystem": "profile/quick/all-in-scope-subsystems",
+   "attack_class": "ATTACK-CLASSES.md#Obvious things"
+  },
+  "surface": "snapwod static pages#all",
+  "boundary": "static content exposure",
+  "subsystem": "profile/quick/all-in-scope-subsystems",
+  "attack_class": "Obvious things",
+  "starting_paths": [
+   "snapwod/docs",
+   "salarycliff/snapwod"
+  ],
+  "ordinary_attack_class_block": "ATTACK-CLASSES.md#Obvious things",
+  "selected_companion_blocks": [],
+  "excluded_blocks": [
+   {
+    "block": "WEB-PROTOCOL-AND-AUTH.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "DATA-ISOLATION-AND-LIFECYCLE.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "PROTOCOLS-RPC-AND-MESSAGING.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "RESOURCE-EXHAUSTION-AND-AVAILABILITY.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "AI-AND-LLM.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "DESKTOP-MOBILE-AND-LOCAL-IPC.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "SUPPLY-CHAIN-AND-RELEASE.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "CLOUD-AND-DEPLOYMENT.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "MEMORY-SAFETY-AND-BINARY.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "CLIENT-SIDE.md#Core discipline",
+    "reason": "covered by the injection unit"
+   }
+  ],
+  "prior_status": "none",
+  "attempts": [],
+  "wave": 1,
+  "status": "covered",
+  "agent_id": "h-static",
+  "reviewed_paths": [
+   "salarycliff/snapwod/open.html",
+   "salarycliff/snapwod/privacy.html",
+   "salarycliff/snapwod/support.html",
+   "salarycliff/snapwod/terms.html",
+   "snapwod/docs/about.html",
+   "snapwod/docs/app-store-badge.svg",
+   "snapwod/docs/google-play-badge.svg",
+   "snapwod/docs/ig.html",
+   "snapwod/docs/index.html",
+   "snapwod/docs/open.html",
+   "snapwod/docs/privacy.html",
+   "snapwod/docs/snapwod-logo.png",
+   "snapwod/docs/snapwod-timer.png",
+   "snapwod/docs/support.html",
+   "snapwod/docs/terms.html"
+  ],
+  "local_checks": [
+   {
+    "agent_id": "h-static",
+    "reviewed_paths": [
+     "snapwod/docs/index.html",
+     "snapwod/docs/about.html",
+     "snapwod/docs/ig.html",
+     "snapwod/docs/open.html",
+     "snapwod/docs/privacy.html",
+     "snapwod/docs/support.html",
+     "snapwod/docs/terms.html",
+     "salarycliff/snapwod/open.html",
+     "salarycliff/snapwod/privacy.html",
+     "salarycliff/snapwod/support.html",
+     "salarycliff/snapwod/terms.html"
+    ],
+    "invariant": "No hardcoded secrets, credentials, keys, tokens, or security-relevant TODO/FIXME/HACK markers in the published pages or in either repository's full git history",
+    "method": "source",
+    "result": "Case-insensitive grep for password/secret/apikey/token/Bearer/BEGIN/sk-/AIza/ghp_/TODO/FIXME/HACK/XXX/debug over all HTML in both trees and over `git log --all -p` of snapwod (13 commits) and salarycliff/snapwod (1 commit) found only user-facing prose: the 'Forgot password' support FAQ and the privacy-policy wording about debug logs. The only identifiers are the public App Store ID, the Play package name and a public support mailto address. No deleted files in history (all name-status entries are A/M under docs/).",
+    "artifact": null
+   },
+   {
+    "agent_id": "h-static",
+    "reviewed_paths": [
+     "snapwod/docs/index.html",
+     "snapwod/docs/about.html",
+     "snapwod/docs/ig.html",
+     "snapwod/docs/open.html",
+     "snapwod/docs/privacy.html",
+     "snapwod/docs/support.html",
+     "snapwod/docs/terms.html",
+     "salarycliff/snapwod/open.html",
+     "salarycliff/snapwod/privacy.html",
+     "salarycliff/snapwod/support.html",
+     "salarycliff/snapwod/terms.html"
+    ],
+    "invariant": "No checked-in .env/credential/key files, debug or admin pages, dependency manifests, or dynamic code evaluation",
+    "method": "source",
+    "result": "Both trees contain only HTML, SVG and PNG files. There is no .env, *.pem, *.key, credentials.json, package manifest, lockfile, or build config, so there are no dependencies to pin. No .gitignore exists, and nothing in either tree needs one. No debug/admin/test/status/health/config pages exist. No eval, Function(), document.write, innerHTML or dynamic import exists in any script. index.html's only script sets the footer year via textContent (index.html L1114-1117).",
+    "artifact": null
+   },
+   {
+    "agent_id": "h-static",
+    "reviewed_paths": [
+     "snapwod/docs/app-store-badge.svg",
+     "snapwod/docs/google-play-badge.svg",
+     "snapwod/docs/snapwod-logo.png",
+     "snapwod/docs/snapwod-timer.png"
+    ],
+    "invariant": "Static assets carry no active content or leaked metadata",
+    "method": "source",
+    "result": "Neither SVG contains <script>, on* handlers, javascript: URLs, foreignObject or external xlink references. PNG chunk walk: snapwod-timer.png has only IHDR/IDAT/IEND. snapwod-logo.png adds one caBX (C2PA content-credentials) chunk, with no tEXt/iTXt/zTXt/eXIf and no GPS or author text.",
+    "artifact": null
+   },
+   {
+    "agent_id": "h-static",
+    "reviewed_paths": [
+     "snapwod/docs/index.html",
+     "snapwod/docs/about.html",
+     "snapwod/docs/ig.html",
+     "snapwod/docs/open.html",
+     "salarycliff/snapwod/open.html"
+    ],
+    "invariant": "No open redirects, cookies, CORS, plaintext-HTTP links or error-detail leaks",
+    "method": "source",
+    "result": "The only redirect-like parameter is ?w. It never selects the destination: open.html builds a fixed wodbrain://plan?w=<encodeURIComponent> URL with fallbacks to hardcoded https store URLs, and ig.html only sets the w query value on fixed store URLs (see injection unit). No cookies are set, there is no server so no CORS headers, every absolute link is https:// or mailto:, and there are no error responses. Error text in open.html uses fixed strings via textContent. External target=_blank links in index.html use rel=noreferrer, which implies noopener.",
+    "artifact": null
+   }
+  ],
+  "result_fingerprints": [],
+  "unresolved": [],
+  "x_planned_agent": "h-static",
+  "x_hardening": [
+   "GitHub Pages cannot send CSP or X-Frame-Options headers, and none of the pages sets a <meta http-equiv=Content-Security-Policy>. Adding a restrictive meta CSP (default-src 'self'; script-src with hashes for the inline scripts; font-src/style-src limited to Google Fonts) would be defence in depth. Clickjacking is not a finding because no framed action changes state.",
+   "snapwod/docs/open.html and ig.html forward ?w unvalidated, though encoded, to the wodbrain:// deep link and store URLs. Restricting w to the expected workout-ID charset (for example /^[A-Za-z0-9_-]{1,64}$/) would cut the attacker-controlled input that reaches the native app's deep-link handler. Whether that handler parses w safely is native-app scope and is not assessed here.",
+   "snapwod/docs/snapwod-logo.png carries a C2PA caBX content-credentials chunk. It is not sensitive, but metadata stripping could be part of asset publishing."
+  ]
+ },
+ {
+  "coverage_id": "snapwod%2Fdocs%2Fopen.html%2Big.html%23location.search%20w::client-side%20encodeURIComponent%2FURLSearchParams%20to%20fixed%20scheme%20and%20hosts::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Injection",
+  "canonical_refs": {
+   "surface": "snapwod/docs/open.html+ig.html#location.search w",
+   "boundary": "client-side encodeURIComponent/URLSearchParams to fixed scheme and hosts",
+   "subsystem": "profile/quick/all-in-scope-subsystems",
+   "attack_class": "ATTACK-CLASSES.md#Injection"
+  },
+  "surface": "snapwod/docs/open.html+ig.html#location.search w",
+  "boundary": "client-side encodeURIComponent/URLSearchParams to fixed scheme and hosts",
+  "subsystem": "profile/quick/all-in-scope-subsystems",
+  "attack_class": "Injection",
+  "starting_paths": [
+   "snapwod/docs/open.html",
+   "snapwod/docs/ig.html",
+   "snapwod/docs/index.html",
+   "salarycliff/snapwod/open.html"
+  ],
+  "ordinary_attack_class_block": "ATTACK-CLASSES.md#Injection",
+  "selected_companion_blocks": [
+   "CLIENT-SIDE.md#Core discipline",
+   "CLIENT-SIDE.md#DOM-based XSS",
+   "CLIENT-SIDE.md#Client-side navigation confusion",
+   "CLIENT-SIDE.md#Clickjacking",
+   "CLIENT-SIDE.md#Universal moves",
+   "CLIENT-SIDE.md#Validation rules"
+  ],
+  "excluded_blocks": [
+   {
+    "block": "WEB-PROTOCOL-AND-AUTH.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "DATA-ISOLATION-AND-LIFECYCLE.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "PROTOCOLS-RPC-AND-MESSAGING.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "RESOURCE-EXHAUSTION-AND-AVAILABILITY.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "AI-AND-LLM.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "DESKTOP-MOBILE-AND-LOCAL-IPC.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "SUPPLY-CHAIN-AND-RELEASE.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "CLOUD-AND-DEPLOYMENT.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   },
+   {
+    "block": "MEMORY-SAFETY-AND-BINARY.md#Core discipline",
+    "reason": "static pages with no server, cloud, LLM, native, data store or build pipeline"
+   }
+  ],
+  "prior_status": "none",
+  "attempts": [],
+  "wave": 1,
+  "status": "covered",
+  "agent_id": "h-static",
+  "reviewed_paths": [
+   "salarycliff/snapwod/open.html",
+   "snapwod/docs/ig.html",
+   "snapwod/docs/index.html",
+   "snapwod/docs/open.html"
+  ],
+  "local_checks": [
+   {
+    "agent_id": "h-static",
+    "reviewed_paths": [
+     "snapwod/docs/open.html",
+     "salarycliff/snapwod/open.html"
+    ],
+    "invariant": "An attacker-controlled ?w value cannot change the navigation scheme or host or reach an HTML/script sink; location.href targets stay wodbrain://plan?w=<percent-encoded> or hardcoded https store URLs",
+    "method": "source",
+    "result": "snapwod/docs/open.html: getQueryParam (L113-116) feeds buildWorkoutUrl (L118-121), which returns 'wodbrain://' or 'wodbrain://plan?w=' + encodeURIComponent(id). That value is the only tainted location.href sink (L247). storeUrl, store-link href and button hrefs are hardcoded constants (L136-138, L170-183). All DOM writes use textContent with fixed strings (L195, L201, L270, L284). salarycliff/snapwod/open.html follows the same pattern (L20-22, L51), and its empty store URLs mean it never falls back. encodeURIComponent escapes ':', '/', '?', '#', '&' and CR/LF, so neither the scheme nor the wodbrain query can be broken out of.",
+    "artifact": null
+   },
+   {
+    "agent_id": "h-static",
+    "reviewed_paths": [
+     "snapwod/docs/open.html",
+     "salarycliff/snapwod/open.html"
+    ],
+    "invariant": "Bounded local execution confirms that navigation targets for crafted ?w values stay on the fixed scheme and hosts",
+    "method": "local",
+    "result": "Sandboxed node harness ran the extracted scripts with a mocked location/document across 8 payloads (including javascript:alert(1), %0d%0a<script>, //evil.com, &/# injection, duplicate and empty w) and 4 user agents. Every recorded navigation was wodbrain://plan?w=<percent-encoded> (for example wodbrain://plan?w=javascript%3Aalert(1)), wodbrain://, or the fixed apps.apple.com / play.google.com URL. Duplicate w took the first value. No script errors occurred.",
+    "artifact": "agents/h-static/artifacts/ev-1.txt"
+   },
+   {
+    "agent_id": "h-static",
+    "reviewed_paths": [
+     "snapwod/docs/ig.html"
+    ],
+    "invariant": "?w copied into store badge hrefs via URL.searchParams cannot alter the host, path or other parameters (id, utm_*) or create an executable URL",
+    "method": "source",
+    "result": "addUtm (ig.html L216-224) parses each hardcoded store URL with new URL and sets w with searchParams.set, which percent-encodes the value inside a single parameter. The results are assigned to anchor href (L232-235), whose scheme and host are always https://apps.apple.com or https://play.google.com. No DOM HTML sinks exist.",
+    "artifact": null
+   },
+   {
+    "agent_id": "h-static",
+    "reviewed_paths": [
+     "snapwod/docs/ig.html"
+    ],
+    "invariant": "Bounded local execution of ig.html's script confirms the href outputs",
+    "method": "local",
+    "result": "With the same harness and payloads, every badge and text href was a fixed store URL plus utm params and a single encoded w parameter (for example w=javascript%3Aalert%281%29 and w=a%26utm_source%3Devil). The id and utm_source values were never overridden.",
+    "artifact": "agents/h-static/artifacts/ev-2.txt"
+   },
+   {
+    "agent_id": "h-static",
+    "reviewed_paths": [
+     "snapwod/docs/index.html",
+     "snapwod/docs/open.html",
+     "snapwod/docs/ig.html"
+    ],
+    "invariant": "No clickjacking-relevant state-changing action and no other DOM-XSS sources (referrer, window.name, postMessage, storage)",
+    "method": "source",
+    "result": "No page reads document.referrer, window.name, hash, message events or storage. No page offers a framed action that changes state: the only actions are navigating to the app or to the store, and there is no account or server. index.html only sets the footer year through textContent. A missing frame-ancestors header is therefore a hardening note only.",
+    "artifact": null
+   }
+  ],
+  "result_fingerprints": [],
+  "unresolved": [],
+  "x_planned_agent": "h-static",
+  "x_hardening": [
+   "GitHub Pages cannot send CSP or X-Frame-Options headers, and none of the pages sets a <meta http-equiv=Content-Security-Policy>. Adding a restrictive meta CSP (default-src 'self'; script-src with hashes for the inline scripts; font-src/style-src limited to Google Fonts) would be defence in depth. Clickjacking is not a finding because no framed action changes state.",
+   "snapwod/docs/open.html and ig.html forward ?w unvalidated, though encoded, to the wodbrain:// deep link and store URLs. Restricting w to the expected workout-ID charset (for example /^[A-Za-z0-9_-]{1,64}$/) would cut the attacker-controlled input that reaches the native app's deep-link handler. Whether that handler parses w safely is native-app scope and is not assessed here.",
+   "snapwod/docs/snapwod-logo.png carries a C2PA caBX content-credentials chunk. It is not sensitive, but metadata stripping could be part of asset publishing."
+  ]
+ }
+]

@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#040406" />
+  <title>SnapWOD · Big screen</title>
+  <link rel="icon" href="snapwod-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #040406; --surface: #111115; --line: #26262e; --text: #fff; --muted: #a1a1aa;
+      --cyan: #00e0ff; --phase: #a1a1aa;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); overflow: hidden;
+      font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    body { display: flex; flex-direction: column; }
+    .display { font-family: Rajdhani, Inter, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; }
+    button { font: inherit; cursor: pointer; }
+
+    /* --- code entry --- */
+    #join { flex: 1; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 3vh; padding: 4vh 4vw; text-align: center; }
+    #join h1 { font-size: clamp(36px, 6vw, 96px); margin: 0; }
+    #join h1 span { color: var(--cyan); }
+    #join p { color: var(--muted); font-size: clamp(16px, 2vw, 28px); margin: 0; max-width: 900px; }
+    #code { width: min(90vw, 640px); font-family: Rajdhani, sans-serif; font-weight: 700; font-size: clamp(48px, 8vw, 120px);
+      letter-spacing: 0.3em; text-align: center; text-transform: uppercase; padding: 1vh 0 1vh 0.3em;
+      background: var(--surface); color: var(--text); border: 3px solid var(--line); border-radius: 24px; outline: none; }
+    #code:focus { border-color: var(--cyan); }
+    .go { background: var(--cyan); color: #001014; border: 0; border-radius: 999px; padding: 2vh 6vw;
+      font-family: Rajdhani, sans-serif; font-weight: 700; font-size: clamp(22px, 3vw, 44px); letter-spacing: 0.1em; text-transform: uppercase; }
+    #joinError { color: #fca5a5; min-height: 1.5em; font-size: clamp(16px, 1.8vw, 26px); }
+
+    /* --- timer --- */
+    #screen { flex: 1; display: none; flex-direction: column; padding: 3vh 4vw 2vh; }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 2vw; }
+    #workout { font-size: clamp(22px, 3.2vw, 56px); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tools { display: flex; gap: 1vw; flex-shrink: 0; }
+    .tool { background: var(--surface); color: var(--muted); border: 2px solid var(--line); border-radius: 999px;
+      padding: 0.8vh 1.6vw; font-size: clamp(13px, 1.3vw, 20px); font-weight: 600; }
+    .tool[aria-pressed="true"] { color: var(--cyan); border-color: var(--cyan); }
+    .main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 0; }
+    #phase { color: var(--phase); font-size: clamp(32px, 6vw, 110px); letter-spacing: 0.08em; display: flex; align-items: center; gap: 1.5vw; }
+    #phase::before { content: ""; width: 0.45em; height: 0.45em; border-radius: 50%; background: var(--phase); }
+    #title { font-size: clamp(26px, 4.2vw, 80px); font-weight: 600; margin: 1vh 0 0; max-width: 92vw;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: Rajdhani, sans-serif; }
+    #clock { font-family: Rajdhani, sans-serif; font-weight: 700; font-variant-numeric: tabular-nums;
+      font-size: min(34vw, 52vh); line-height: 0.95; letter-spacing: -0.01em; color: var(--text); }
+    #clock.dim { opacity: 0.45; }
+    .bar { width: min(80vw, 1500px); height: 1.4vh; min-height: 8px; border-radius: 99px; background: #1e1e26; overflow: hidden; }
+    #barFill { height: 100%; width: 0%; background: var(--phase); border-radius: 99px; }
+    #detail { color: var(--muted); font-size: clamp(18px, 2.6vw, 44px); margin-top: 1.5vh; font-weight: 600; }
+    .bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 2vw; }
+    #next { background: var(--surface); border: 2px solid var(--line); border-left: 8px solid var(--phase);
+      border-radius: 20px; padding: 1.4vh 2vw; font-size: clamp(18px, 2.6vw, 46px); font-weight: 600; max-width: 70vw;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; visibility: hidden; }
+    #next small { display: block; color: var(--muted); font-size: 0.5em; letter-spacing: 0.15em; text-transform: uppercase; }
+    .brand { display: flex; align-items: center; gap: 0.8vw; color: var(--muted); font-size: clamp(14px, 1.4vw, 24px); flex-shrink: 0; }
+    .brand img { width: clamp(28px, 2.6vw, 48px); height: clamp(28px, 2.6vw, 48px); border-radius: 22%; }
+    .brand b { color: var(--text); font-family: Rajdhani, sans-serif; font-size: 1.3em; }
+    #flash { position: fixed; inset: 0; background: var(--phase); opacity: 0; pointer-events: none; transition: opacity 0.5s; }
+  </style>
+</head>
+<body>
+  <section id="join">
+    <h1 class="display">SnapWOD <span>big screen</span></h1>
+    <p>On your phone, open a workout in SnapWOD, tap the TV button and type the code here.</p>
+    <input id="code" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="CODE" aria-label="Code from the SnapWOD app" />
+    <button class="go" id="goBtn">Show timer</button>
+    <div id="joinError" role="alert"></div>
+  </section>
+
+  <section id="screen" aria-live="off">
+    <div class="top">
+      <div id="workout" class="display"></div>
+      <div class="tools">
+        <button class="tool" id="soundBtn" aria-pressed="false">🔈 Sound off</button>
+        <button class="tool" id="fsBtn">⛶ Full screen</button>
+      </div>
+    </div>
+    <div class="main">
+      <div id="phase" class="display">Waiting</div>
+      <div id="title"></div>
+      <div id="clock">--:--</div>
+      <div class="bar"><div id="barFill"></div></div>
+      <div id="detail"></div>
+    </div>
+    <div class="bottom">
+      <div id="next"><small>Next</small><span id="nextText"></span></div>
+      <div class="brand"><img src="snapwod-logo.png" alt="" /><div><b>SnapWOD</b><br /><span id="codeLabel"></span></div></div>
+    </div>
+  </section>
+  <div id="flash"></div>
+
+  <script>
+    // Public, read-only state for a big-screen code (server: routes/live.ts).
+    const API = "https://vision-gate-984967184439.europe-west1.run.app/public/live/";
+    const POLL_MS = 1500;
+    const CODE_RE = /^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}$/;
+    // Same colours as the app (src/ui/theme.ts) and the watch app.
+    const PHASE_COLORS = {
+      work: "#30D158", amrap: "#30D158", cap: "#30D158", rest: "#FF453A",
+      transition: "#FF9F0A", countdown: "#FFD60A", complete: "#00E0FF",
+    };
+
+    const $ = (id) => document.getElementById(id);
+    let code = null, data = null, pollTimer = null, failures = 0;
+    // Converts phone ms -> this device's ms: phone->server skew (from the push) and server->here skew.
+    let phoneToServer = 0, serverToLocal = 0;
+    let lastBlockKey = null, lastBeepSecond = null, soundOn = false, audio = null;
+
+    function fmt(totalSeconds) {
+      const s = Math.max(0, Math.ceil(totalSeconds - 1e-6));
+      const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), r = s % 60;
+      const ss = String(r).padStart(2, "0");
+      return h > 0 ? h + ":" + String(m).padStart(2, "0") + ":" + ss : m + ":" + ss;
+    }
+    function fmtUp(totalSeconds) {
+      const s = Math.max(0, Math.floor(totalSeconds));
+      return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+    }
+    const toLocal = (phoneMs) => phoneMs + phoneToServer - serverToLocal;
+
+    function setPhase(key, label) {
+      document.documentElement.style.setProperty("--phase", PHASE_COLORS[key] || "#a1a1aa");
+      $("phase").textContent = label;
+    }
+    function setNext(text) {
+      $("nextText").textContent = text || "";
+      $("next").style.visibility = text ? "visible" : "hidden";
+    }
+
+    // ---------- sound (Web Audio; needs a tap to enable on most TVs/browsers) ----------
+    function beep(freq, ms) {
+      if (!soundOn || !audio) return;
+      const o = audio.createOscillator(), g = audio.createGain();
+      o.frequency.value = freq; o.type = "sine";
+      g.gain.setValueAtTime(0.0001, audio.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.6, audio.currentTime + 0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + ms / 1000);
+      o.connect(g).connect(audio.destination);
+      o.start(); o.stop(audio.currentTime + ms / 1000 + 0.05);
+    }
+    $("soundBtn").addEventListener("click", () => {
+      soundOn = !soundOn;
+      if (soundOn && !audio) audio = new (window.AudioContext || window.webkitAudioContext)();
+      if (audio && audio.state === "suspended") audio.resume();
+      $("soundBtn").setAttribute("aria-pressed", String(soundOn));
+      $("soundBtn").textContent = soundOn ? "🔊 Sound on" : "🔈 Sound off";
+      if (soundOn) beep(880, 120);
+    });
+
+    // ---------- full screen + keep the screen awake ----------
+    $("fsBtn").addEventListener("click", () => {
+      const el = document.documentElement;
+      if (document.fullscreenElement) document.exitFullscreen?.();
+      else (el.requestFullscreen || el.webkitRequestFullscreen)?.call(el);
+    });
+    let wakeLock = null;
+    async function keepAwake() {
+      try { if ("wakeLock" in navigator && !wakeLock) wakeLock = await navigator.wakeLock.request("screen"); wakeLock?.addEventListener?.("release", () => { wakeLock = null; }); } catch {}
+    }
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) keepAwake(); });
+
+    // ---------- rendering ----------
+    function renderHeld(p, kind) {
+      setPhase(p.phase, kind === "paused" ? "Paused" : (p.status && p.status !== "Ready" ? p.status : "Ready"));
+      $("title").textContent = p.title || "";
+      $("clock").textContent = fmt(p.remainingSeconds);
+      $("clock").classList.toggle("dim", kind === "paused");
+      $("barFill").style.width = "0%";
+      $("detail").textContent = p.detail || "";
+      setNext(kind === "paused" ? "Paused on the phone" : "Start on the phone");
+    }
+
+    function render() {
+      if (!data) return;
+      const state = data.state;
+      if (!state) {
+        setPhase("", "Waiting");
+        $("workout").textContent = "";
+        $("title").textContent = "Start a workout on your phone";
+        $("clock").textContent = "--:--"; $("clock").classList.add("dim");
+        $("detail").textContent = ""; setNext("");
+        return;
+      }
+      const p = state.payload;
+      $("workout").textContent = p.workoutName || "";
+      $("clock").classList.remove("dim");
+
+      if (state.kind === "paused" || state.kind === "ready") return renderHeld(p, state.kind);
+      if (state.kind === "finished") {
+        setPhase("complete", "Complete");
+        $("title").textContent = "Nice work.";
+        $("clock").textContent = "0:00"; $("barFill").style.width = "100%";
+        $("detail").textContent = ""; setNext("");
+        return;
+      }
+
+      // running: find the block for "now" on this device's clock
+      const now = Date.now();
+      const blocks = p.blocks;
+      let i = blocks.findIndex((b) => now < toLocal(b.endsAt));
+      if (i === -1 || now >= toLocal(p.endsAt)) {
+        if (p.endsWorkout) {
+          setPhase("complete", "Complete");
+          $("title").textContent = "Nice work."; $("clock").textContent = "0:00";
+          $("barFill").style.width = "100%"; $("detail").textContent = ""; setNext("");
+          if (lastBlockKey !== "done") { lastBlockKey = "done"; beep(660, 700); }
+        } else {
+          const last = blocks[blocks.length - 1];
+          setPhase(last.phase, "Part done");
+          $("title").textContent = last.nextLabel || "Next part ready";
+          $("clock").textContent = "0:00"; $("barFill").style.width = "100%";
+          $("detail").textContent = last.detail || ""; setNext("Start the next part on the phone");
+        }
+        return;
+      }
+      i = Math.max(0, i);
+      const b = blocks[i];
+      const start = toLocal(b.startsAt), end = toLocal(b.endsAt);
+      const remaining = Math.max(0, (end - now) / 1000);
+      const elapsed = Math.max(0, (now - start) / 1000);
+      setPhase(b.phase, b.phaseLabel);
+      $("title").textContent = b.title || "";
+      $("clock").textContent = b.countUp ? fmtUp(elapsed) : fmt(remaining);
+      const span = Math.max(1, end - start);
+      $("barFill").style.width = Math.min(100, Math.max(0, ((now - start) / span) * 100)) + "%";
+      $("detail").textContent = b.detail || "";
+      setNext(b.nextLabel);
+
+      // Flash + long beep on each new block; 3-2-1 short beeps before it ends.
+      const key = i + ":" + b.startsAt;
+      if (lastBlockKey !== null && key !== lastBlockKey) {
+        $("flash").style.transition = "none"; $("flash").style.opacity = "0.35";
+        requestAnimationFrame(() => { $("flash").style.transition = "opacity 0.6s"; $("flash").style.opacity = "0"; });
+        beep(660, 600);
+      }
+      lastBlockKey = key;
+      const sec = Math.ceil(remaining - 1e-6);
+      if (!b.countUp && sec <= 3 && sec >= 1 && sec !== lastBeepSecond) beep(880, 140);
+      lastBeepSecond = sec;
+    }
+
+    function tick() { render(); requestAnimationFrame(() => setTimeout(tick, 100)); }
+
+    // ---------- polling ----------
+    async function poll() {
+      if (!code) return;
+      const sent = Date.now();
+      try {
+        const res = await fetch(API + code, { cache: "no-store" });
+        const got = Date.now();
+        const body = await res.json().catch(() => ({}));
+        if (typeof body.serverNow === "number") serverToLocal = body.serverNow - (sent + got) / 2;
+        if (res.status === 404) return ended();
+        if (!res.ok) throw new Error(String(res.status));
+        failures = 0;
+        if (body.state && typeof body.receivedAt === "number") phoneToServer = body.receivedAt - body.state.sentAt;
+        data = body;
+      } catch {
+        failures += 1;
+        if (failures === 4) setNext("Reconnecting…");
+      } finally {
+        pollTimer = setTimeout(poll, POLL_MS);
+      }
+    }
+
+    function ended() {
+      clearTimeout(pollTimer);
+      const was = code;
+      code = null; data = null;
+      showJoin(was ? "That session has ended. Start a new one from the phone." : "");
+      history.replaceState(null, "", location.pathname);
+    }
+
+    function showJoin(message) {
+      $("screen").style.display = "none";
+      $("join").style.display = "flex";
+      $("joinError").textContent = message || "";
+      $("code").focus();
+    }
+
+    function join(raw) {
+      const c = String(raw || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+      if (!CODE_RE.test(c)) { $("joinError").textContent = "Codes are 6 letters and numbers, shown in the app."; return; }
+      code = c; data = { state: null }; lastBlockKey = null;
+      $("codeLabel").textContent = "Code " + c;
+      $("join").style.display = "none";
+      $("screen").style.display = "flex";
+      history.replaceState(null, "", "?c=" + c);
+      keepAwake();
+      clearTimeout(pollTimer);
+      poll();
+    }
+
+    $("goBtn").addEventListener("click", () => join($("code").value));
+    $("code").addEventListener("keydown", (e) => { if (e.key === "Enter") join($("code").value); });
+    $("code").addEventListener("input", () => { const v = $("code").value.toUpperCase().replace(/[^A-Z0-9]/g, ""); $("code").value = v; if (v.length === 6) join(v); });
+
+    const initial = new URLSearchParams(location.search).get("c");
+    if (initial) join(initial); else showJoin("");
+    tick();
+  </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#040406" />
+  <title>Join the class · SnapWOD</title>
+  <meta property="og:title" content="Join the class leaderboard on SnapWOD" />
+  <meta property="og:description" content="Log your rounds and reps from your phone and see them on the gym TV." />
+  <meta property="og:image" content="https://snapwod.github.io/snapwod/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="snapwod-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #040406; --surface: #111115; --surface-2: #17171d; --line: #26262e;
+      --text: #ffffff; --muted: #a1a1aa; --cyan: #00e0ff; --green: #30d158;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; color: var(--text);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.5;
+      background:
+        radial-gradient(70% 45% at 50% 0%, rgba(0, 224, 255, 0.14), transparent 70%),
+        radial-gradient(60% 40% at 50% 100%, rgba(48, 209, 88, 0.1), transparent 70%),
+        var(--bg);
+      display: flex; justify-content: center; padding: 28px 16px 40px;
+    }
+    a { color: inherit; text-decoration: none; }
+    main { width: 100%; max-width: 440px; }
+    .brand { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 22px; }
+    .brand img { width: 34px; height: 34px; border-radius: 9px; outline: 1px solid var(--line); }
+    .brand span { font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 24px; }
+    .display { font-family: Rajdhani, sans-serif; font-weight: 700; text-transform: uppercase; line-height: 1; margin: 0; }
+    .eyebrow { text-align: center; color: var(--cyan); font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 10px; }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 20px;
+      padding: 22px 20px; box-shadow: 0 0 60px rgba(0, 224, 255, 0.08); text-align: center;
+    }
+    .card h1 { font-size: 34px; margin-bottom: 6px; }
+    .card .meta { color: var(--muted); font-size: 15px; margin: 0; }
+    .code {
+      margin: 18px 0 4px; padding: 14px 0 14px 0.22em; border-radius: 16px; background: var(--surface-2); border: 1px solid var(--line);
+      font-family: Rajdhani, sans-serif; font-weight: 700; font-size: clamp(44px, 15vw, 64px); line-height: 1;
+      letter-spacing: 0.22em; color: var(--cyan); font-variant-numeric: tabular-nums; user-select: all;
+    }
+    .steps { color: var(--muted); font-size: 15px; margin: 14px 0 0; }
+    .steps b { color: var(--text); }
+
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+      margin-top: 18px; padding: 15px 20px; border: 0; border-radius: 999px; cursor: pointer;
+      background: var(--cyan); color: #001014;
+      font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 19px; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .btn:active { transform: scale(0.98); }
+    .status { text-align: center; color: var(--muted); font-size: 14px; margin: 10px 0 0; min-height: 21px; }
+    .hint { text-align: center; color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+
+    .get {
+      margin-top: 26px; text-align: center; padding: 22px 18px; border-radius: 20px;
+      background: var(--surface); border: 1px solid var(--line);
+    }
+    .get h2 { font-size: 26px; margin-bottom: 8px; }
+    .get h2 span { color: var(--cyan); }
+    .get p { color: var(--muted); margin: 0 0 16px; font-size: 15px; }
+    .badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .badges img { height: 46px; width: auto; }
+    .get p.after { margin: 14px 0 0; font-size: 13px; }
+    footer { text-align: center; margin-top: 22px; font-size: 13px; color: var(--muted); }
+    footer a { text-decoration: underline; }
+  </style>
+  <script>
+    const ANDROID_STORE_URL = "https://play.google.com/store/apps/details?id=com.anonymous.wodbrain";
+    const ANDROID_PACKAGE = "com.anonymous.wodbrain";
+    // Same alphabet and length as the server's big-screen codes (server: routes/live.ts).
+    const CODE_RE = /^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}$/;
+
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    function cleanCode(raw) {
+      const c = String(raw || "").toUpperCase().replace(/[\s-]/g, "");
+      return CODE_RE.test(c) ? c : null;
+    }
+
+    function isInAppBrowser(ua) {
+      // Instagram + Facebook in-app browsers
+      return /Instagram|FBAN|FBAV|FB_IAB|FB4A|FBiOS/i.test(ua);
+    }
+
+    function getPlatform(ua) {
+      // iPadOS reports a desktop Mac user agent; a Mac with a touch screen is an iPad.
+      const iPadOS = /Macintosh/i.test(ua) && (navigator.maxTouchPoints || 0) > 1;
+      return {
+        isIOS: /iPhone|iPad|iPod/i.test(ua) || iPadOS,
+        isAndroid: /Android/i.test(ua),
+      };
+    }
+
+    // Android: an intent link opens the app if installed, otherwise Chrome goes to the Play Store.
+    function androidIntentUrl(code) {
+      return "intent://join?c=" + encodeURIComponent(code) +
+        "#Intent;scheme=wodbrain;package=" + ANDROID_PACKAGE +
+        ";S.browser_fallback_url=" + encodeURIComponent(ANDROID_STORE_URL) + ";end";
+    }
+
+    function el(id) { return document.getElementById(id); }
+    function setText(id, text) { const e = el(id); if (e) e.textContent = text; }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const code = cleanCode(getQueryParam("c"));
+      const ua = navigator.userAgent || "";
+      const inApp = isInAppBrowser(ua);
+      const platform = getPlatform(ua);
+
+      // Only the relevant store badge on phones; both on desktop.
+      if (platform.isIOS) el("android-store").style.display = "none";
+      if (platform.isAndroid) el("ios-store").style.display = "none";
+
+      if (!code) {
+        setText("title", "Join a class");
+        setText("meta", "This link is missing its class code. Scan the QR code on the gym TV again, or type the code shown there into SnapWOD.");
+        el("code").style.display = "none";
+        el("steps").style.display = "none";
+        el("open-btn").style.display = "none";
+        setText("steps-after", "Installed it? Open SnapWOD, tap Join a class and enter the code from the TV.");
+        return;
+      }
+
+      setText("code", code);
+      setText("code-inline", code);
+      document.title = "Join class " + code + " · SnapWOD";
+      const btn = el("open-btn");
+      btn.href = platform.isAndroid ? androidIntentUrl(code) : "wodbrain://join?c=" + encodeURIComponent(code);
+
+      if (!platform.isIOS && !platform.isAndroid) {
+        btn.style.display = "none";
+        setText("status", "Open this link on your phone to join with SnapWOD.");
+        return;
+      }
+      // We can't tell whether the app is installed, so the copy works either way.
+      setText("status", "Tap Open in SnapWOD, or get the app below.");
+      if (inApp) {
+        // Instagram/Facebook browsers block app links.
+        setText("hint", "Nothing happens? Tap ⋯ (top right) → Open in browser.");
+        return;
+      }
+      // Android only: the intent falls back to the Play Store by itself. On iOS an automatic
+      // wodbrain:// with no app installed shows an "address is invalid" alert, so iOS waits for a tap.
+      if (platform.isAndroid) {
+        try { window.location.href = btn.href; } catch (e) {}
+      }
+    });
+  </script>
+</head>
+<body>
+  <main>
+    <a class="brand" href="./"><img src="snapwod-logo.png" alt="" /><span>SnapWOD</span></a>
+
+    <p class="eyebrow">Class leaderboard</p>
+    <section class="card" aria-live="polite">
+      <h1 class="display" id="title">Join the class</h1>
+      <p class="meta" id="meta">Your class code</p>
+      <div class="code" id="code" aria-label="Class code">······</div>
+      <p class="steps" id="steps">Install SnapWOD, then tap <b>Join a class</b> and enter this code.</p>
+      <a class="btn" id="open-btn" href="wodbrain://">▶ Open in SnapWOD</a>
+      <p class="status" id="status"></p>
+      <p class="hint" id="hint"></p>
+    </section>
+
+    <section class="get">
+      <h2 class="display">Get <span>SnapWOD</span>, it's free</h2>
+      <p>Log your rounds and reps from your phone and watch the leaderboard on the gym TV. SnapWOD is also the timer for workouts on the whiteboard: snap the board, hit start.</p>
+      <div class="badges">
+        <a id="ios-store" href="https://apps.apple.com/us/app/snapwod/id6755497026" rel="noopener"><img src="app-store-badge.svg" alt="Download on the App Store" /></a>
+        <a id="android-store" href="https://play.google.com/store/apps/details?id=com.anonymous.wodbrain" rel="noopener"><img src="google-play-badge.svg" alt="Get it on Google Play" /></a>
+      </div>
+      <p class="after" id="steps-after">Installed it? Come back to this page and tap <b>Open in SnapWOD</b>, or tap <b>Join a class</b> in the app and enter <b id="code-inline">the code</b>.</p>
+    </section>
+
+    <footer><a href="./">What is SnapWOD?</a></footer>
+  </main>
+</body>
+</html>

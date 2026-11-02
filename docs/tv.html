@@ -10,10 +10,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+  <!-- QR code for the join link (draws nothing until it has loaded; the card still shows the code). -->
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>
     :root {
-      --bg: #040406; --surface: #111115; --line: #26262e; --text: #fff; --muted: #a1a1aa;
+      --bg: #040406; --surface: #111115; --surface-2: #17171d; --line: #26262e; --text: #fff; --muted: #a1a1aa;
       --cyan: #00e0ff; --phase: #a1a1aa;
+      --gold: #ffd60a; --silver: #d4d4d8; --bronze: #e0915a;
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); overflow: hidden;
@@ -36,7 +41,8 @@
     #joinError { color: #fca5a5; min-height: 1.5em; font-size: clamp(16px, 1.8vw, 26px); }
 
     /* --- timer --- */
-    #screen { flex: 1; display: none; flex-direction: column; padding: 3vh 4vw 2vh; }
+    #screen { flex: 1; display: none; flex-direction: row; padding: 3vh 4vw 2vh; position: relative; min-height: 0; }
+    #timerCol { flex: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
     .top { display: flex; justify-content: space-between; align-items: center; gap: 2vw; }
     #workout { font-size: clamp(22px, 3.2vw, 56px); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .tools { display: flex; gap: 1vw; flex-shrink: 0; }
@@ -50,6 +56,7 @@
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: Rajdhani, sans-serif; }
     #clock { font-family: Rajdhani, sans-serif; font-weight: 700; font-variant-numeric: tabular-nums;
       font-size: min(34vw, 52vh); line-height: 0.95; letter-spacing: -0.01em; color: var(--text); }
+    #clock.long { font-size: min(24vw, 52vh); }
     #clock.dim { opacity: 0.45; }
     .bar { width: min(80vw, 1500px); height: 1.4vh; min-height: 8px; border-radius: 99px; background: #1e1e26; overflow: hidden; }
     #barFill { height: 100%; width: 0%; background: var(--phase); border-radius: 99px; }
@@ -63,6 +70,101 @@
     .brand img { width: clamp(28px, 2.6vw, 48px); height: clamp(28px, 2.6vw, 48px); border-radius: 22%; }
     .brand b { color: var(--text); font-family: Rajdhani, sans-serif; font-size: 1.3em; }
     #flash { position: fixed; inset: 0; background: var(--phase); opacity: 0; pointer-events: none; transition: opacity 0.5s; }
+
+    /* --- join card: top-right corner on the full-screen timer, a strip under the leaderboard otherwise --- */
+    #joinCard { display: none; position: absolute; top: 11vh; right: 4vw; width: 22vh; padding: 1.4vh;
+      flex-direction: column; align-items: center; gap: 1vh; text-align: center;
+      background: var(--surface); border: 2px solid var(--line); border-radius: 2vh; }
+    #screen.card #joinCard { display: flex; }
+    #screen.card #title { max-width: calc(92vw - 2 * (22vh + 2vw)); }
+    /* Keep the clock clear of the card on any aspect ratio (4:3 TVs, h:mm:ss): width left = 88vw - 44vh. */
+    #screen.card #clock { font-size: min(34vw, 52vh, calc((88vw - 44vh) / 2.3)); }
+    #screen.card #clock.long { font-size: min(24vw, 52vh, calc((88vw - 44vh) / 3.4)); }
+    .qr { width: 100%; background: #fff; border-radius: 1vh; overflow: hidden; }
+    .qr:empty { display: none; }
+    .qr svg { display: block; width: 100%; height: auto; }
+    .jcText { display: flex; flex-direction: column; align-items: center; gap: 0.6vh; min-width: 0; }
+    .jcText b { font-size: max(12px, 2.1vh); font-weight: 600; line-height: 1.15; }
+    .jcText small { display: none; color: var(--muted); font-size: max(11px, 1.6vh); line-height: 1.25; }
+    #jcCode { font-size: max(20px, 4vh); letter-spacing: 0.12em; color: var(--cyan); padding-left: 0.12em; }
+
+    /* --- live leaderboard (split layout) --- */
+    #board { display: none; flex: 1; min-width: 0; min-height: 0; flex-direction: column; margin-left: 2.5vw;
+      background: var(--surface); border: 2px solid var(--line); border-radius: 3vh; padding: 2.2vh 1.2vw 1.4vh; }
+    #screen.split #timerCol { flex: 0 0 58%; }
+    #screen.split #board { display: flex; }
+    #screen.split #workout { font-size: clamp(20px, 2.4vw, 46px); }
+    #screen.split #phase { font-size: clamp(28px, 4vw, 80px); }
+    #screen.split #title { font-size: clamp(22px, 2.9vw, 58px); max-width: 100%; }
+    #screen.split #clock { font-size: min(20vw, 46vh); }
+    #screen.split #clock.long { font-size: min(14vw, 46vh); }
+    #screen.split .bar { width: 92%; }
+    #screen.split #detail { font-size: clamp(16px, 2vw, 36px); }
+    #screen.split #next { font-size: clamp(16px, 2vw, 36px); max-width: 40vw; }
+    .boardHead { display: flex; justify-content: space-between; align-items: center; gap: 1vw; padding: 0 0.6vw 1.4vh; border-bottom: 2px solid var(--line); }
+    .boardHead h2 { margin: 0; font-size: max(22px, 4.6vh); letter-spacing: 0.05em; }
+    .boardMeta { color: var(--muted); font-size: max(13px, 2.1vh); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    #rows { position: relative; flex: 1; min-height: 0; overflow: hidden; margin-top: 1vh; }
+    /* Rows are absolutely placed by translateY(slot * 100%), so a rank change is a compositor-only slide. */
+    .row { position: absolute; left: 0; right: 0; top: 0; height: 9.2vh; padding: 0.5vh 0;
+      transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); will-change: transform; animation: rowIn 0.45s ease-out both; }
+    @keyframes rowIn { from { opacity: 0; } to { opacity: 1; } }
+    .row > div { height: 100%; display: flex; align-items: center; gap: 1.2vw; padding: 0 1.2vw 0 0.8vw;
+      border-radius: 1.6vh; background: var(--surface-2); border: 2px solid transparent; }
+    .rank { flex: 0 0 auto; width: 6vh; height: 6vh; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      background: var(--line); color: var(--muted); font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 3.7vh; font-variant-numeric: tabular-nums; }
+    .name { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 4vh; font-weight: 600; }
+    .score { flex: 0 0 auto; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 5.4vh; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .score.done { color: var(--cyan); }
+    .score.none { color: var(--muted); }
+    .p1 > div { border-color: rgba(255, 214, 10, 0.55); background: rgba(255, 214, 10, 0.09); }
+    .p2 > div { border-color: rgba(212, 212, 216, 0.4); background: rgba(212, 212, 216, 0.07); }
+    .p3 > div { border-color: rgba(224, 145, 90, 0.45); background: rgba(224, 145, 90, 0.08); }
+    .p1 .rank { background: var(--gold); color: #1a1400; }
+    .p2 .rank { background: var(--silver); color: #111; }
+    .p3 .rank { background: var(--bronze); color: #1a0d00; }
+    #board #joinCard { position: static; display: flex; flex-direction: row; width: auto; margin-top: 1.2vh; padding: 1.2vh;
+      gap: 1.2vw; text-align: left; background: var(--surface-2); border-radius: 1.6vh; }
+    #board .qr { width: 18vh; flex: 0 0 auto; }
+    #board .jcText { flex: 1; align-items: flex-start; }
+    #board .jcText small { display: block; }
+
+    /* --- final results (finished state) --- */
+    #results { display: none; flex: 1; min-height: 0; flex-direction: column; align-items: center; padding-top: 2vh; }
+    #screen.results .main { display: none; }
+    #screen.results #results { display: flex; }
+    .resHead { color: var(--cyan); font-size: max(26px, 6vh); letter-spacing: 0.08em; display: flex; align-items: center; gap: 1.2vw; }
+    .resHead::before { content: ""; width: 0.45em; height: 0.45em; border-radius: 50%; background: var(--cyan); }
+    #podium { display: flex; align-items: flex-end; justify-content: center; gap: 2vw; margin-top: 3vh; width: min(100%, 150vh); }
+    .step { flex: 1 1 0; min-width: 0; max-width: 46vh; display: flex; flex-direction: column; align-items: center; text-align: center;
+      animation: rowIn 0.6s ease-out both; }
+    .step .pName { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 4.4vh; font-weight: 600; }
+    .step .pScore { font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 6vh; font-variant-numeric: tabular-nums; margin: 0.4vh 0 1.2vh; }
+    .step .block { width: 100%; border-radius: 2vh 2vh 0 0; display: flex; justify-content: center; padding-top: 1.6vh;
+      font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 9vh; line-height: 1; }
+    .step.s1 .block { height: 25vh; background: linear-gradient(var(--gold), rgba(255, 214, 10, 0.35)); color: #1a1400; }
+    .step.s2 .block { height: 18vh; background: linear-gradient(var(--silver), rgba(212, 212, 216, 0.3)); color: #111; }
+    .step.s3 .block { height: 13vh; background: linear-gradient(var(--bronze), rgba(224, 145, 90, 0.3)); color: #1a0d00; }
+    .step.empty { visibility: hidden; }
+    .step.s1 .pName { font-size: 5.2vh; }
+    .step.s1 .pScore { font-size: 7.2vh; }
+    #rest { flex: 1; min-height: 0; width: 100%; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); column-gap: 2vw;
+      align-content: start; margin-top: 2.4vh; border-top: 2px solid var(--line); padding-top: 1.4vh; }
+    #rest .row { position: static; height: 8vh; transform: none; transition: none; }
+    #rest .rank { width: 5.4vh; height: 5.4vh; font-size: 3.2vh; }
+    #rest .name { font-size: 3.4vh; }
+    #rest .score { font-size: 4.4vh; }
+    /* Many athletes: a lower podium leaves room for more rows. */
+    #results.compact #podium { margin-top: 1.6vh; }
+    #results.compact .step .pName { font-size: 3.4vh; }
+    #results.compact .step.s1 .pName { font-size: 3.8vh; }
+    #results.compact .step .pScore { font-size: 4.4vh; margin-bottom: 0.8vh; }
+    #results.compact .step.s1 .pScore { font-size: 5vh; }
+    #results.compact .step .block { font-size: 6vh; padding-top: 1vh; }
+    #results.compact .step.s1 .block { height: 15vh; }
+    #results.compact .step.s2 .block { height: 11vh; }
+    #results.compact .step.s3 .block { height: 8vh; }
+    #restPager { color: var(--muted); font-size: max(13px, 2vh); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; min-height: 1.4em; }
   </style>
 </head>
 <body>
@@ -75,23 +177,46 @@
   </section>
 
   <section id="screen" aria-live="off">
-    <div class="top">
-      <div id="workout" class="display"></div>
-      <div class="tools">
-        <button class="tool" id="soundBtn" aria-pressed="false">🔈 Sound off</button>
-        <button class="tool" id="fsBtn">⛶ Full screen</button>
+    <div id="timerCol">
+      <div class="top">
+        <div id="workout" class="display"></div>
+        <div class="tools">
+          <button class="tool" id="soundBtn" aria-pressed="false">🔈 Sound off</button>
+          <button class="tool" id="fsBtn">⛶ Full screen</button>
+        </div>
+      </div>
+      <div class="main">
+        <div id="phase" class="display">Waiting</div>
+        <div id="title"></div>
+        <div id="clock">--:--</div>
+        <div class="bar"><div id="barFill"></div></div>
+        <div id="detail"></div>
+      </div>
+      <div id="results">
+        <div class="resHead display">Final results</div>
+        <div id="podium"></div>
+        <div id="rest"></div>
+        <div id="restPager"></div>
+      </div>
+      <div class="bottom">
+        <div id="next"><small>Next</small><span id="nextText"></span></div>
+        <div class="brand"><img src="snapwod-logo.png" alt="" /><div><b>SnapWOD</b><br /><span id="codeLabel"></span></div></div>
       </div>
     </div>
-    <div class="main">
-      <div id="phase" class="display">Waiting</div>
-      <div id="title"></div>
-      <div id="clock">--:--</div>
-      <div class="bar"><div id="barFill"></div></div>
-      <div id="detail"></div>
-    </div>
-    <div class="bottom">
-      <div id="next"><small>Next</small><span id="nextText"></span></div>
-      <div class="brand"><img src="snapwod-logo.png" alt="" /><div><b>SnapWOD</b><br /><span id="codeLabel"></span></div></div>
+    <aside id="board" aria-label="Leaderboard">
+      <div class="boardHead">
+        <h2 class="display">Leaderboard</h2>
+        <div class="boardMeta" id="boardMeta"></div>
+      </div>
+      <div id="rows"></div>
+    </aside>
+    <div id="joinCard">
+      <div class="qr" id="qr"></div>
+      <div class="jcText">
+        <b>Join the leaderboard</b>
+        <small>Scan with your phone, or tap Join a class in SnapWOD</small>
+        <span class="display" id="jcCode"></span>
+      </div>
     </div>
   </section>
   <div id="flash"></div>
@@ -99,7 +224,11 @@
   <script>
     // Public, read-only state for a big-screen code (server: routes/live.ts).
     const API = "https://vision-gate-984967184439.europe-west1.run.app/public/live/";
+    const JOIN_URL = "https://snapwod.github.io/snapwod/join?c=";
     const POLL_MS = 1500;
+    const PAGE_MS = 6000;
+    const FETCH_TIMEOUT_MS = 8000;
+    const HOLD_RESULTS_MS = 10 * 60 * 1000;
     const CODE_RE = /^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}$/;
     // Same colours as the app (src/ui/theme.ts) and the watch app.
     const PHASE_COLORS = {
@@ -109,9 +238,12 @@
 
     const $ = (id) => document.getElementById(id);
     let code = null, data = null, pollTimer = null, failures = 0;
+    let held = false, holdTimer = null; // final results kept on screen after the session ended
     // Converts phone ms -> this device's ms: phone->server skew (from the push) and server->here skew.
     let phoneToServer = 0, serverToLocal = 0;
     let lastBlockKey = null, lastBeepSecond = null, soundOn = false, audio = null;
+    // Set by renderTimer when the workout shows "Complete" (finished, or the last block ran out).
+    let complete = false;
 
     function fmt(totalSeconds) {
       const s = Math.max(0, Math.ceil(totalSeconds - 1e-6));
@@ -125,6 +257,21 @@
     }
     const toLocal = (phoneMs) => phoneMs + phoneToServer - serverToLocal;
 
+    // Leaderboard scores (same formats as the app): "4 + 12", "4 rds" / "1 rd", "—"; finished for-time → m:ss / h:mm:ss.
+    function fmtElapsed(totalSeconds) {
+      const s = Math.max(0, Math.floor(totalSeconds));
+      const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), r = s % 60;
+      const ss = String(r).padStart(2, "0");
+      return h > 0 ? h + ":" + String(m).padStart(2, "0") + ":" + ss : m + ":" + ss;
+    }
+    function isDone(e, type) { return type === "for_time" && typeof e.finishedSec === "number"; }
+    function fmtScore(e, type) {
+      if (isDone(e, type)) return fmtElapsed(e.finishedSec);
+      const rounds = Number(e.rounds) || 0, reps = Number(e.reps) || 0;
+      if (!rounds && !reps) return "—";
+      return reps ? rounds + " + " + reps : rounds + (rounds === 1 ? " rd" : " rds");
+    }
+
     function setPhase(key, label) {
       document.documentElement.style.setProperty("--phase", PHASE_COLORS[key] || "#a1a1aa");
       $("phase").textContent = label;
@@ -132,6 +279,10 @@
     function setNext(text) {
       $("nextText").textContent = text || "";
       $("next").style.visibility = text ? "visible" : "hidden";
+    }
+    function setClock(text) {
+      $("clock").textContent = text;
+      $("clock").classList.toggle("long", text.length > 5);
     }
 
     // ---------- sound (Web Audio; needs a tap to enable on most TVs/browsers) ----------
@@ -166,25 +317,25 @@
     }
     document.addEventListener("visibilitychange", () => { if (!document.hidden) keepAwake(); });
 
-    // ---------- rendering ----------
+    // ---------- rendering: timer ----------
     function renderHeld(p, kind) {
       setPhase(p.phase, kind === "paused" ? "Paused" : (p.status && p.status !== "Ready" ? p.status : "Ready"));
       $("title").textContent = p.title || "";
-      $("clock").textContent = fmt(p.remainingSeconds);
+      setClock(fmt(p.remainingSeconds));
       $("clock").classList.toggle("dim", kind === "paused");
       $("barFill").style.width = "0%";
       $("detail").textContent = p.detail || "";
       setNext(kind === "paused" ? "Paused on the phone" : "Start on the phone");
     }
 
-    function render() {
-      if (!data) return;
+    function renderTimer() {
+      complete = false;
       const state = data.state;
       if (!state) {
         setPhase("", "Waiting");
         $("workout").textContent = "";
         $("title").textContent = "Start a workout on your phone";
-        $("clock").textContent = "--:--"; $("clock").classList.add("dim");
+        setClock("--:--"); $("clock").classList.add("dim");
         $("detail").textContent = ""; setNext("");
         return;
       }
@@ -194,9 +345,10 @@
 
       if (state.kind === "paused" || state.kind === "ready") return renderHeld(p, state.kind);
       if (state.kind === "finished") {
+        complete = true;
         setPhase("complete", "Complete");
         $("title").textContent = "Nice work.";
-        $("clock").textContent = "0:00"; $("barFill").style.width = "100%";
+        setClock("0:00"); $("barFill").style.width = "100%";
         $("detail").textContent = ""; setNext("");
         return;
       }
@@ -207,15 +359,16 @@
       let i = blocks.findIndex((b) => now < toLocal(b.endsAt));
       if (i === -1 || now >= toLocal(p.endsAt)) {
         if (p.endsWorkout) {
+          complete = true;
           setPhase("complete", "Complete");
-          $("title").textContent = "Nice work."; $("clock").textContent = "0:00";
+          $("title").textContent = "Nice work."; setClock("0:00");
           $("barFill").style.width = "100%"; $("detail").textContent = ""; setNext("");
           if (lastBlockKey !== "done") { lastBlockKey = "done"; beep(660, 700); }
         } else {
           const last = blocks[blocks.length - 1];
           setPhase(last.phase, "Part done");
           $("title").textContent = last.nextLabel || "Next part ready";
-          $("clock").textContent = "0:00"; $("barFill").style.width = "100%";
+          setClock("0:00"); $("barFill").style.width = "100%";
           $("detail").textContent = last.detail || ""; setNext("Start the next part on the phone");
         }
         return;
@@ -227,7 +380,7 @@
       const elapsed = Math.max(0, (now - start) / 1000);
       setPhase(b.phase, b.phaseLabel);
       $("title").textContent = b.title || "";
-      $("clock").textContent = b.countUp ? fmtUp(elapsed) : fmt(remaining);
+      setClock(b.countUp ? fmtUp(elapsed) : fmt(remaining));
       const span = Math.max(1, end - start);
       $("barFill").style.width = Math.min(100, Math.max(0, ((now - start) / span) * 100)) + "%";
       $("detail").textContent = b.detail || "";
@@ -246,34 +399,232 @@
       lastBeepSecond = sec;
     }
 
+    // ---------- rendering: leaderboard ----------
+    // Modes: "off" (server has no leaderboard: the page looks exactly as before), "card" (nobody has
+    // joined: full-screen timer + join card), "split" (timer + live board), "results" (final podium).
+    let mode = "off", boardSig = null, podiumSig = null, shownPage = -1, page = 0, pageAt = 0, perPage = 0;
+    const rowEls = new Map(); // athlete id -> row element on the live board
+    let qrFor = null;
+
+    function drawQr() {
+      if (!code || qrFor === code || typeof QRCode !== "function") return;
+      const box = $("qr");
+      box.textContent = "";
+      qrFor = code;
+      try {
+        // qrcodejs builds the module matrix; we draw it as an SVG so it stays sharp at any size.
+        const q = new QRCode(document.createElement("div"), { text: JOIN_URL + code, width: 64, height: 64, correctLevel: QRCode.CorrectLevel.M });
+        const m = q._oQRCode, n = m.getModuleCount(), quiet = 4;
+        let d = "";
+        for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (m.isDark(r, c)) d += "M" + (c + quiet) + " " + (r + quiet) + "h1v1h-1z";
+        const size = n + quiet * 2;
+        box.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + size + " " + size +
+          '" shape-rendering="crispEdges" role="img" aria-label="QR code to join"><path fill="#000" d="' + d + '"/></svg>';
+        remeasure(); // the card just got taller
+      } catch (e) {
+        box.textContent = "";
+      }
+    }
+
+    function makeRow() {
+      const row = document.createElement("div");
+      const inner = document.createElement("div");
+      const rank = document.createElement("span"); rank.className = "rank";
+      const name = document.createElement("span"); name.className = "name";
+      const score = document.createElement("span"); score.className = "score";
+      inner.append(rank, name, score);
+      row.appendChild(inner);
+      return row;
+    }
+    // Names come from athletes: textContent only.
+    function fillRow(row, e, type) {
+      const rank = Number(e.rank) || 0;
+      const score = fmtScore(e, type);
+      // Gold/silver/bronze only once there is a score (everyone is tied at 1 before anyone logs).
+      const cls = "row" + (rank >= 1 && rank <= 3 && score !== "—" ? " p" + rank : "");
+      if (row.className !== cls) row.className = cls;
+      const [rk, nm, sc] = row.firstChild.children;
+      if (rk.textContent !== String(rank || "")) rk.textContent = String(rank || "");
+      if (nm.textContent !== String(e.name || "")) nm.textContent = String(e.name || "");
+      if (sc.textContent !== score) sc.textContent = score;
+      const scls = "score" + (isDone(e, type) ? " done" : score === "—" ? " none" : "");
+      if (sc.className !== scls) sc.className = scls;
+    }
+    function clearRows() { rowEls.forEach((el) => el.remove()); rowEls.clear(); }
+
+    function setMode(next) {
+      if (next === mode) return;
+      mode = next;
+      const screen = $("screen");
+      screen.classList.toggle("card", mode === "card");
+      screen.classList.toggle("split", mode === "split");
+      screen.classList.toggle("results", mode === "results");
+      // One join card: the corner on the full-screen timer, the bottom of the panel next to the board.
+      const card = $("joinCard");
+      const home = mode === "split" ? $("board") : screen;
+      if (card.parentNode !== home) home.appendChild(card);
+      clearRows(); $("podium").textContent = ""; $("rest").textContent = "";
+      boardSig = null; podiumSig = null; shownPage = -1; page = 0; pageAt = Date.now(); perPage = 0;
+    }
+    function remeasure() { perPage = 0; boardSig = null; }
+
+    function pageOf(total, now) {
+      const pages = Math.max(1, Math.ceil(total / perPage));
+      if (page >= pages) { page = 0; pageAt = now; }
+      if (pages > 1 && now - pageAt >= PAGE_MS) { page = (page + 1) % pages; pageAt = now; }
+      if (pages === 1) pageAt = now;
+      return pages;
+    }
+
+    function renderLive(list, type, now) {
+      if (!perPage) perPage = Math.max(1, Math.floor($("rows").clientHeight / Math.max(1, innerHeight * 0.092)));
+      const pages = pageOf(list.length, now);
+      const sig = JSON.stringify([page, perPage, type, list]);
+      if (sig === boardSig) return;
+      boardSig = sig;
+      $("boardMeta").textContent = (type === "for_time" ? "For time" : "AMRAP") + (pages > 1 ? " · " + (page + 1) + "/" + pages : "");
+      if (page !== shownPage) { clearRows(); shownPage = page; } // a new page fades in; slides are only for rank changes
+      const slice = list.slice(page * perPage, page * perPage + perPage);
+      const keep = new Set();
+      slice.forEach((e, slot) => {
+        const id = String(e.id);
+        let row = rowEls.get(id);
+        const y = "translateY(" + slot * 100 + "%)";
+        if (!row) {
+          row = makeRow();
+          row.style.transform = y; // set before insertion: no slide, just the fade-in
+          rowEls.set(id, row);
+          fillRow(row, e, type);
+          $("rows").appendChild(row);
+        } else {
+          if (row.style.transform !== y) row.style.transform = y;
+          fillRow(row, e, type);
+        }
+        keep.add(id);
+      });
+      rowEls.forEach((row, id) => { if (!keep.has(id)) { row.remove(); rowEls.delete(id); } });
+    }
+
+    function renderResults(list, type, now) {
+      // Podium: the top three who have a score; anyone still on "—" goes in the list below.
+      const top = list.slice(0, 3).filter((e) => fmtScore(e, type) !== "—");
+      const pSig = JSON.stringify([type, top]);
+      if (pSig !== podiumSig) {
+        podiumSig = pSig;
+        const podium = $("podium");
+        podium.textContent = "";
+        podium.style.display = top.length ? "" : "none";
+        // Slots 2nd, 1st, 3rd (an empty slot keeps the winner centred); colour and number by actual rank.
+        if (top.length) [top[1], top[0], top[2]].forEach((e) => {
+          const step = document.createElement("div");
+          if (!e) { step.className = "step empty"; podium.appendChild(step); return; }
+          const rank = Math.min(3, Math.max(1, Number(e.rank) || 1));
+          step.className = "step s" + rank;
+          const name = document.createElement("div"); name.className = "pName"; name.textContent = String(e.name || "");
+          const score = document.createElement("div"); score.className = "pScore"; score.textContent = fmtScore(e, type);
+          const block = document.createElement("div"); block.className = "block"; block.textContent = String(rank);
+          step.append(name, score, block);
+          podium.appendChild(step);
+        });
+      }
+
+      const restBox = $("rest");
+      const rest = list.slice(top.length);
+      restBox.style.visibility = rest.length ? "" : "hidden";
+      const compact = rest.length > 4;
+      if ($("results").classList.contains("compact") !== compact) { $("results").classList.toggle("compact", compact); perPage = 0; }
+      if (!perPage) { // measured after the podium is in place
+        restBox.textContent = "";
+        boardSig = null;
+        const perCol = Math.max(1, Math.floor((restBox.clientHeight - 16) / Math.max(1, innerHeight * 0.08)));
+        const cols = rest.length > perCol * 2 ? 3 : 2;
+        perPage = perCol * cols;
+        restBox.style.gridTemplateRows = "repeat(" + perCol + ", auto)";
+        restBox.style.gridTemplateColumns = "repeat(" + cols + ", minmax(0, 1fr))"; // a short list keeps column width
+      }
+      const pages = pageOf(rest.length, now);
+      const sig = JSON.stringify([page, perPage, type, rest]);
+      if (sig === boardSig) return;
+      boardSig = sig;
+      restBox.textContent = "";
+      rest.slice(page * perPage, page * perPage + perPage).forEach((e) => {
+        const row = makeRow();
+        fillRow(row, e, type);
+        restBox.appendChild(row);
+      });
+      $("restPager").textContent = pages > 1 ? "Page " + (page + 1) + " of " + pages : "";
+    }
+
+    function renderBoard() {
+      // Only coaches on an app version with classes send scoreType: older ones get the plain timer,
+      // so the TV doesn't invite athletes to a class the coach's phone can't run.
+      const classes = !!(data.state && data.state.scoreType);
+      const list = classes && Array.isArray(data.leaderboard) ? data.leaderboard : null;
+      const type = data.scoreType === "for_time" ? "for_time" : "amrap";
+      setMode(!list ? "off" : !list.length ? "card" : complete ? "results" : "split");
+      if (mode === "off") return;
+      drawQr();
+      const now = Date.now();
+      if (mode === "split") renderLive(list, type, now);
+      else if (mode === "results") renderResults(list, type, now);
+    }
+
+    function render() {
+      if (!data) return;
+      renderTimer();
+      renderBoard();
+      if (failures >= 4) setNext("Reconnecting…"); // after renderTimer, which sets #next every frame
+    }
+
     function tick() { render(); requestAnimationFrame(() => setTimeout(tick, 100)); }
+    // Re-measure how many rows fit after a resize (or the TV browser changing zoom).
+    let resizeTimer = null;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { remeasure(); clearRows(); podiumSig = null; }, 200);
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(remeasure).catch(() => {});
 
     // ---------- polling ----------
     async function poll() {
-      if (!code) return;
+      if (!code || held) return;
       const sent = Date.now();
+      // A stalled request (flaky gym wifi) must not stop the polling: give up after 8 s.
+      const ctrl = typeof AbortController === "function" ? new AbortController() : null;
+      const abortTimer = ctrl ? setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS) : null;
       try {
-        const res = await fetch(API + code, { cache: "no-store" });
+        const res = await fetch(API + code, ctrl ? { cache: "no-store", signal: ctrl.signal } : { cache: "no-store" });
         const got = Date.now();
         const body = await res.json().catch(() => ({}));
         if (typeof body.serverNow === "number") serverToLocal = body.serverNow - (sent + got) / 2;
-        if (res.status === 404) return ended();
-        if (!res.ok) throw new Error(String(res.status));
+        if (res.status === 404) return mode === "results" ? holdResults() : ended();
+        if (!res.ok || !body || !("state" in body)) throw new Error(String(res.status)); // incl. a body cut off by the timeout
         failures = 0;
         if (body.state && typeof body.receivedAt === "number") phoneToServer = body.receivedAt - body.state.sentAt;
         data = body;
       } catch {
         failures += 1;
-        if (failures === 4) setNext("Reconnecting…");
       } finally {
-        pollTimer = setTimeout(poll, POLL_MS);
+        clearTimeout(abortTimer);
+        if (code && !held) pollTimer = setTimeout(poll, POLL_MS);
       }
     }
 
-    function ended() {
+    // The coach stopped sharing after the workout finished: leave the final results up for a while
+    // (people come over to look), then go back to code entry.
+    function holdResults() {
+      held = true;
+      failures = 0;
       clearTimeout(pollTimer);
+      holdTimer = setTimeout(ended, HOLD_RESULTS_MS);
+    }
+
+    function ended() {
+      clearTimeout(pollTimer); clearTimeout(holdTimer);
+      held = false;
       const was = code;
       code = null; data = null;
+      setMode("off");
       showJoin(was ? "That session has ended. Start a new one from the phone." : "");
       history.replaceState(null, "", location.pathname);
     }
@@ -288,8 +639,10 @@
     function join(raw) {
       const c = String(raw || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
       if (!CODE_RE.test(c)) { $("joinError").textContent = "Codes are 6 letters and numbers, shown in the app."; return; }
-      code = c; data = { state: null }; lastBlockKey = null;
+      code = c; data = { state: null }; lastBlockKey = null; failures = 0;
+      held = false; clearTimeout(holdTimer);
       $("codeLabel").textContent = "Code " + c;
+      $("jcCode").textContent = c;
       $("join").style.display = "none";
       $("screen").style.display = "flex";
       history.replaceState(null, "", "?c=" + c);

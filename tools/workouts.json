@@ -1,0 +1,3021 @@
+[
+  {
+    "slug": "fran",
+    "name": "Fran",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "21-15-9 Thrusters & Pull-ups",
+    "summary": "21-15-9 thrusters and pull-ups. Short, fast and famously painful.",
+    "intro": "Fran is the benchmark most people hear about first, and for good reason: two movements, 90 reps, and a finish line that arrives quickly and hurts anyway. Fast athletes are done in well under five minutes, so it rewards keeping the bar moving and holding the pull-ups in big sets. Retest it every few months and the clock tells you plainly how your engine and your gymnastics are coming along.",
+    "workout": {
+      "scheme": "21-15-9 reps for time of:",
+      "lines": [
+        "Thrusters (95/65 lb)",
+        "Pull-ups"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Thrusters",
+        "men": "95 lb (43 kg)",
+        "women": "65 lb (29 kg)"
+      }
+    ],
+    "capMinutes": 10,
+    "scaling": [
+      "Lighter bar: choose a load you could thrust 21 times without stopping when fresh.",
+      "Banded or jumping pull-ups, or ring rows if pull-ups are still a work in progress.",
+      "Cut the rep scheme to 15-12-9 for newer athletes."
+    ],
+    "tips": [
+      "Split the 21 thrusters before you have to (for example 11 then 10) rather than failing at rep 18.",
+      "Put the bar right next to the rig and chalk before the clock starts: transitions are where Fran times are lost.",
+      "Drive the bar up with your legs out of the squat; tired shoulders cannot press it alone.",
+      "The round of 9 is a sprint. If there is anything left, go unbroken."
+    ],
+    "tags": [
+      "thruster",
+      "pull-up",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Fran\n21-15-9 for time\nThrusters 95/65 lb\nPull-ups\nTime cap 10 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Fran",
+        "notes": "21-15-9 reps for time of:\nThrusters (95/65 lb)\nPull-ups\nTime cap: 10 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 600,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 600
+      }
+    }
+  },
+  {
+    "slug": "grace",
+    "name": "Grace",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "30 Clean and Jerks for Time",
+    "summary": "30 clean and jerks at a moderate load, as fast as you can.",
+    "intro": "Grace is one movement and one number: 30 clean and jerks for time. The load is heavy enough that every rep needs proper technique, yet light enough that the fastest athletes move it in around two minutes. It is a test of efficient barbell cycling and of how well you can manage your breathing between reps.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "30 clean and jerks (135/95 lb)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Clean and jerk",
+        "men": "135 lb (61 kg)",
+        "women": "95 lb (43 kg)"
+      }
+    ],
+    "capMinutes": 10,
+    "scaling": [
+      "Reduce the load so that most reps can be done as quick singles with good positions.",
+      "Use dumbbells (one or two) if the barbell clean is not yet solid.",
+      "Cut the volume to 20 reps for beginners."
+    ],
+    "tips": [
+      "Plan on fast singles from the start: drop, reset and go, rather than touch-and-go reps that fall apart.",
+      "Stay close to the bar and breathe at the top of each rep, not on the floor.",
+      "Pick a pace (for example one rep every 6 to 8 seconds) and hold it."
+    ],
+    "tags": [
+      "clean",
+      "jerk",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Grace\nFor time\n30 clean and jerks 135/95 lb\nTime cap 10 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Grace",
+        "notes": "For time:\n30 clean and jerks (135/95 lb)\nTime cap: 10 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 600,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 600
+      }
+    }
+  },
+  {
+    "slug": "isabel",
+    "name": "Isabel",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "30 Snatches for Time",
+    "summary": "30 barbell snatches for time. Grace's overhead sister.",
+    "intro": "Isabel takes the format of Grace and swaps in the snatch: 30 reps at a moderate load, as fast as possible. Any style of snatch counts as long as the bar finishes locked out overhead, so power snatches are the usual choice. It rewards a fast, consistent pull and a plan for how you will break the reps.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "30 snatches (135/95 lb)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Snatch",
+        "men": "135 lb (61 kg)",
+        "women": "95 lb (43 kg)"
+      }
+    ],
+    "capMinutes": 10,
+    "scaling": [
+      "Reduce the load to one you can snatch with confidence for quick singles.",
+      "Swap in dumbbell or kettlebell snatches if the barbell snatch is still being learned.",
+      "Cut the volume to 20 reps."
+    ],
+    "tips": [
+      "Fast singles are usually quicker than sets that end in a missed rep.",
+      "Keep the bar close and finish the pull before pulling yourself under.",
+      "A missed rep costs you the rep and your rhythm: stay a little under your limit."
+    ],
+    "tags": [
+      "snatch",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Isabel\nFor time\n30 snatches 135/95 lb\nTime cap 10 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Isabel",
+        "notes": "For time:\n30 snatches (135/95 lb)\nTime cap: 10 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 600,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 600
+      }
+    }
+  },
+  {
+    "slug": "diane",
+    "name": "Diane",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "21-15-9 Deadlifts & Handstand Push-ups",
+    "summary": "21-15-9 deadlifts and handstand push-ups: heavy pulling meets upside-down pressing.",
+    "intro": "Diane pairs a heavy hip hinge with a demanding gymnastics press in the classic 21-15-9 pattern. The deadlifts tax your grip and back, then the handstand push-ups ask your shoulders to keep working while your heart rate is high. A good Diane comes from sets you can repeat, not one heroic first round.",
+    "workout": {
+      "scheme": "21-15-9 reps for time of:",
+      "lines": [
+        "Deadlifts (225/155 lb)",
+        "Handstand push-ups"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Deadlift",
+        "men": "225 lb (102 kg)",
+        "women": "155 lb (70 kg)"
+      }
+    ],
+    "capMinutes": 10,
+    "scaling": [
+      "Lower the deadlift load to one you could do 21 times in two or three sets.",
+      "Handstand push-ups to an abmat or stacked plates, or pike push-ups on a box.",
+      "Dumbbell strict press for athletes not yet working upside down."
+    ],
+    "tips": [
+      "Keep the deadlifts touch-and-go only while your back stays flat; otherwise switch to quick singles.",
+      "Break the handstand push-ups early, in sets of 3 to 5, before you hit failure.",
+      "Shake out your grip on the way to the wall, not standing over the bar."
+    ],
+    "tags": [
+      "deadlift",
+      "handstand push-up",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Diane\n21-15-9 for time\nDeadlifts 225/155 lb\nHandstand push-ups\nTime cap 10 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Diane",
+        "notes": "21-15-9 reps for time of:\nDeadlifts (225/155 lb)\nHandstand push-ups\nTime cap: 10 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 600,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 600
+      }
+    }
+  },
+  {
+    "slug": "elizabeth",
+    "name": "Elizabeth",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "21-15-9 Cleans & Ring Dips",
+    "summary": "21-15-9 cleans and ring dips, a test of barbell cycling and pressing endurance.",
+    "intro": "Elizabeth combines cleans with ring dips over the 21-15-9 rep scheme. The cleans drain your legs and lungs, while the ring dips demand stability through the shoulders when you are already tired. Most athletes squat clean the bar, which makes the round of 21 a serious leg workout.",
+    "workout": {
+      "scheme": "21-15-9 reps for time of:",
+      "lines": [
+        "Cleans (135/95 lb)",
+        "Ring dips"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Clean",
+        "men": "135 lb (61 kg)",
+        "women": "95 lb (43 kg)"
+      }
+    ],
+    "capMinutes": 10,
+    "scaling": [
+      "Reduce the clean load, or use power cleans if the squat clean slows you down.",
+      "Bar dips, box dips or banded ring dips instead of full ring dips.",
+      "Cut the scheme to 15-12-9."
+    ],
+    "tips": [
+      "Settle into a rhythm of quick singles or small touch-and-go sets on the cleans.",
+      "Turn the rings out at the top of each dip to stay stable and avoid wasted reps.",
+      "Small, early sets on the dips are faster than long breaks after failure."
+    ],
+    "tags": [
+      "clean",
+      "dip",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Elizabeth\n21-15-9 for time\nCleans 135/95 lb\nRing dips\nTime cap 10 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Elizabeth",
+        "notes": "21-15-9 reps for time of:\nCleans (135/95 lb)\nRing dips\nTime cap: 10 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 600,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 600
+      }
+    }
+  },
+  {
+    "slug": "helen",
+    "name": "Helen",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "3 Rounds: 400 m Run, 21 Kettlebell Swings, 12 Pull-ups",
+    "summary": "3 rounds of a 400 m run, 21 kettlebell swings and 12 pull-ups.",
+    "intro": "Helen mixes running, kettlebell swings and pull-ups into three fast rounds. Nothing in it is heavy, which is exactly why it hurts: there is never a natural place to rest. It is a great all-round conditioning check and a popular early benchmark for new athletes.",
+    "workout": {
+      "scheme": "3 rounds for time of:",
+      "lines": [
+        "400 m run",
+        "21 kettlebell swings (53/35 lb)",
+        "12 pull-ups"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Kettlebell swing",
+        "men": "53 lb / 24 kg (1.5 pood)",
+        "women": "35 lb / 16 kg (1 pood)"
+      }
+    ],
+    "capMinutes": 15,
+    "scaling": [
+      "Lighter kettlebell, or Russian (eye-level) swings instead of overhead swings.",
+      "Banded or jumping pull-ups, or ring rows.",
+      "Row 500 m or bike instead of running if running is not an option."
+    ],
+    "tips": [
+      "Run the first 400 m at a pace you could hold for all three rounds.",
+      "Try to hold the 21 swings unbroken; a short break costs less than dropping the bell twice.",
+      "Use the run back to the gym to recover your breathing, not to sprint."
+    ],
+    "tags": [
+      "run",
+      "kettlebell swing",
+      "pull-up"
+    ],
+    "timer": {
+      "whiteboard": "Helen\n3 rounds for time\nRun 400 m\n21 kettlebell swings 53/35 lb\n12 pull-ups\nTime cap 15 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Helen",
+        "notes": "3 rounds for time of:\n400 m run\n21 kettlebell swings (53/35 lb)\n12 pull-ups\nTime cap: 15 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 900,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 900
+      }
+    }
+  },
+  {
+    "slug": "jackie",
+    "name": "Jackie",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "1000 m Row, 50 Thrusters, 30 Pull-ups",
+    "summary": "A 1000 m row, 50 light thrusters and 30 pull-ups, done once through.",
+    "intro": "Jackie is a chipper with three stations: row, thrusters, pull-ups. The thruster bar is light, but after a hard row 50 reps add up quickly, and the pull-ups arrive when your arms are already tired. Pacing the row is the whole workout.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "1000 m row",
+        "50 thrusters (45/35 lb)",
+        "30 pull-ups"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Thrusters",
+        "men": "45 lb (20 kg)",
+        "women": "35 lb (15 kg)"
+      }
+    ],
+    "capMinutes": 15,
+    "scaling": [
+      "Shorter row (750 m) for newer athletes.",
+      "Use a lighter bar or a PVC pipe for the thrusters.",
+      "Banded or jumping pull-ups, or ring rows."
+    ],
+    "tips": [
+      "Row hard but not flat out: you want your legs to still work for the thrusters.",
+      "Break the 50 thrusters into a plan before you start, such as 20-15-15.",
+      "Keep the pull-up sets short and the rests shorter."
+    ],
+    "tags": [
+      "row",
+      "thruster",
+      "pull-up",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Jackie\nFor time\nRow 1000 m\n50 thrusters 45/35 lb\n30 pull-ups\nTime cap 15 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Jackie",
+        "notes": "For time:\n1000 m row\n50 thrusters (45/35 lb)\n30 pull-ups\nTime cap: 15 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 900,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 900
+      }
+    }
+  },
+  {
+    "slug": "karen",
+    "name": "Karen",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "150 Wall-Ball Shots for Time",
+    "summary": "150 wall-ball shots. One movement, a lot of reps.",
+    "intro": "Karen is as simple as it gets: 150 wall-ball shots for time. The ball is light, the movement is easy to learn, and by rep 80 your legs and lungs will disagree with both statements. It is a mental test as much as a physical one, and a great way to measure squat stamina.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "150 wall-ball shots (20/14 lb)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Wall-ball shot",
+        "men": "20 lb (9 kg) to a 10 ft (3 m) target",
+        "women": "14 lb (6 kg) to a 9 ft (2.7 m) target"
+      }
+    ],
+    "capMinutes": 15,
+    "scaling": [
+      "Lighter ball or a lower target.",
+      "Reduce the total to 100 or 75 reps.",
+      "Squat to a box or bench if depth is an issue."
+    ],
+    "tips": [
+      "Decide your sets in advance (for example 15 sets of 10) and keep each break to a few breaths.",
+      "Catch the ball high and ride it into the squat instead of fighting it.",
+      "Count down, not up: 'only 40 left' is easier to hear than 'rep 110'."
+    ],
+    "tags": [
+      "wall ball"
+    ],
+    "timer": {
+      "whiteboard": "Karen\nFor time\n150 wall-ball shots 20/14 lb\nTime cap 15 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Karen",
+        "notes": "For time:\n150 wall-ball shots (20/14 lb)\nTime cap: 15 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 900,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 900
+      }
+    }
+  },
+  {
+    "slug": "annie",
+    "name": "Annie",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "50-40-30-20-10 Double-Unders & Sit-ups",
+    "summary": "50-40-30-20-10 double-unders and sit-ups.",
+    "intro": "Annie is a descending ladder of double-unders and sit-ups. It needs no barbell and little space, but it is a sharp test of skipping skill: efficient double-unders make it fast, and tripping on the rope makes it long. The sit-ups give your calves a break while your core does the work.",
+    "workout": {
+      "scheme": "50-40-30-20-10 reps for time of:",
+      "lines": [
+        "Double-unders",
+        "Sit-ups"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 15,
+    "scaling": [
+      "Single-unders at two or three times the double-under count, or a set time of practice per round.",
+      "Reduce the ladder to 30-25-20-15-10.",
+      "Bent-knee sit-ups with the feet anchored if needed."
+    ],
+    "tips": [
+      "Stay relaxed on the rope: tension in the shoulders is what causes trips.",
+      "Use the sit-ups to bring your breathing down before the next round of skipping.",
+      "An abmat under your lower back makes the sit-ups smoother and more consistent."
+    ],
+    "tags": [
+      "double-under",
+      "sit-up",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Annie\n50-40-30-20-10 for time\nDouble-unders\nSit-ups\nTime cap 15 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Annie",
+        "notes": "50-40-30-20-10 reps for time of:\nDouble-unders\nSit-ups\nTime cap: 15 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 900,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 900
+      }
+    }
+  },
+  {
+    "slug": "angie",
+    "name": "Angie",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "100 Pull-ups, 100 Push-ups, 100 Sit-ups, 100 Squats",
+    "summary": "100 each of pull-ups, push-ups, sit-ups and air squats, in order.",
+    "intro": "Angie is a bodyweight chipper: finish all 100 pull-ups before you move on to 100 push-ups, then 100 sit-ups and 100 air squats. With no barbell to hide behind, it is a pure test of gymnastics volume, and the pull-ups decide most athletes' time. Expect your arms to be tired long before the squats.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "100 pull-ups",
+        "100 push-ups",
+        "100 sit-ups",
+        "100 air squats"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 30,
+    "scaling": [
+      "Halve every number (50 of each) for a shorter version.",
+      "Banded or jumping pull-ups, or ring rows.",
+      "Push-ups from the knees or with the hands on a box."
+    ],
+    "tips": [
+      "Start the pull-ups with sets well short of failure; long rests later cost more than small sets now.",
+      "Go to the push-ups with a plan of quick, short sets.",
+      "The squats are a reward: keep moving and get them done."
+    ],
+    "tags": [
+      "pull-up",
+      "push-up",
+      "sit-up",
+      "squat",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Angie\nFor time\n100 pull-ups\n100 push-ups\n100 sit-ups\n100 air squats\nTime cap 30 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Angie",
+        "notes": "For time:\n100 pull-ups\n100 push-ups\n100 sit-ups\n100 air squats\nTime cap: 30 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 1800,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 1800
+      }
+    }
+  },
+  {
+    "slug": "barbara",
+    "name": "Barbara",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "5 Rounds: 20-30-40-50 Bodyweight, 3 min Rest",
+    "summary": "5 rounds of pull-ups, push-ups, sit-ups and squats, with 3 minutes of rest between rounds.",
+    "intro": "Barbara is five rounds of four bodyweight movements, with a strict three minutes of rest after each round. The rest changes everything: you can push each round hard, but you also have to start the next one with your arms barely recovered. Many athletes time each round to see how evenly they paced it.",
+    "workout": {
+      "scheme": "5 rounds, each for time:",
+      "lines": [
+        "20 pull-ups",
+        "30 push-ups",
+        "40 sit-ups",
+        "50 air squats",
+        "Rest 3 minutes between rounds"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 45,
+    "scaling": [
+      "Reduce to 3 rounds.",
+      "Halve the reps in each round (10-15-20-25).",
+      "Banded or jumping pull-ups and knee or box push-ups."
+    ],
+    "tips": [
+      "Aim for round times within a few seconds of each other rather than a fast first round.",
+      "Use the three minutes properly: walk, breathe, and chalk up before the next round.",
+      "Break the push-ups early; they fade fastest across five rounds."
+    ],
+    "tags": [
+      "pull-up",
+      "push-up",
+      "sit-up",
+      "squat",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Barbara\n5 rounds for time\n20 pull-ups\n30 push-ups\n40 sit-ups\n50 air squats\nRest 3 min between rounds\nTime cap 45 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Barbara",
+        "notes": "5 rounds, each for time:\n20 pull-ups\n30 push-ups\n40 sit-ups\n50 air squats\nRest 3 minutes between rounds\nTime cap: 45 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 2700,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 2700
+      },
+      "handFixed": "The parser reads \"Rest 3 min between rounds\" as a 3-second rest block added after the cap. Barbara's rest comes after each round, which a fixed clock can't place, so the plan is the 45 min cap alone and the 3 minute rests are in the notes."
+    }
+  },
+  {
+    "slug": "chelsea",
+    "name": "Chelsea",
+    "category": "girls",
+    "type": "EMOM",
+    "headline": "EMOM 30: 5 Pull-ups, 10 Push-ups, 15 Squats",
+    "summary": "Every minute for 30 minutes: 5 pull-ups, 10 push-ups and 15 air squats.",
+    "intro": "Chelsea takes Cindy's movements and puts them on a strict clock: at the start of every minute you do 5 pull-ups, 10 push-ups and 15 air squats, then rest for whatever is left. It feels easy for the first few minutes and very different by minute twenty. Your score is how many full minutes you complete, with 30 as the goal.",
+    "workout": {
+      "scheme": "Every minute on the minute for 30 minutes:",
+      "lines": [
+        "5 pull-ups",
+        "10 push-ups",
+        "15 air squats"
+      ]
+    },
+    "rx": [],
+    "durationMinutes": 30,
+    "scaling": [
+      "Shorten it to 20 minutes.",
+      "Banded pull-ups or ring rows, and push-ups on a box.",
+      "Reduce the reps to 3-6-9 per minute."
+    ],
+    "tips": [
+      "Move steadily rather than sprinting each minute: the rest at the end matters most late on.",
+      "If you miss a minute, keep going and note how many you completed.",
+      "Set up the pull-up bar and push-up spot right next to each other."
+    ],
+    "tags": [
+      "pull-up",
+      "push-up",
+      "squat",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Chelsea\nEMOM 30 min\n5 pull-ups\n10 push-ups\n15 air squats",
+      "plan": {
+        "mode": "EMOM",
+        "name": "Chelsea",
+        "notes": "Every minute on the minute for 30 minutes:\n5 pull-ups\n10 push-ups\n15 air squats",
+        "blocks": [
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "cindy",
+    "name": "Cindy",
+    "category": "girls",
+    "type": "AMRAP",
+    "headline": "20 min AMRAP: 5 Pull-ups, 10 Push-ups, 15 Squats",
+    "summary": "As many rounds as possible in 20 minutes of 5 pull-ups, 10 push-ups and 15 air squats.",
+    "intro": "Cindy is the classic bodyweight AMRAP: 20 minutes of 5 pull-ups, 10 push-ups and 15 air squats, repeated for as many rounds as you can. It needs almost no equipment and scales to any level, which makes it one of the most widely done benchmarks. Twenty rounds is a solid score; the best athletes go well past thirty.",
+    "workout": {
+      "scheme": "As many rounds as possible in 20 minutes of:",
+      "lines": [
+        "5 pull-ups",
+        "10 push-ups",
+        "15 air squats"
+      ]
+    },
+    "rx": [],
+    "durationMinutes": 20,
+    "scaling": [
+      "Banded or jumping pull-ups, or ring rows.",
+      "Push-ups from the knees or with the hands on a box.",
+      "Shorten the time to 12 or 15 minutes."
+    ],
+    "tips": [
+      "Find a round pace you can hold (for example one round every 50 seconds) and stick to it.",
+      "Break the push-ups early, they are what slows most people down.",
+      "Count your rounds out loud or with a tally so you are not guessing at the end."
+    ],
+    "tags": [
+      "pull-up",
+      "push-up",
+      "squat",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Cindy\nAMRAP 20 min\n5 pull-ups\n10 push-ups\n15 air squats",
+      "plan": {
+        "mode": "AMRAP",
+        "name": "Cindy",
+        "notes": "As many rounds as possible in 20 minutes of:\n5 pull-ups\n10 push-ups\n15 air squats",
+        "blocks": [
+          {
+            "label": "AMRAP",
+            "seconds": 1200,
+            "kind": "amrap"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "mary",
+    "name": "Mary",
+    "category": "girls",
+    "type": "AMRAP",
+    "headline": "20 min AMRAP: Handstand Push-ups, Pistols, Pull-ups",
+    "summary": "A 20 minute AMRAP of 5 handstand push-ups, 10 pistols and 15 pull-ups.",
+    "intro": "Mary is Cindy's harder, more skilful cousin: handstand push-ups instead of push-ups, single-leg pistols instead of squats, and three times the pull-ups. Every movement demands strength and balance, so it is an honest test of advanced bodyweight skills.",
+    "workout": {
+      "scheme": "As many rounds as possible in 20 minutes of:",
+      "lines": [
+        "5 handstand push-ups",
+        "10 pistols (alternating legs)",
+        "15 pull-ups"
+      ]
+    },
+    "rx": [],
+    "durationMinutes": 20,
+    "scaling": [
+      "Pike push-ups on a box or handstand push-ups to an abmat.",
+      "Pistols to a box, or air squats.",
+      "Banded pull-ups or ring rows, or fewer reps per round."
+    ],
+    "tips": [
+      "Break the pull-ups into small sets from the first round.",
+      "Hold onto something for balance on the pistols if it lets you keep moving.",
+      "Stay calm on the handstand push-ups: rushed reps tend to be no-reps."
+    ],
+    "tags": [
+      "handstand push-up",
+      "pistol",
+      "pull-up",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Mary\nAMRAP 20 min\n5 handstand push-ups\n10 pistols\n15 pull-ups",
+      "plan": {
+        "mode": "AMRAP",
+        "name": "Mary",
+        "notes": "As many rounds as possible in 20 minutes of:\n5 handstand push-ups\n10 pistols (alternating legs)\n15 pull-ups",
+        "blocks": [
+          {
+            "label": "AMRAP",
+            "seconds": 1200,
+            "kind": "amrap"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "nicole",
+    "name": "Nicole",
+    "category": "girls",
+    "type": "AMRAP",
+    "headline": "20 min AMRAP: 400 m Run & Max Pull-ups",
+    "summary": "20 minutes of a 400 m run followed by max pull-ups. Score is total pull-ups.",
+    "intro": "Nicole alternates a 400 m run with one set of as many pull-ups as you can do, for 20 minutes. Your score is the total number of pull-ups, so the run is your rest and the pull-up bar is where the work counts. It is a smart way to build pull-up volume under fatigue.",
+    "workout": {
+      "scheme": "As many rounds as possible in 20 minutes of:",
+      "lines": [
+        "400 m run",
+        "Max pull-ups (one set)"
+      ]
+    },
+    "rx": [],
+    "durationMinutes": 20,
+    "scaling": [
+      "Banded pull-ups or ring rows, still in one max set.",
+      "Row 500 m or bike instead of running.",
+      "Shorten the run to 200 m."
+    ],
+    "tips": [
+      "Each set ends when you come off the bar, so stop one rep short of failure to protect later rounds.",
+      "Run at a pace that lets you start the pull-ups with your breathing under control.",
+      "Write down each set's count as you finish it."
+    ],
+    "tags": [
+      "run",
+      "pull-up"
+    ],
+    "timer": {
+      "whiteboard": "Nicole\nAMRAP 20 min\nRun 400 m\nMax pull-ups",
+      "plan": {
+        "mode": "AMRAP",
+        "name": "Nicole",
+        "notes": "As many rounds as possible in 20 minutes of:\n400 m run\nMax pull-ups (one set)",
+        "blocks": [
+          {
+            "label": "AMRAP",
+            "seconds": 1200,
+            "kind": "amrap"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "eva",
+    "name": "Eva",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "5 Rounds: 800 m Run, 30 Kettlebell Swings, 30 Pull-ups",
+    "summary": "5 rounds of an 800 m run, 30 heavy kettlebell swings and 30 pull-ups.",
+    "intro": "Eva is one of the longest benchmarks among the classic named workouts: five rounds of an 800 m run, 30 heavy kettlebell swings and 30 pull-ups. That adds up to four kilometres of running and a lot of grip work, so pacing and grip care decide how the last two rounds feel.",
+    "workout": {
+      "scheme": "5 rounds for time of:",
+      "lines": [
+        "800 m run",
+        "30 kettlebell swings (70/53 lb)",
+        "30 pull-ups"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Kettlebell swing",
+        "men": "70 lb / 32 kg (2 pood)",
+        "women": "53 lb / 24 kg (1.5 pood)"
+      }
+    ],
+    "capMinutes": 60,
+    "scaling": [
+      "Reduce to 3 rounds.",
+      "Lighter kettlebell, and banded pull-ups or ring rows.",
+      "400 m runs instead of 800 m."
+    ],
+    "tips": [
+      "Treat it as an endurance workout: your first 800 m should feel too easy.",
+      "Split the swings and pull-ups into planned sets from round one to save your grip.",
+      "Keep the kettlebell close to the pull-up bar to cut transition time."
+    ],
+    "tags": [
+      "run",
+      "kettlebell swing",
+      "pull-up"
+    ],
+    "timer": {
+      "whiteboard": "Eva\n5 rounds for time\nRun 800 m\n30 kettlebell swings 70/53 lb\n30 pull-ups\nTime cap 60 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Eva",
+        "notes": "5 rounds for time of:\n800 m run\n30 kettlebell swings (70/53 lb)\n30 pull-ups\nTime cap: 60 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 3600,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 3600
+      }
+    }
+  },
+  {
+    "slug": "kelly",
+    "name": "Kelly",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "5 Rounds: 400 m Run, 30 Box Jumps, 30 Wall Balls",
+    "summary": "5 rounds of a 400 m run, 30 box jumps and 30 wall-ball shots.",
+    "intro": "Kelly is a long, leg-heavy grind: five rounds of running, box jumps and wall-ball shots. None of the movements are complicated, but there is nowhere for your legs or lungs to hide. It rewards steady pacing and the discipline to keep moving when the rounds start to blur.",
+    "workout": {
+      "scheme": "5 rounds for time of:",
+      "lines": [
+        "400 m run",
+        "30 box jumps (24/20 in)",
+        "30 wall-ball shots (20/14 lb)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Box jump",
+        "men": "24 in (60 cm)",
+        "women": "20 in (50 cm)"
+      },
+      {
+        "movement": "Wall-ball shot",
+        "men": "20 lb (9 kg)",
+        "women": "14 lb (6 kg)"
+      }
+    ],
+    "capMinutes": 40,
+    "scaling": [
+      "Reduce to 3 rounds.",
+      "Step-ups or a lower box instead of box jumps.",
+      "Lighter wall ball or a lower target."
+    ],
+    "tips": [
+      "Step down from the box rather than rebounding: it saves your calves and Achilles.",
+      "Break the wall balls into sets you can repeat every round, such as 15 and 15.",
+      "Hold the same run pace from round one to round five."
+    ],
+    "tags": [
+      "run",
+      "box jump",
+      "wall ball"
+    ],
+    "timer": {
+      "whiteboard": "Kelly\n5 rounds for time\nRun 400 m\n30 box jumps 24/20 in\n30 wall-ball shots 20/14 lb\nTime cap 40 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Kelly",
+        "notes": "5 rounds for time of:\n400 m run\n30 box jumps (24/20 in)\n30 wall-ball shots (20/14 lb)\nTime cap: 40 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 2400,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 2400
+      }
+    }
+  },
+  {
+    "slug": "nancy",
+    "name": "Nancy",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "5 Rounds: 400 m Run & 15 Overhead Squats",
+    "summary": "5 rounds of a 400 m run and 15 overhead squats.",
+    "intro": "Nancy alternates running with overhead squats for five rounds. The overhead squat needs mobility and a stable midline, and arriving at the bar out of breath makes both harder. It is a good check on whether your overhead position holds up under fatigue.",
+    "workout": {
+      "scheme": "5 rounds for time of:",
+      "lines": [
+        "400 m run",
+        "15 overhead squats (95/65 lb)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Overhead squat",
+        "men": "95 lb (43 kg)",
+        "women": "65 lb (29 kg)"
+      }
+    ],
+    "capMinutes": 25,
+    "scaling": [
+      "Lighter bar or a PVC pipe for the overhead squats.",
+      "Front squats if the overhead position is not yet ready for load.",
+      "Reduce to 3 rounds or run 200 m."
+    ],
+    "tips": [
+      "Take a few breaths before you snatch the bar overhead; a calm start saves reps.",
+      "Keep a wide grip and press up into the bar on every rep.",
+      "Break the 15 into 8 and 7 if you would otherwise drop the bar."
+    ],
+    "tags": [
+      "run",
+      "overhead squat",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Nancy\n5 rounds for time\nRun 400 m\n15 overhead squats 95/65 lb\nTime cap 25 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Nancy",
+        "notes": "5 rounds for time of:\n400 m run\n15 overhead squats (95/65 lb)\nTime cap: 25 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 1500,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 1500
+      }
+    }
+  },
+  {
+    "slug": "linda",
+    "name": "Linda",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "10-to-1 Deadlift, Bench Press, Clean",
+    "summary": "A 10-to-1 ladder of deadlifts, bench presses and cleans, with loads based on body weight.",
+    "intro": "Linda is a descending ladder from 10 reps down to 1 of three lifts, with every load set as a fraction or multiple of your body weight. That is 55 reps of each lift, which makes it one of the heaviest classic benchmarks. It needs a smooth setup between three barbells (or fast plate changes), so plan your space before you start.",
+    "workout": {
+      "scheme": "10-9-8-7-6-5-4-3-2-1 reps for time of:",
+      "lines": [
+        "Deadlift (1.5 x body weight)",
+        "Bench press (body weight)",
+        "Clean (0.75 x body weight)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Deadlift",
+        "men": "1.5 x body weight",
+        "women": "1.5 x body weight"
+      },
+      {
+        "movement": "Bench press",
+        "men": "Body weight",
+        "women": "Body weight"
+      },
+      {
+        "movement": "Clean",
+        "men": "0.75 x body weight",
+        "women": "0.75 x body weight"
+      }
+    ],
+    "capMinutes": 30,
+    "scaling": [
+      "Use percentages of your one-rep max instead of body weight.",
+      "Start the ladder at 7 or 5 for a shorter session.",
+      "Dumbbell bench press if no spotter or bench station is free."
+    ],
+    "tips": [
+      "Set up three bars side by side if your gym allows it; plate changes add minutes.",
+      "Use a spotter or safety arms for the bench press: you will be tired.",
+      "The early rounds are the heavy ones, so stay patient until about round 6."
+    ],
+    "tags": [
+      "deadlift",
+      "bench press",
+      "clean",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Linda\n10-9-8-7-6-5-4-3-2-1 for time\nDeadlift 1.5 x bodyweight\nBench press bodyweight\nClean 0.75 x bodyweight\nTime cap 30 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Linda",
+        "notes": "10-9-8-7-6-5-4-3-2-1 reps for time of:\nDeadlift (1.5 x body weight)\nBench press (body weight)\nClean (0.75 x body weight)\nTime cap: 30 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 1800,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 1800
+      }
+    }
+  },
+  {
+    "slug": "amanda",
+    "name": "Amanda",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "9-7-5 Muscle-ups & Squat Snatches",
+    "summary": "9-7-5 muscle-ups and squat snatches. Short, technical and demanding.",
+    "intro": "Amanda pairs two of the most technical movements in the sport: ring muscle-ups and squat snatches, in a short 9-7-5 scheme. With only 42 reps in total, fitness alone will not carry you; it is about skill holding up under pressure.",
+    "workout": {
+      "scheme": "9-7-5 reps for time of:",
+      "lines": [
+        "Muscle-ups",
+        "Squat snatches (135/95 lb)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Squat snatch",
+        "men": "135 lb (61 kg)",
+        "women": "95 lb (43 kg)"
+      }
+    ],
+    "capMinutes": 15,
+    "scaling": [
+      "Bar muscle-ups, or two pull-ups and two dips per muscle-up.",
+      "Lighter snatch load, or power snatches plus overhead squats.",
+      "Cut the reps to 6-5-4."
+    ],
+    "tips": [
+      "Treat each muscle-up as a skill rep: a failed attempt costs more than a short break.",
+      "Fast singles on the snatches keep your positions sharp.",
+      "Shake out your arms on the walk from the rings to the bar."
+    ],
+    "tags": [
+      "muscle-up",
+      "snatch",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Amanda\n9-7-5 for time\nMuscle-ups\nSquat snatches 135/95 lb\nTime cap 15 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Amanda",
+        "notes": "9-7-5 reps for time of:\nMuscle-ups\nSquat snatches (135/95 lb)\nTime cap: 15 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 900,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 900
+      }
+    }
+  },
+  {
+    "slug": "candy",
+    "name": "Candy",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "5 Rounds: 20 Pull-ups, 40 Push-ups, 60 Squats",
+    "summary": "5 rounds of 20 pull-ups, 40 push-ups and 60 air squats.",
+    "intro": "Candy is a high-volume bodyweight workout: five rounds of 20 pull-ups, 40 push-ups and 60 air squats, for 600 reps in total. The push-ups are usually the limiter, so how you break them up decides your time.",
+    "workout": {
+      "scheme": "5 rounds for time of:",
+      "lines": [
+        "20 pull-ups",
+        "40 push-ups",
+        "60 air squats"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 40,
+    "scaling": [
+      "Reduce to 3 rounds, or halve the reps.",
+      "Banded pull-ups or ring rows.",
+      "Push-ups from the knees or with the hands raised on a box."
+    ],
+    "tips": [
+      "Break the push-ups into many small sets from the first round (for example sets of 8).",
+      "Keep the squats moving: they are your recovery for the next round of pulling.",
+      "Watch your push-up depth late in the workout; it is the first thing to slip."
+    ],
+    "tags": [
+      "pull-up",
+      "push-up",
+      "squat",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Candy\n5 rounds for time\n20 pull-ups\n40 push-ups\n60 air squats\nTime cap 40 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Candy",
+        "notes": "5 rounds for time of:\n20 pull-ups\n40 push-ups\n60 air squats\nTime cap: 40 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 2400,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 2400
+      }
+    }
+  },
+  {
+    "slug": "maggie",
+    "name": "Maggie",
+    "category": "girls",
+    "type": "For Time",
+    "headline": "5 Rounds: 20 Handstand Push-ups, 40 Pull-ups, 60 Pistols",
+    "summary": "5 rounds of 20 handstand push-ups, 40 pull-ups and 60 alternating pistols.",
+    "intro": "Maggie is the advanced version of Candy, with every movement made harder: handstand push-ups, double the pull-ups and single-leg pistols. It is long, very demanding on the shoulders, and best saved for athletes who already handle these skills in volume.",
+    "workout": {
+      "scheme": "5 rounds for time of:",
+      "lines": [
+        "20 handstand push-ups",
+        "40 pull-ups",
+        "60 pistols (alternating legs)"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 45,
+    "scaling": [
+      "Reduce to 3 rounds or halve the reps.",
+      "Pike push-ups or handstand push-ups to an abmat.",
+      "Pistols to a box, or air squats, and banded pull-ups."
+    ],
+    "tips": [
+      "Small, frequent sets on the handstand push-ups from the very first round.",
+      "Alternate legs on the pistols every rep to share the work evenly.",
+      "Expect this to take a long time; pace it like an endurance piece."
+    ],
+    "tags": [
+      "handstand push-up",
+      "pull-up",
+      "pistol",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Maggie\n5 rounds for time\n20 handstand push-ups\n40 pull-ups\n60 pistols\nTime cap 45 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Maggie",
+        "notes": "5 rounds for time of:\n20 handstand push-ups\n40 pull-ups\n60 pistols (alternating legs)\nTime cap: 45 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 2700,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 2700
+      }
+    }
+  },
+  {
+    "slug": "murph",
+    "name": "Murph",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "1 Mile Run, 100 Pull-ups, 200 Push-ups, 300 Squats, 1 Mile Run",
+    "honour": "Murph honours Navy SEAL Lt. Michael P. Murphy, who was killed in action in Afghanistan in June 2005 and was posthumously awarded the Medal of Honor.",
+    "summary": "A mile run, 100 pull-ups, 200 push-ups, 300 air squats and another mile, in a weighted vest.",
+    "intro": "Murph is the best-known Hero workout and a fixture of Memorial Day in gyms around the world. It starts and ends with a mile run, with 100 pull-ups, 200 push-ups and 300 air squats in between, all done wearing a weighted vest at Rx. You may split the middle section however you like, and most people use rounds such as 20 rounds of 5 pull-ups, 10 push-ups and 15 squats.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "1 mile run",
+        "100 pull-ups",
+        "200 push-ups",
+        "300 air squats",
+        "1 mile run",
+        "Rx: wear a weighted vest (20/14 lb)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Weighted vest",
+        "men": "20 lb (9 kg)",
+        "women": "14 lb (6 kg)"
+      }
+    ],
+    "capMinutes": 60,
+    "scaling": [
+      "Do it without the vest, which is how most people start.",
+      "Half Murph: half-mile runs and 50-100-150 reps.",
+      "Banded pull-ups or ring rows, and push-ups on a box or from the knees."
+    ],
+    "tips": [
+      "Split the middle section into rounds (such as 20 rounds of 5-10-15) to keep the pull-ups and push-ups from falling apart.",
+      "Run the first mile slower than you think you need to.",
+      "Drink water beforehand and keep some nearby, especially on a warm day.",
+      "Break the push-ups early; they are the usual bottleneck."
+    ],
+    "tags": [
+      "run",
+      "pull-up",
+      "push-up",
+      "squat",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Murph\nFor time\nRun 1 mile\n100 pull-ups\n200 push-ups\n300 air squats\nRun 1 mile\nWeighted vest 20/14 lb\nTime cap 60 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Murph",
+        "notes": "For time:\n1 mile run\n100 pull-ups\n200 push-ups\n300 air squats\n1 mile run\nRx: wear a weighted vest (20/14 lb)\nTime cap: 60 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 3600,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 3600
+      }
+    }
+  },
+  {
+    "slug": "dt",
+    "name": "DT",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "5 Rounds: Deadlifts, Hang Power Cleans, Push Jerks",
+    "summary": "5 rounds of 12 deadlifts, 9 hang power cleans and 6 push jerks with one barbell.",
+    "intro": "DT is a barbell complex done for time: five rounds of 12 deadlifts, 9 hang power cleans and 6 push jerks, all with the same bar. The weight feels manageable on the first round and very heavy by the fourth, mostly because your grip is giving out. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "5 rounds for time of:",
+      "lines": [
+        "12 deadlifts",
+        "9 hang power cleans",
+        "6 push jerks",
+        "Bar: 155/105 lb"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Barbell (all lifts)",
+        "men": "155 lb (70 kg)",
+        "women": "105 lb (48 kg)"
+      }
+    ],
+    "capMinutes": 15,
+    "scaling": [
+      "Lighter bar: choose a load you could do the first round unbroken.",
+      "Reduce to 3 rounds.",
+      "Push presses instead of push jerks if the jerk is not yet solid."
+    ],
+    "tips": [
+      "Try to hold the deadlifts unbroken and break the cleans before your grip fails.",
+      "Put the bar down on purpose for short breaks rather than dropping it from failure.",
+      "Use a hook grip or short rests to protect your grip for the later rounds."
+    ],
+    "tags": [
+      "deadlift",
+      "clean",
+      "jerk",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "DT\n5 rounds for time\n12 deadlifts\n9 hang power cleans\n6 push jerks\nBar 155/105 lb\nTime cap 15 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "DT",
+        "notes": "5 rounds for time of:\n12 deadlifts\n9 hang power cleans\n6 push jerks\nBar: 155/105 lb\nTime cap: 15 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 900,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 900
+      }
+    }
+  },
+  {
+    "slug": "michael",
+    "name": "Michael",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "3 Rounds: 800 m Run, 50 Back Extensions, 50 Sit-ups",
+    "summary": "3 rounds of an 800 m run, 50 back extensions and 50 sit-ups.",
+    "intro": "Michael is three rounds of an 800 m run followed by 50 back extensions and 50 sit-ups. It is a strong test of running and trunk endurance, and the high-rep core work makes the runs feel longer than they are. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "3 rounds for time of:",
+      "lines": [
+        "800 m run",
+        "50 back extensions",
+        "50 sit-ups"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 40,
+    "scaling": [
+      "Reduce the run to 400 m and the reps to 30.",
+      "Superman holds or good mornings with a light bar if there is no back extension machine.",
+      "Row 1000 m instead of the 800 m run."
+    ],
+    "tips": [
+      "Keep the back extensions smooth and controlled; this is volume, not speed.",
+      "Break the sit-ups into sets of 25 before you need to.",
+      "Use the first part of each run to let your heart rate settle."
+    ],
+    "tags": [
+      "run",
+      "back extension",
+      "sit-up",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Michael\n3 rounds for time\nRun 800 m\n50 back extensions\n50 sit-ups\nTime cap 40 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Michael",
+        "notes": "3 rounds for time of:\n800 m run\n50 back extensions\n50 sit-ups\nTime cap: 40 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 2400,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 2400
+      }
+    }
+  },
+  {
+    "slug": "jt",
+    "name": "JT",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "21-15-9 Handstand Push-ups, Ring Dips, Push-ups",
+    "summary": "21-15-9 handstand push-ups, ring dips and push-ups. All pressing, no let-up.",
+    "intro": "JT is pure upper-body pressing: handstand push-ups, ring dips and push-ups in a 21-15-9 scheme. Each movement hits the same muscles from a slightly different angle, so there is nowhere to hide once your triceps start to fade. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "21-15-9 reps for time of:",
+      "lines": [
+        "Handstand push-ups",
+        "Ring dips",
+        "Push-ups"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 15,
+    "scaling": [
+      "Pike push-ups or handstand push-ups to an abmat.",
+      "Bar dips, box dips or banded ring dips.",
+      "Push-ups from the knees or on a box, or a 15-12-9 scheme."
+    ],
+    "tips": [
+      "Start every movement with small sets; failure on pressing movements comes suddenly.",
+      "Keep the elbows tucked on the push-ups to share the load with your chest.",
+      "Short, regular rests beat long breaks after failure."
+    ],
+    "tags": [
+      "handstand push-up",
+      "dip",
+      "push-up",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "JT\n21-15-9 for time\nHandstand push-ups\nRing dips\nPush-ups\nTime cap 15 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "JT",
+        "notes": "21-15-9 reps for time of:\nHandstand push-ups\nRing dips\nPush-ups\nTime cap: 15 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 900,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 900
+      }
+    }
+  },
+  {
+    "slug": "nate",
+    "name": "Nate",
+    "category": "hero",
+    "type": "AMRAP",
+    "headline": "20 min AMRAP: Muscle-ups, Handstand Push-ups, Kettlebell Swings",
+    "summary": "A 20 minute AMRAP of 2 muscle-ups, 4 handstand push-ups and 8 heavy kettlebell swings.",
+    "intro": "Nate is a 20 minute AMRAP built around two advanced gymnastics movements and a heavy kettlebell. The reps per round are small, so the challenge is keeping quality high as the rounds pile up. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "As many rounds as possible in 20 minutes of:",
+      "lines": [
+        "2 muscle-ups",
+        "4 handstand push-ups",
+        "8 kettlebell swings (70/53 lb)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Kettlebell swing",
+        "men": "70 lb / 32 kg (2 pood)",
+        "women": "53 lb / 24 kg (1.5 pood)"
+      }
+    ],
+    "durationMinutes": 20,
+    "scaling": [
+      "Bar muscle-ups, or 4 pull-ups and 4 dips per round.",
+      "Pike push-ups or handstand push-ups to an abmat.",
+      "Lighter kettlebell or Russian swings."
+    ],
+    "tips": [
+      "Never rush the muscle-ups; a missed rep costs more than a slow one.",
+      "Treat the swings as active rest and keep them unbroken.",
+      "Aim for a steady round time and hold it."
+    ],
+    "tags": [
+      "muscle-up",
+      "handstand push-up",
+      "kettlebell swing"
+    ],
+    "timer": {
+      "whiteboard": "Nate\nAMRAP 20 min\n2 muscle-ups\n4 handstand push-ups\n8 kettlebell swings 70/53 lb",
+      "plan": {
+        "mode": "AMRAP",
+        "name": "Nate",
+        "notes": "As many rounds as possible in 20 minutes of:\n2 muscle-ups\n4 handstand push-ups\n8 kettlebell swings (70/53 lb)",
+        "blocks": [
+          {
+            "label": "AMRAP",
+            "seconds": 1200,
+            "kind": "amrap"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "randy",
+    "name": "Randy",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "75 Power Snatches for Time",
+    "summary": "75 power snatches at a light load, as fast as possible.",
+    "intro": "Randy is 75 power snatches with a light barbell, for time. The load is easy, the volume is not: your grip, shoulders and lungs all have something to say before the end. It rewards a smooth, repeatable snatch and a sensible plan for sets. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "75 power snatches (75/55 lb)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Power snatch",
+        "men": "75 lb (34 kg)",
+        "women": "55 lb (25 kg)"
+      }
+    ],
+    "capMinutes": 10,
+    "scaling": [
+      "Lighter bar, or dumbbell snatches alternating arms.",
+      "Reduce to 50 reps.",
+      "Hang power snatches if pulling from the floor is uncomfortable."
+    ],
+    "tips": [
+      "Break it into sets you can repeat, such as 5 sets of 15 or sets of 10.",
+      "Use a hook grip to save your hands.",
+      "Keep rests short: a few breaths, then pick the bar back up."
+    ],
+    "tags": [
+      "snatch",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Randy\nFor time\n75 power snatches 75/55 lb\nTime cap 10 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Randy",
+        "notes": "For time:\n75 power snatches (75/55 lb)\nTime cap: 10 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 600,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 600
+      }
+    }
+  },
+  {
+    "slug": "badger",
+    "name": "Badger",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "3 Rounds: 30 Squat Cleans, 30 Pull-ups, 800 m Run",
+    "summary": "3 rounds of 30 squat cleans, 30 pull-ups and an 800 m run.",
+    "intro": "Badger is three long rounds of 30 squat cleans, 30 pull-ups and an 800 m run. The bar is moderate, but 90 squat cleans in total will test your legs, lungs and grip in equal measure. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "3 rounds for time of:",
+      "lines": [
+        "30 squat cleans (95/65 lb)",
+        "30 pull-ups",
+        "800 m run"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Squat clean",
+        "men": "95 lb (43 kg)",
+        "women": "65 lb (29 kg)"
+      }
+    ],
+    "capMinutes": 40,
+    "scaling": [
+      "Lighter bar, or power cleans plus front squats if needed.",
+      "Banded pull-ups or ring rows.",
+      "Reduce to 20 reps per round, or run 400 m."
+    ],
+    "tips": [
+      "Break the cleans into sets of 5 to 10 that you can repeat in every round.",
+      "Use the run to recover your grip and breathing.",
+      "Keep the elbows fast in the clean so tired legs do not have to catch a low bar."
+    ],
+    "tags": [
+      "clean",
+      "pull-up",
+      "run",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Badger\n3 rounds for time\n30 squat cleans 95/65 lb\n30 pull-ups\nRun 800 m\nTime cap 40 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Badger",
+        "notes": "3 rounds for time of:\n30 squat cleans (95/65 lb)\n30 pull-ups\n800 m run\nTime cap: 40 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 2400,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 2400
+      }
+    }
+  },
+  {
+    "slug": "josh",
+    "name": "Josh",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "Overhead Squats & Pull-ups: 21-42, 15-30, 9-18",
+    "summary": "21-15-9 overhead squats paired with 42-30-18 pull-ups.",
+    "intro": "Josh pairs overhead squats with twice as many pull-ups, in descending rounds of 21 and 42, 15 and 30, then 9 and 18. The pull-up volume is high, and overhead squats need steady shoulders that pull-ups do their best to tire out. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "21 overhead squats (95/65 lb)",
+        "42 pull-ups",
+        "15 overhead squats",
+        "30 pull-ups",
+        "9 overhead squats",
+        "18 pull-ups"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Overhead squat",
+        "men": "95 lb (43 kg)",
+        "women": "65 lb (29 kg)"
+      }
+    ],
+    "capMinutes": 20,
+    "scaling": [
+      "Lighter bar or PVC for the overhead squats.",
+      "Banded pull-ups or ring rows, or halve the pull-up reps.",
+      "Front squats if the overhead position is not ready for load."
+    ],
+    "tips": [
+      "Break the 42 pull-ups into planned sets from the very first one.",
+      "Give your shoulders a few seconds before taking the bar overhead again.",
+      "Keep your grip wide and active on the overhead squats."
+    ],
+    "tags": [
+      "overhead squat",
+      "pull-up",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Josh\nFor time\n21 overhead squats 95/65 lb\n42 pull-ups\n15 overhead squats\n30 pull-ups\n9 overhead squats\n18 pull-ups\nTime cap 20 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Josh",
+        "notes": "For time:\n21 overhead squats (95/65 lb)\n42 pull-ups\n15 overhead squats\n30 pull-ups\n9 overhead squats\n18 pull-ups\nTime cap: 20 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 1200,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 1200
+      }
+    }
+  },
+  {
+    "slug": "jason",
+    "name": "Jason",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "Squats & Muscle-ups: 100-5, 75-10, 50-15, 25-20",
+    "summary": "Squats go down from 100 while muscle-ups climb from 5 to 20.",
+    "intro": "Jason is a crossing ladder: the squats go down (100, 75, 50, 25) while the muscle-ups go up (5, 10, 15, 20). It starts as a leg workout and ends as a muscle-up test with 50 reps on the rings in total. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "100 air squats",
+        "5 muscle-ups",
+        "75 air squats",
+        "10 muscle-ups",
+        "50 air squats",
+        "15 muscle-ups",
+        "25 air squats",
+        "20 muscle-ups"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 30,
+    "scaling": [
+      "Bar muscle-ups, or 2 pull-ups and 2 dips per muscle-up.",
+      "Halve the squat numbers.",
+      "Banded transition drills or jumping muscle-ups from a box."
+    ],
+    "tips": [
+      "Keep the 100 squats steady; your legs need to last but your arms are the limiter.",
+      "Do the later muscle-ups as quick singles or doubles.",
+      "Chalk up before each set on the rings."
+    ],
+    "tags": [
+      "squat",
+      "muscle-up",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Jason\nFor time\n100 air squats\n5 muscle-ups\n75 air squats\n10 muscle-ups\n50 air squats\n15 muscle-ups\n25 air squats\n20 muscle-ups\nTime cap 30 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Jason",
+        "notes": "For time:\n100 air squats\n5 muscle-ups\n75 air squats\n10 muscle-ups\n50 air squats\n15 muscle-ups\n25 air squats\n20 muscle-ups\nTime cap: 30 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 1800,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 1800
+      }
+    }
+  },
+  {
+    "slug": "holleyman",
+    "name": "Holleyman",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "30 Rounds: Wall Balls, Handstand Push-ups, Power Clean",
+    "summary": "30 rounds of 5 wall-ball shots, 3 handstand push-ups and 1 heavy power clean.",
+    "intro": "Holleyman is 30 short rounds: 5 wall-ball shots, 3 handstand push-ups and a single heavy power clean. Each round is short, but thirty heavy cleans on tired legs and shoulders add up. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "30 rounds for time of:",
+      "lines": [
+        "5 wall-ball shots (20 lb)",
+        "3 handstand push-ups",
+        "1 power clean (225 lb)"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Wall-ball shot",
+        "men": "20 lb (9 kg)"
+      },
+      {
+        "movement": "Power clean",
+        "men": "225 lb (102 kg)"
+      }
+    ],
+    "rxNote": "Only the men's loads are listed here. Pick a clean you can make for 30 singles.",
+    "capMinutes": 40,
+    "scaling": [
+      "Reduce the clean to a load you can make every round without misses.",
+      "Pike push-ups or handstand push-ups to an abmat.",
+      "Reduce to 20 rounds."
+    ],
+    "tips": [
+      "Settle into a steady rhythm; a round every 60 to 80 seconds is a good target for many athletes.",
+      "Set up the bar, the wall and the handstand spot right next to each other.",
+      "Treat every clean as a fresh lift: set your back, then pull."
+    ],
+    "tags": [
+      "wall ball",
+      "handstand push-up",
+      "clean",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Holleyman\n30 rounds for time\n5 wall-ball shots 20 lb\n3 handstand push-ups\n1 power clean 225 lb\nTime cap 40 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Holleyman",
+        "notes": "30 rounds for time of:\n5 wall-ball shots (20 lb)\n3 handstand push-ups\n1 power clean (225 lb)\nTime cap: 40 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 2400,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 2400
+      }
+    }
+  },
+  {
+    "slug": "ryan",
+    "name": "Ryan",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "5 Rounds: 7 Muscle-ups & 21 Burpees",
+    "summary": "5 rounds of 7 muscle-ups and 21 burpees, each finishing with a jump to a target.",
+    "intro": "Ryan is five rounds of 7 muscle-ups and 21 burpees, where each burpee ends with a jump to touch a target 12 inches above your standing reach. Muscle-ups when you are out of breath from burpees are a real test of skill under fatigue. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "5 rounds for time of:",
+      "lines": [
+        "7 muscle-ups",
+        "21 burpees (jump to a target 12 in above reach)"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 25,
+    "scaling": [
+      "Bar muscle-ups, or 2 pull-ups and 2 dips per muscle-up.",
+      "Burpees without the target jump.",
+      "Reduce to 3 rounds."
+    ],
+    "tips": [
+      "Take a few breaths before each set of muscle-ups to avoid failed reps.",
+      "Find a burpee rhythm you could hold for all 105 reps.",
+      "Set the target where you can reach it without searching for it."
+    ],
+    "tags": [
+      "muscle-up",
+      "burpee",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Ryan\n5 rounds for time\n7 muscle-ups\n21 burpees\nTime cap 25 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Ryan",
+        "notes": "5 rounds for time of:\n7 muscle-ups\n21 burpees (jump to a target 12 in above reach)\nTime cap: 25 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 1500,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 1500
+      }
+    }
+  },
+  {
+    "slug": "kalsu",
+    "name": "Kalsu",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "100 Thrusters with 5 Burpees Every Minute",
+    "summary": "100 thrusters for time, with 5 burpees at the top of every minute.",
+    "intro": "Kalsu is 100 heavy thrusters for time with a catch: you start with 5 burpees, and at the start of every minute after that you stop and do 5 more burpees before going back to the bar. The longer you take, the less time each minute leaves for thrusters, so it punishes slow starts. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "100 thrusters (135/95 lb)",
+        "Start with 5 burpees, then 5 burpees at the top of every minute until the thrusters are done"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Thrusters",
+        "men": "135 lb (61 kg)",
+        "women": "95 lb (43 kg)"
+      }
+    ],
+    "capMinutes": 30,
+    "scaling": [
+      "Lighter bar: a load you can do 5 to 10 thrusters with each minute.",
+      "Reduce to 50 or 75 thrusters.",
+      "Three burpees per minute instead of five."
+    ],
+    "tips": [
+      "Plan a fixed number of thrusters per minute (for example 5 to 8) and hold it.",
+      "Do your burpees right next to the bar to save seconds every minute.",
+      "The SnapWOD timer beeps every minute, so you always know when the burpees are due."
+    ],
+    "tags": [
+      "thruster",
+      "burpee",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Kalsu\nFor time\n100 thrusters 135/95 lb\n5 burpees at the top of every minute, EMOM 30 min",
+      "plan": {
+        "mode": "EMOM",
+        "name": "Kalsu",
+        "notes": "For time:\n100 thrusters (135/95 lb)\nStart with 5 burpees, then 5 burpees at the top of every minute until the thrusters are done\nTime cap: 30 min",
+        "blocks": [
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "EMOM",
+            "seconds": 60,
+            "kind": "work"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "daniel",
+    "name": "Daniel",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "Pull-ups, Runs and Thrusters Chipper",
+    "summary": "50 pull-ups, three runs and two sets of 21 thrusters, then 50 more pull-ups.",
+    "intro": "Daniel is a symmetrical chipper: 50 pull-ups, a 400 m run, 21 thrusters, an 800 m run, 21 thrusters, another 400 m run, and 50 pull-ups to finish. It covers 1600 m of running and asks for big pull-up volume at both ends. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "50 pull-ups",
+        "400 m run",
+        "21 thrusters (95/65 lb)",
+        "800 m run",
+        "21 thrusters",
+        "400 m run",
+        "50 pull-ups"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Thrusters",
+        "men": "95 lb (43 kg)",
+        "women": "65 lb (29 kg)"
+      }
+    ],
+    "capMinutes": 30,
+    "scaling": [
+      "Halve the pull-ups, or use banded pull-ups or ring rows.",
+      "Lighter bar for the thrusters.",
+      "Row or bike if running is not possible."
+    ],
+    "tips": [
+      "Break the first 50 pull-ups into small sets; you need your grip again at the end.",
+      "Hold back on the 800 m run so the second set of thrusters is still smooth.",
+      "The final 50 pull-ups will be slower; plan sets of 5 and keep the rests short."
+    ],
+    "tags": [
+      "pull-up",
+      "run",
+      "thruster",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Daniel\nFor time\n50 pull-ups\nRun 400 m\n21 thrusters 95/65 lb\nRun 800 m\n21 thrusters\nRun 400 m\n50 pull-ups\nTime cap 30 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Daniel",
+        "notes": "For time:\n50 pull-ups\n400 m run\n21 thrusters (95/65 lb)\n800 m run\n21 thrusters\n400 m run\n50 pull-ups\nTime cap: 30 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 1800,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 1800
+      }
+    }
+  },
+  {
+    "slug": "danny",
+    "name": "Danny",
+    "category": "hero",
+    "type": "AMRAP",
+    "headline": "20 min AMRAP: Box Jumps, Push Presses, Pull-ups",
+    "summary": "A 20 minute AMRAP of 30 box jumps, 20 push presses and 30 pull-ups.",
+    "intro": "Danny is a 20 minute AMRAP with big rounds: 30 box jumps, 20 push presses and 30 pull-ups. Each round is long enough that pacing matters from the first rep, and the pull-ups are usually where it slows down. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "As many rounds as possible in 20 minutes of:",
+      "lines": [
+        "30 box jumps (24 in)",
+        "20 push presses (115 lb)",
+        "30 pull-ups"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Box jump",
+        "men": "24 in (60 cm)"
+      },
+      {
+        "movement": "Push press",
+        "men": "115 lb (52 kg)"
+      }
+    ],
+    "rxNote": "Only the men's standards are listed here; scale the box and bar to keep every round moving.",
+    "durationMinutes": 20,
+    "scaling": [
+      "Lower box or step-ups.",
+      "Lighter bar for the push presses.",
+      "Banded pull-ups or ring rows, or halve the pull-ups."
+    ],
+    "tips": [
+      "Step down from the box to save your legs and Achilles.",
+      "Break the push presses into two sets you can repeat each round.",
+      "Start the pull-ups with small sets so the later rounds don't stall."
+    ],
+    "tags": [
+      "box jump",
+      "push press",
+      "pull-up",
+      "barbell"
+    ],
+    "timer": {
+      "whiteboard": "Danny\nAMRAP 20 min\n30 box jumps 24 in\n20 push presses 115 lb\n30 pull-ups",
+      "plan": {
+        "mode": "AMRAP",
+        "name": "Danny",
+        "notes": "As many rounds as possible in 20 minutes of:\n30 box jumps (24 in)\n20 push presses (115 lb)\n30 pull-ups",
+        "blocks": [
+          {
+            "label": "AMRAP",
+            "seconds": 1200,
+            "kind": "amrap"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "slug": "jerry",
+    "name": "Jerry",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "1 Mile Run, 2K Row, 1 Mile Run",
+    "summary": "A mile run, a 2000 m row and another mile run.",
+    "intro": "Jerry is an endurance sandwich: run a mile, row 2000 m, then run another mile. There are no skills to slow you down, so it is a clean test of aerobic capacity and pacing. The second mile, on legs that just rowed hard, is where the workout is decided. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "1 mile run",
+        "2000 m row",
+        "1 mile run"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 30,
+    "scaling": [
+      "Half-mile runs and a 1000 m row.",
+      "Bike or ski erg in place of the runs.",
+      "Walk-run intervals on the runs if needed."
+    ],
+    "tips": [
+      "Row with long, strong strokes rather than a fast stroke rate.",
+      "Expect the first few hundred metres of the second run to feel awful; they ease off.",
+      "Aim for even splits on both miles."
+    ],
+    "tags": [
+      "run",
+      "row"
+    ],
+    "timer": {
+      "whiteboard": "Jerry\nFor time\nRun 1 mile\nRow 2000 m\nRun 1 mile\nTime cap 30 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Jerry",
+        "notes": "For time:\n1 mile run\n2000 m row\n1 mile run\nTime cap: 30 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 1800,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 1800
+      }
+    }
+  },
+  {
+    "slug": "griff",
+    "name": "Griff",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "800 m Run, 400 m Backwards, Twice",
+    "summary": "Run 800 m, 400 m backwards, 800 m, then 400 m backwards.",
+    "intro": "Griff is a running workout with a twist: two 800 m runs, each followed by 400 m running backwards. The backwards running hits your quads and calves in a way regular running does not, and it needs a safe, clear route. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "800 m run",
+        "400 m run backwards",
+        "800 m run",
+        "400 m run backwards"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 20,
+    "scaling": [
+      "Halve the distances.",
+      "Walk the backwards sections.",
+      "Use a treadmill or track for a safe surface."
+    ],
+    "tips": [
+      "Choose a flat route with no obstacles for the backwards sections.",
+      "Stay on the balls of your feet when running backwards.",
+      "Glance over your shoulder regularly or run with a partner as a spotter."
+    ],
+    "tags": [
+      "run"
+    ],
+    "timer": {
+      "whiteboard": "Griff\nFor time\nRun 800 m\nRun 400 m backwards\nRun 800 m\nRun 400 m backwards\nTime cap 20 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Griff",
+        "notes": "For time:\n800 m run\n400 m run backwards\n800 m run\n400 m run backwards\nTime cap: 20 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 1200,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 1200
+      }
+    }
+  },
+  {
+    "slug": "loredo",
+    "name": "Loredo",
+    "category": "hero",
+    "type": "For Time",
+    "headline": "6 Rounds: 24 Squats, 24 Push-ups, 24 Lunges, 400 m Run",
+    "summary": "6 rounds of 24 air squats, 24 push-ups, 24 walking lunge steps and a 400 m run.",
+    "intro": "Loredo is six rounds of 24 air squats, 24 push-ups, 24 walking lunge steps and a 400 m run. It is all bodyweight and easy to set up anywhere, but the leg volume makes the runs heavy by the halfway point. It is a Hero workout honouring a fallen service member.",
+    "workout": {
+      "scheme": "6 rounds for time of:",
+      "lines": [
+        "24 air squats",
+        "24 push-ups",
+        "24 walking lunge steps",
+        "400 m run"
+      ]
+    },
+    "rx": [],
+    "capMinutes": 40,
+    "scaling": [
+      "Reduce to 4 rounds.",
+      "Push-ups from the knees or on a box.",
+      "Shorter runs (200 m) or rowing."
+    ],
+    "tips": [
+      "Hold back on the first two rounds; the lunges catch up with you later.",
+      "Break the push-ups early, for example 12 and 12.",
+      "Count lunge steps in pairs so you don't lose track."
+    ],
+    "tags": [
+      "squat",
+      "push-up",
+      "lunge",
+      "run",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Loredo\n6 rounds for time\n24 air squats\n24 push-ups\n24 walking lunge steps\nRun 400 m\nTime cap 40 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Loredo",
+        "notes": "6 rounds for time of:\n24 air squats\n24 push-ups\n24 walking lunge steps\n400 m run\nTime cap: 40 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 2400,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 2400
+      }
+    }
+  },
+  {
+    "slug": "filthy-fifty",
+    "name": "Filthy Fifty",
+    "category": "classic",
+    "type": "For Time",
+    "headline": "50 Reps of 10 Movements",
+    "summary": "Ten movements, 50 reps each: a long chipper of 500 reps.",
+    "intro": "The Filthy Fifty is a chipper of ten movements, 50 reps each, done once through in order. Five hundred reps covering jumping, pulling, swinging, lunging, core and pressing make it a long and varied test of work capacity. The goal is simply to keep moving.",
+    "workout": {
+      "scheme": "For time:",
+      "lines": [
+        "50 box jumps (24 in)",
+        "50 jumping pull-ups",
+        "50 kettlebell swings (35 lb)",
+        "50 walking lunge steps",
+        "50 knees-to-elbows",
+        "50 push presses (45 lb)",
+        "50 back extensions",
+        "50 wall-ball shots (20 lb)",
+        "50 burpees",
+        "50 double-unders"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Box jump",
+        "men": "24 in (60 cm)"
+      },
+      {
+        "movement": "Kettlebell swing",
+        "men": "35 lb / 16 kg (1 pood)"
+      },
+      {
+        "movement": "Push press",
+        "men": "45 lb (20 kg)"
+      },
+      {
+        "movement": "Wall-ball shot",
+        "men": "20 lb (9 kg)"
+      }
+    ],
+    "rxNote": "These are the original standards; many gyms use a lower box and lighter wall ball for women.",
+    "capMinutes": 40,
+    "scaling": [
+      "Halve every movement to 25 reps.",
+      "Step-ups instead of box jumps, single-unders instead of double-unders.",
+      "Hanging knee raises instead of knees-to-elbows."
+    ],
+    "tips": [
+      "Break each 50 into planned sets before you start.",
+      "Pace the early stations: the burpees and double-unders come at the very end.",
+      "Keep transitions short by setting the stations up in order."
+    ],
+    "tags": [
+      "box jump",
+      "pull-up",
+      "kettlebell swing",
+      "lunge",
+      "push press",
+      "back extension",
+      "wall ball",
+      "burpee",
+      "double-under"
+    ],
+    "timer": {
+      "whiteboard": "Filthy Fifty\nFor time\n50 box jumps 24 in\n50 jumping pull-ups\n50 kettlebell swings 35 lb\n50 walking lunge steps\n50 knees-to-elbows\n50 push presses 45 lb\n50 back extensions\n50 wall-ball shots 20 lb\n50 burpees\n50 double-unders\nTime cap 40 min",
+      "plan": {
+        "mode": "FOR_TIME",
+        "name": "Filthy Fifty",
+        "notes": "For time:\n50 box jumps (24 in)\n50 jumping pull-ups\n50 kettlebell swings (35 lb)\n50 walking lunge steps\n50 knees-to-elbows\n50 push presses (45 lb)\n50 back extensions\n50 wall-ball shots (20 lb)\n50 burpees\n50 double-unders\nTime cap: 40 min",
+        "blocks": [
+          {
+            "label": "For Time Cap",
+            "seconds": 2400,
+            "kind": "cap"
+          }
+        ],
+        "capSeconds": 2400
+      }
+    }
+  },
+  {
+    "slug": "fight-gone-bad",
+    "name": "Fight Gone Bad",
+    "category": "classic",
+    "type": "Intervals",
+    "headline": "3 Rounds of 5 One-Minute Stations",
+    "summary": "Three rounds of five one-minute stations, with a minute of rest between rounds.",
+    "intro": "Fight Gone Bad is five one-minute stations done for max reps: wall-ball shots, sumo deadlift high pulls, box jumps, push presses and rowing for calories. You do three rounds with one minute of rest between them, and your score is the total reps across every station. The clock does the pacing; your job is to work hard every minute.",
+    "workout": {
+      "scheme": "3 rounds, 1 minute at each station for max reps:",
+      "lines": [
+        "Wall-ball shots (20/14 lb)",
+        "Sumo deadlift high pulls (75 lb)",
+        "Box jumps (20 in)",
+        "Push presses (75 lb)",
+        "Row (calories)",
+        "1 minute rest between rounds"
+      ]
+    },
+    "rx": [
+      {
+        "movement": "Wall-ball shot",
+        "men": "20 lb (9 kg)",
+        "women": "14 lb (6 kg)"
+      },
+      {
+        "movement": "Sumo deadlift high pull",
+        "men": "75 lb (34 kg)"
+      },
+      {
+        "movement": "Box jump",
+        "men": "20 in (50 cm)"
+      },
+      {
+        "movement": "Push press",
+        "men": "75 lb (34 kg)"
+      }
+    ],
+    "rxNote": "Use the same bar for the high pulls and push presses. Women commonly use a lighter bar.",
+    "durationMinutes": 17,
+    "scaling": [
+      "Lighter bar and ball.",
+      "Step-ups or a lower box.",
+      "Do two rounds instead of three."
+    ],
+    "tips": [
+      "Move to the next station the moment the minute ends; the clock does not wait.",
+      "Score each station as you go so you have a total at the end.",
+      "Hold back slightly in round one so you can match it in round three."
+    ],
+    "tags": [
+      "wall ball",
+      "deadlift",
+      "box jump",
+      "push press",
+      "row"
+    ],
+    "timer": {
+      "whiteboard": "Fight Gone Bad\n3 rounds\n1:00 wall-ball shots\n1:00 sumo deadlift high pulls\n1:00 box jumps\n1:00 push presses\n1:00 row calories\n1:00 rest",
+      "plan": {
+        "mode": "INTERVAL",
+        "name": "Fight Gone Bad",
+        "notes": "3 rounds, 1 minute at each station for max reps:\nWall-ball shots (20/14 lb)\nSumo deadlift high pulls (75 lb)\nBox jumps (20 in)\nPush presses (75 lb)\nRow (calories)\n1 minute rest between rounds",
+        "blocks": [
+          {
+            "label": "Wall-ball shots",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Sumo deadlift high pulls",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Box jumps",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Push presses",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Row (calories)",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 60,
+            "kind": "rest"
+          },
+          {
+            "label": "Wall-ball shots",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Sumo deadlift high pulls",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Box jumps",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Push presses",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Row (calories)",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 60,
+            "kind": "rest"
+          },
+          {
+            "label": "Wall-ball shots",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Sumo deadlift high pulls",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Box jumps",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Push presses",
+            "seconds": 60,
+            "kind": "work"
+          },
+          {
+            "label": "Row (calories)",
+            "seconds": 60,
+            "kind": "work"
+          }
+        ]
+      },
+      "handFixed": "The parser alternates the six 1:00 times as work/rest (station 2 and 4 become rest). Hand-written as 3 rounds of five labelled 1:00 work stations with 1:00 rest between rounds (17 min)."
+    }
+  },
+  {
+    "slug": "tabata-something-else",
+    "name": "Tabata Something Else",
+    "category": "classic",
+    "type": "Tabata",
+    "headline": "32 Tabata Intervals: Pull-ups, Push-ups, Sit-ups, Squats",
+    "summary": "Eight Tabata intervals each of pull-ups, push-ups, sit-ups and squats, back to back.",
+    "intro": "Tabata Something Else is 32 Tabata intervals in a row: 20 seconds of work and 10 seconds of rest, eight times each for pull-ups, push-ups, sit-ups and air squats, with no extra rest between movements. Your score is the total reps across all 32 work intervals, and the full workout takes 16 minutes.",
+    "workout": {
+      "scheme": "Tabata intervals (20 s work / 10 s rest), 8 rounds of each, back to back:",
+      "lines": [
+        "Pull-ups",
+        "Push-ups",
+        "Sit-ups",
+        "Air squats"
+      ]
+    },
+    "rx": [],
+    "durationMinutes": 16,
+    "scaling": [
+      "Banded pull-ups or ring rows.",
+      "Push-ups from the knees or with the hands on a box.",
+      "Use 4 rounds of each movement for an 8 minute version."
+    ],
+    "tips": [
+      "Set up the pull-up bar and floor space close together: the 10 seconds go by fast.",
+      "Aim to keep your rep count in each interval close to your first one.",
+      "Count reps per interval and add them up at the end."
+    ],
+    "tags": [
+      "pull-up",
+      "push-up",
+      "sit-up",
+      "squat",
+      "bodyweight"
+    ],
+    "timer": {
+      "whiteboard": "Tabata Something Else\nTabata x 32\nPull-ups, push-ups, sit-ups, air squats: 8 rounds each",
+      "plan": {
+        "mode": "TABATA",
+        "name": "Tabata Something Else",
+        "notes": "Tabata intervals (20 s work / 10 s rest), 8 rounds of each, back to back:\nPull-ups\nPush-ups\nSit-ups\nAir squats",
+        "blocks": [
+          {
+            "label": "Pull-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Pull-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Pull-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Pull-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Pull-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Pull-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Pull-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Pull-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Push-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Push-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Push-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Push-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Push-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Push-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Push-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Push-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Sit-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Sit-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Sit-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Sit-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Sit-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Sit-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Sit-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Sit-ups",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Air squats",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Air squats",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Air squats",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Air squats",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Air squats",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Air squats",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Air squats",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          },
+          {
+            "label": "Air squats",
+            "seconds": 20,
+            "kind": "work"
+          },
+          {
+            "label": "Rest",
+            "seconds": 10,
+            "kind": "rest"
+          }
+        ]
+      },
+      "handFixed": "The parser matches \"Tabata\" in the name first and builds a default 8-round Tabata (4 min) instead of 32 rounds, labelled \"Tabata N Work\". Hand-written as 32 x (0:20 work / 0:10 rest) in the parser's Tabata shape, with each interval labelled by its movement (16 min)."
+    }
+  }
+]

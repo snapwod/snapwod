@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>12 Minute AMRAP Timer: Free Countdown Clock | SnapWOD</title>
+  <meta name="description" content="Free 12 minute AMRAP timer with a get-ready countdown and 3-2-1 beeps, plus three 12 minute AMRAP workouts you can do with basic gym kit." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#040406" />
+  <link rel="canonical" href="https://snapwod.github.io/snapwod/timer/12-minute-amrap" />
+  <link rel="icon" href="../snapwod-logo.png" />
+  <link rel="apple-touch-icon" href="../snapwod-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SnapWOD" />
+  <meta property="og:title" content="12 minute AMRAP timer" />
+  <meta property="og:description" content="Free 12 minute AMRAP timer with a get-ready countdown and 3-2-1 beeps, plus three 12 minute AMRAP workouts you can do with basic gym kit." />
+  <meta property="og:url" content="https://snapwod.github.io/snapwod/timer/12-minute-amrap" />
+  <meta property="og:image" content="https://snapwod.github.io/snapwod/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="12 minute AMRAP timer" />
+  <meta name="twitter:description" content="Free 12 minute AMRAP timer with a get-ready countdown and 3-2-1 beeps, plus three 12 minute AMRAP workouts you can do with basic gym kit." />
+  <meta name="twitter:image" content="https://snapwod.github.io/snapwod/og-image.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "SnapWOD",
+          "item": "https://snapwod.github.io/snapwod/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Workout timer",
+          "item": "https://snapwod.github.io/snapwod/timer/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "12 minute AMRAP timer",
+          "item": "https://snapwod.github.io/snapwod/timer/12-minute-amrap"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://snapwod.github.io/snapwod/timer/12-minute-amrap#timer",
+      "name": "12 minute AMRAP timer",
+      "url": "https://snapwod.github.io/snapwod/timer/12-minute-amrap",
+      "description": "Free 12 minute AMRAP timer with a get-ready countdown and 3-2-1 beeps, plus three 12 minute AMRAP workouts you can do with basic gym kit.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any (web browser)",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "image": "https://snapwod.github.io/snapwod/og-image.png",
+      "publisher": {
+        "@type": "Organization",
+        "name": "SnapWOD",
+        "url": "https://snapwod.github.io/snapwod/"
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "SnapWOD",
+        "url": "https://snapwod.github.io/snapwod/"
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #040406; --surface: #111115; --surface-2: #17171d; --line: #26262e;
+      --text: #ffffff; --muted: #a1a1aa; --cyan: #00e0ff; --green: #30d158; --orange: #ff9f0a;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; color: var(--text); background: var(--bg);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.55;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+    .display { font-family: Rajdhani, Inter, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; line-height: 0.95; margin: 0; }
+    .cyan { color: var(--cyan); }
+    header.top {
+      position: sticky; top: 0; z-index: 20; background: rgba(4, 4, 6, 0.85);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand img { width: 32px; height: 32px; border-radius: 8px; outline: 1px solid var(--line); }
+    .brand span { font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 22px; }
+    .nav-r { display: flex; align-items: center; gap: 18px; white-space: nowrap; }
+    @media (max-width: 360px) { .nav-r { gap: 12px; } .nav a.lib { font-size: 14px; } }
+    .nav a.lib { font-size: 15px; color: var(--muted); }
+    .nav a.lib:hover { color: var(--text); }
+    .pill {
+      display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 999px; border: 1.5px solid currentColor;
+      background: color-mix(in srgb, currentColor 10%, transparent);
+    }
+    .pill.hero { color: var(--orange); } .pill.girls { color: var(--cyan); } .pill.classic { color: var(--green); }
+    .badges { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: center; }
+    .badges img { height: 46px; width: auto; display: block; }
+    footer.foot { border-top: 1px solid var(--line); margin-top: 56px; padding: 26px 0 40px; font-size: 14px; color: var(--muted); }
+    footer.foot .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
+    footer.foot nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    footer.foot a:hover { color: var(--text); }
+    .crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; }
+    .crumbs a:hover { color: var(--text); }
+    .crumbs span[aria-hidden] { margin: 0 6px; }
+    main { padding-bottom: 8px; }
+    .hero-block { padding: 20px 0 4px; }
+    h1.display { font-size: clamp(40px, 11vw, 68px); overflow-wrap: anywhere; }
+    .headline { font-size: 18px; color: var(--muted); margin: 10px 0 0; }
+    .tmr {
+      --phase: #a1a1aa; position: relative; overflow: hidden; margin-top: 18px; padding: 14px 14px 16px;
+      background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 0 60px rgba(0, 224, 255, 0.07);
+    }
+    .tmr [hidden] { display: none !important; }
+    .tmr button { font: inherit; cursor: pointer; }
+    .tmr button:focus-visible, .tmr input:focus-visible, .tmr select:focus-visible, .app a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+    /* Five tabs: 3 + 2 on phones (fits 320 px), one row from 560 px. */
+    .modes { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+    .tmr .mode { grid-column: span 2; min-width: 0; white-space: nowrap; font-size: 14px; font-weight: 600; color: var(--muted); background: var(--surface-2);
+      border: 1px solid var(--line); border-radius: 999px; padding: 8px 4px; }
+    .tmr .mode:nth-child(n+4) { grid-column: span 3; }
+    .tmr .mode[aria-pressed="true"] { color: #001014; background: var(--cyan); border-color: var(--cyan); }
+    .tmr .mode:disabled { cursor: default; opacity: 0.55; }
+    .tmr .mode[aria-pressed="true"]:disabled { opacity: 1; }
+    .face { text-align: center; padding: 16px 0 4px; }
+    .phase { display: inline-flex; align-items: center; gap: 10px; color: var(--phase); font-size: clamp(28px, 8vw, 42px); letter-spacing: 0.08em; }
+    .phase::before { content: ""; width: 0.42em; height: 0.42em; border-radius: 50%; background: var(--phase); }
+    .clock { font-family: Rajdhani, Inter, sans-serif; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 0.95;
+      font-size: clamp(92px, 30vw, 210px); letter-spacing: -0.01em; margin: 4px 0 6px; }
+    .clock.long { font-size: clamp(66px, 20vw, 150px); }
+    .clock.dim { opacity: 0.45; }
+    .bar { height: 8px; max-width: 560px; margin: 0 auto; border-radius: 99px; background: #1e1e26; overflow: hidden; }
+    .bar i { display: block; height: 100%; width: 0; background: var(--phase); border-radius: 99px; }
+    .meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 22px; margin-top: 12px; color: var(--muted); font-size: 15px; font-weight: 600; }
+    .meta b { color: var(--text); font-variant-numeric: tabular-nums; }
+    .round { color: var(--text); font-family: Rajdhani, Inter, sans-serif; font-size: 22px; line-height: 1.1; }
+    .round:empty { display: none; }
+    .next { margin: 8px 0 0; color: #d4d4d8; font-size: 15px; min-height: 1.5em; }
+    .ctrls { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .ctrls button { flex: 1 1 auto; white-space: nowrap; padding: 12px 12px; border-radius: 999px; font-weight: 600; font-size: 15px;
+      color: var(--text); background: var(--surface-2); border: 1px solid var(--line); }
+    .ctrls button.off { color: var(--muted); }
+    .ctrls .go { flex: 1 1 100%; padding: 15px 20px; border: 0; background: var(--cyan); color: #001014;
+      font-family: Rajdhani, Inter, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .is-running .go { background: var(--surface-2); color: var(--text); border: 1px solid var(--line); }
+    .ctrls .done { background: var(--green); color: #00150a; border: 0; }
+    .set { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .set-h { margin: 0 0 10px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+    .set-h b { color: var(--text); }
+    .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
+    .fields + .fields { margin-top: 12px; }
+    .fields label { display: block; font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 5px; }
+    .fields input, .fields select { width: 100%; font: inherit; font-size: 20px; font-weight: 600; color: var(--text); background: var(--bg);
+      border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; }
+    .fields input[aria-invalid="true"] { border-color: #ff453a; }
+    .sum { margin: 12px 0 0; color: #d4d4d8; font-size: 15px; }
+    .keys { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+    .t-flash { position: absolute; inset: 0; background: var(--phase); opacity: 0; pointer-events: none; }
+    .nojs { margin: 0; color: #d4d4d8; }
+    /* Full screen (real, or the card pinned over the page where the browser can't). */
+    .tmr.fs { position: fixed; inset: 0; z-index: 100; margin: 0; border: 0; border-radius: 0; background: var(--bg);
+      display: flex; flex-direction: column; padding: max(14px, env(safe-area-inset-top)) 16px max(14px, env(safe-area-inset-bottom)); overflow: auto; }
+    .tmr.fs .modes, .tmr.fs .set { display: none !important; }
+    .tmr.fs .live { flex: 1; display: flex; flex-direction: column; }
+    .tmr.fs .face { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .tmr.fs .phase { font-size: min(9vw, 8vh); align-self: center; }
+    .tmr.fs .clock { font-size: min(30vw, 48vh); }
+    .tmr.fs .clock.long { font-size: min(20vw, 44vh); }
+    .tmr.fs .bar { max-width: 80vw; width: 100%; height: 1.2vh; min-height: 8px; }
+    .tmr.fs .meta, .tmr.fs .next { font-size: clamp(15px, 2.6vh, 30px); }
+    .tmr.fs .round { font-size: clamp(22px, 4.4vh, 52px); }
+    .tmr.fs .ctrls { width: 100%; max-width: 760px; margin: 12px auto 0; }
+    .tmr.fs .ctrls .go { flex: 2 1 0; }
+    html.tmr-lock, html.tmr-lock body { overflow: hidden; }
+    .app { margin-top: 20px; padding: 20px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px 20px; border: 0; border-radius: 999px;
+      background: var(--cyan); color: #001014; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .btn:hover { filter: brightness(1.08); }
+    .open-row { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    .runs, .status, .note, .desk { margin: 0; color: var(--muted); font-size: 14px; }
+    .status:empty, .note:empty { display: none; }
+    .desk { display: none; color: #d4d4d8; font-size: 15px; }
+    .desktop .desk { display: block; }
+    .desktop #open-btn, .desktop #open-runs, .desktop #status { display: none; }
+    .app h2 { font-size: 26px; margin: 22px 0 12px; }
+    .ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .ticks li { display: flex; gap: 12px; align-items: flex-start; color: #d4d4d8; font-size: 16px; }
+    .ticks li::before {
+      content: ""; flex: none; width: 20px; height: 20px; margin-top: 3px; border-radius: 50%;
+      background: var(--cyan) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3L15 7' fill='none' stroke='%23001014' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .ticks b { color: var(--text); }
+    section.block { margin-top: 34px; }
+    section.block h2 { font-size: 30px; margin: 0 0 12px; }
+    section.block p { color: #d4d4d8; margin: 0 0 12px; }
+    section.block ul { color: #d4d4d8; margin: 0 0 12px; padding-left: 22px; }
+    section.block li { margin: 0 0 6px; }
+    section.block a, .app a.cyan { color: var(--cyan); }
+    .rel { display: grid; gap: 10px; }
+    .rel > * { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+    .rel a:hover { border-color: color-mix(in srgb, var(--cyan) 55%, transparent); }
+    .rel b { font-family: Rajdhani, sans-serif; font-size: 22px; text-transform: uppercase; display: block; line-height: 1.1; color: var(--text); }
+    .rel .t { font-size: 13px; font-weight: 600; color: var(--cyan); }
+    .rel p { margin: 4px 0 0; font-size: 15px; color: #d4d4d8; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    section.block .chips a { color: var(--text); font-size: 14px; font-weight: 600; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; }
+    section.block .chips a:hover { border-color: var(--cyan); }
+    .get { margin-top: 40px; text-align: center; padding: 26px 18px; border-radius: 20px; border: 1px solid var(--line);
+      background: radial-gradient(60% 90% at 25% 100%, rgba(0, 224, 255, 0.16), transparent 70%), radial-gradient(50% 80% at 85% 0%, rgba(48, 209, 88, 0.12), transparent 70%), var(--surface); }
+    .get h2 { font-size: 32px; margin: 0 0 10px; }
+    .get p { color: var(--muted); margin: 0 auto 18px; max-width: 460px; font-size: 16px; }
+    @media (min-width: 560px) {
+      .modes { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      .tmr .mode, .tmr .mode:nth-child(n+4) { grid-column: auto; }
+    }
+    @media (min-width: 700px) {
+      .tmr { padding: 18px 26px 20px; }
+      .ctrls .go { flex: 2 1 0; }
+      .app { padding: 24px 30px; }
+      .rel { grid-template-columns: 1fr 1fr; }
+      .why { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+  <noscript><style>.tmr .live, .tmr .t-flash { display: none; }</style></noscript>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap nav">
+      <a class="brand" href="../"><img src="../snapwod-logo.png" alt="" width="32" height="32" /><span>SnapWOD</span></a>
+      <div class="nav-r"><a class="lib" href="../timer/">Timer</a><a class="lib" href="../workouts/">Workout library</a></div>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">SnapWOD</a><span aria-hidden="true">›</span><a href="./">Timer</a><span aria-hidden="true">›</span>12 min AMRAP</nav>
+
+    <div class="hero-block">
+      <h1 class="display">12 minute <span class="cyan">AMRAP timer</span></h1>
+      <p class="headline">A 12 minute AMRAP, set and ready. Short enough to push hard from the first round.</p>
+    </div>
+
+    <section class="tmr" id="tmr" aria-label="Workout timer">
+      <noscript><p class="nojs">The timer needs JavaScript. Everything else on this page works without it, and the SnapWOD app runs the same timer on your phone.</p></noscript>
+      <div class="live">
+        <div class="modes" role="group" aria-label="Timer type">
+          <button type="button" class="mode" data-mode="emom" aria-pressed="false">EMOM</button>
+          <button type="button" class="mode" data-mode="tabata" aria-pressed="false">Tabata</button>
+          <button type="button" class="mode" data-mode="amrap" aria-pressed="true">AMRAP</button>
+          <button type="button" class="mode" data-mode="fortime" aria-pressed="false">For Time</button>
+          <button type="button" class="mode" data-mode="interval" aria-pressed="false">Intervals</button>
+        </div>
+        <div class="face">
+          <div class="phase display" id="t-phase" aria-live="polite" aria-atomic="true">Ready</div>
+          <div class="clock" id="t-clock" role="timer">12:00</div>
+          <div class="bar"><i id="t-bar"></i></div>
+          <div class="meta"><span class="round" id="t-round"></span><span>Elapsed <b id="t-elapsed">0:00 / 12:00</b></span></div>
+          <p class="next" id="t-next">10 s get-ready countdown, then go</p>
+        </div>
+        <div class="ctrls">
+          <button type="button" class="go" id="t-go">Start</button>
+          <button type="button" class="done" id="t-done" hidden>Done</button>
+          <button type="button" id="t-reset">Reset</button>
+          <button type="button" id="t-sound">Sound on</button>
+          <button type="button" id="t-fs">Full screen</button>
+        </div>
+        <div class="set" id="t-set">
+          <p class="set-h"><b id="t-name">AMRAP</b> settings</p>
+          <div class="fields" data-mode="emom" hidden>
+            <div><label for="f-emom-minutes">Total minutes</label><input id="f-emom-minutes" type="number" inputmode="numeric" min="1" max="120" step="1" value="10" data-mode="emom" data-key="minutes" /></div>
+            <div><label for="f-emom-every">Every</label><select id="f-emom-every" data-mode="emom" data-key="every"><option value="30">0:30</option><option value="45">0:45</option><option value="60" selected>1:00 (EMOM)</option><option value="90">1:30</option><option value="120">2:00 (E2MOM)</option><option value="150">2:30</option><option value="180">3:00 (E3MOM)</option><option value="240">4:00 (E4MOM)</option><option value="300">5:00 (E5MOM)</option></select></div>
+          </div>
+          <div class="fields" data-mode="tabata" hidden>
+            <div><label for="f-tabata-rounds">Rounds</label><input id="f-tabata-rounds" type="number" inputmode="numeric" min="1" max="50" step="1" value="8" data-mode="tabata" data-key="rounds" /></div>
+            <div><label for="f-tabata-work">Work (sec)</label><input id="f-tabata-work" type="number" inputmode="numeric" min="5" max="900" step="1" value="20" data-mode="tabata" data-key="work" /></div>
+            <div><label for="f-tabata-rest">Rest (sec)</label><input id="f-tabata-rest" type="number" inputmode="numeric" min="0" max="600" step="1" value="10" data-mode="tabata" data-key="rest" /></div>
+          </div>
+          <div class="fields" data-mode="amrap">
+            <div><label for="f-amrap-minutes">Minutes</label><input id="f-amrap-minutes" type="number" inputmode="numeric" min="1" max="180" step="1" value="12" data-mode="amrap" data-key="minutes" /></div>
+          </div>
+          <div class="fields" data-mode="fortime" hidden>
+            <div><label for="f-fortime-cap">Time cap (min)</label><input id="f-fortime-cap" type="number" inputmode="numeric" min="1" max="180" step="1" value="20" data-mode="fortime" data-key="cap" /></div>
+          </div>
+          <div class="fields" data-mode="interval" hidden>
+            <div><label for="f-interval-work">Work (sec)</label><input id="f-interval-work" type="number" inputmode="numeric" min="5" max="900" step="1" value="40" data-mode="interval" data-key="work" /></div>
+            <div><label for="f-interval-rest">Rest (sec)</label><input id="f-interval-rest" type="number" inputmode="numeric" min="0" max="600" step="1" value="20" data-mode="interval" data-key="rest" /></div>
+            <div><label for="f-interval-rounds">Rounds</label><input id="f-interval-rounds" type="number" inputmode="numeric" min="1" max="50" step="1" value="10" data-mode="interval" data-key="rounds" /></div>
+          </div>
+          <div class="fields">
+            <div><label for="f-ready">Get ready (sec)</label><input id="f-ready" type="number" inputmode="numeric" min="0" max="60" step="1" value="10" data-key="ready" /></div>
+          </div>
+          <p class="sum" id="t-sum">As many rounds as possible in 12:00</p>
+          <p class="keys">Keyboard: Space start/pause, R reset, F full screen.</p>
+        </div>
+      </div>
+      <div class="t-flash" id="t-flash"></div>
+    </section>
+
+    <section class="app" aria-labelledby="app-h">
+      <div class="open-row">
+        <a class="btn" id="open-btn" href="wodbrain://plan?d=%7B%22mode%22%3A%22AMRAP%22%2C%22name%22%3A%22AMRAP%2012%20min%22%2C%22blocks%22%3A%5B%7B%22label%22%3A%22AMRAP%22%2C%22seconds%22%3A720%2C%22kind%22%3A%22amrap%22%7D%5D%7D">▶ Open in SnapWOD</a>
+        <p class="runs" id="open-runs">Loads this timer in the app: As many rounds as possible in 12:00.</p>
+        <p class="status" id="status" aria-live="polite"></p>
+        <p class="note" id="hint"></p>
+        <p class="desk">On a computer? Get SnapWOD on your phone and open this page there to load the timer in the app.</p>
+        <div class="badges">
+          <a id="ios-store" href="https://apps.apple.com/us/app/snapwod/id6755497026" rel="noopener"><img src="../app-store-badge.svg" alt="Download on the App Store" width="138" height="46" /></a>
+          <a id="android-store" href="https://play.google.com/store/apps/details?id=com.anonymous.wodbrain" rel="noopener"><img src="../google-play-badge.svg" alt="Get it on Google Play" width="155" height="46" /></a>
+        </div>
+      </div>
+      <h2 class="display" id="app-h">More in the free app</h2>
+      <ul class="ticks why">
+        <li><span><b>Lock-screen timer and notifications</b>: the clock keeps running with your phone locked or in your pocket.</span></li>
+        <li><span><b>Scan the whiteboard</b>: snap the gym board and SnapWOD builds the timer, multi-part workouts included.</span></li>
+        <li><span><b>Gym TV mode</b>: put the running clock on the big screen with a code.</span></li>
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="s1-h">
+      <h2 class="display" id="s1-h">Pacing a 12 minute AMRAP</h2>
+      <p>Twelve minutes sits between a sprint and a grind. You can work at a higher intensity than in a 20 minute piece, but not flat out: plan to go steady for the first 4 minutes, hold on through the middle 4, and empty the tank in the last 4.</p>
+      <p>Keep the round short, three movements of 30 to 60 seconds in total, so you finish several rounds and have a clear score.</p>
+    </section>
+
+    <section class="block" aria-labelledby="s2-h">
+      <h2 class="display" id="s2-h">Three 12 minute AMRAPs to try</h2>
+      <ul>
+        <li><b>Engine</b>: 10 calorie row, 10 wall-ball shots, 10 box jumps.</li>
+        <li><b>Bodyweight</b>: 5 burpees, 10 sit-ups, 15 air squats, 20 alternating lunges.</li>
+        <li><b>Barbell</b>: 6 deadlifts, 6 hang power cleans, 6 front squats with a light to moderate bar.</li>
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="ex-h">
+      <h2 class="display" id="ex-h">Workouts to try</h2>
+      <div class="rel">
+        <a href="../workouts/cindy"><b>Cindy</b><span class="t">20 min AMRAP</span><p>Want longer? The classic 20 minute AMRAP.</p></a>
+      </div>
+      <p style="margin-top:12px"><a href="../workouts/">Browse the workout library →</a></p>
+    </section>
+
+    <section class="block" aria-labelledby="more-h">
+      <h2 class="display" id="more-h">More timers</h2>
+      <nav class="chips" aria-label="More timers">
+        <a href="./">All timers</a>
+        <a href="emom">EMOM</a>
+        <a href="tabata">Tabata</a>
+        <a href="amrap">AMRAP</a>
+        <a href="for-time">For Time</a>
+        <a href="interval">Intervals</a>
+        <a href="hiit">HIIT</a>
+        <a href="20-minute-amrap">20 min AMRAP</a>
+        <a href="10-minute-emom">10 min EMOM</a>
+        <a href="20-minute-emom">20 min EMOM</a>
+        <a href="30-minute-emom">30 min EMOM</a>
+      </nav>
+    </section>
+
+    <section class="get">
+      <h2 class="display">Snap the board. <span class="cyan">Start the clock.</span></h2>
+      <p>SnapWOD turns any workout on the whiteboard into a timer: EMOM, AMRAP, For Time, intervals and multi-part sessions. Free on iPhone and Android.</p>
+      <div class="badges">
+        <a href="https://apps.apple.com/us/app/snapwod/id6755497026" rel="noopener"><img src="../app-store-badge.svg" alt="Download on the App Store" width="138" height="46" loading="lazy" /></a>
+        <a href="https://play.google.com/store/apps/details?id=com.anonymous.wodbrain" rel="noopener"><img src="../google-play-badge.svg" alt="Get it on Google Play" width="155" height="46" loading="lazy" /></a>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap">
+      <div>© 2026 SnapWOD</div>
+      <nav>
+        <a href="../">SnapWOD app</a>
+        <a href="../workouts/">Workout library</a>
+        <a href="../timer/">Workout timer</a>
+        <a href="../support.html">Support</a>
+        <a href="../privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+  <script type="application/json" id="timer-config">{"mode":"amrap","defaults":{"minutes":12},"ready":10,"restore":false,"short":"12 min AMRAP","androidPackage":"com.anonymous.wodbrain","androidStore":"https://play.google.com/store/apps/details?id=com.anonymous.wodbrain"}</script>
+  <script src="timer.js?v=269491812a"></script>
+</body>
+</html>

@@ -343,6 +343,8 @@
     .brand { display: flex; align-items: center; gap: 10px; }
     .brand img { width: 32px; height: 32px; border-radius: 8px; outline: 1px solid var(--line); }
     .brand span { font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 22px; }
+    .nav-r { display: flex; align-items: center; gap: 18px; white-space: nowrap; }
+    @media (max-width: 360px) { .nav-r { gap: 12px; } .nav a.lib { font-size: 14px; } }
     .nav a.lib { font-size: 15px; color: var(--muted); }
     .nav a.lib:hover { color: var(--text); }
     .pill {
@@ -363,6 +365,7 @@
     .intro-block { padding: 30px 0 8px; }
     .intro-block h1 { font-size: clamp(44px, 11vw, 80px); margin: 14px 0 14px; }
     .intro-block p { color: var(--muted); margin: 0; max-width: 620px; }
+    .intro-block p.timer-link { margin-top: 12px; font-size: 15px; font-weight: 600; }
     .tools { position: sticky; top: 60px; z-index: 10; background: rgba(4, 4, 6, 0.92); padding: 14px 0 12px; margin-top: 18px;
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
     .search { width: 100%; font: inherit; font-size: 17px; color: var(--text); background: var(--surface); border: 1px solid var(--line);
@@ -394,7 +397,7 @@
   <header class="top">
     <div class="wrap nav">
       <a class="brand" href="../"><img src="../snapwod-logo.png" alt="" width="32" height="32" /><span>SnapWOD</span></a>
-      <a class="lib" href="../workouts/">Workout library</a>
+      <div class="nav-r"><a class="lib" href="../timer/">Timer</a><a class="lib" href="../workouts/">Workout library</a></div>
     </div>
   </header>
   <main class="wrap">
@@ -403,6 +406,7 @@
       <span class="pill girls">Workout library</span>
       <h1 class="display">Benchmark &amp; <span class="cyan">Hero workouts</span></h1>
       <p>The classic named workouts, from Fran and Cindy to Murph and DT. Each one has the standard Rx, a typical time cap, scaling options and pacing tips, plus a button that opens it in SnapWOD with the timer ready to go.</p>
+      <p class="timer-link"><a href="../timer/" class="cyan">Need a clock right now? Use the free online WOD timer →</a></p>
     </div>
 
     <div class="tools">
@@ -644,6 +648,7 @@
       <nav>
         <a href="../">SnapWOD app</a>
         <a href="../workouts/">Workout library</a>
+        <a href="../timer/">Workout timer</a>
         <a href="../support.html">Support</a>
         <a href="../privacy.html">Privacy</a>
       </nav>

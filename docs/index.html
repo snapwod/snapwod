@@ -115,6 +115,7 @@
     .brand span { font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 24px; }
     .nav-links { display: none; gap: 28px; font-size: 15px; color: var(--muted); }
     .nav-links a:hover { color: var(--text); }
+    .nav-links a, .nav .btn { white-space: nowrap; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 16px;
@@ -124,6 +125,8 @@
     }
     .btn:hover { filter: brightness(1.08); }
     @media (min-width: 860px) { .nav-links { display: flex; } }
+    /* Room for the Timer link on narrower desktops. */
+    @media (min-width: 860px) and (max-width: 1000px) { .nav-links { gap: 18px; font-size: 14px; } }
 
     /* Hero */
     .hero { position: relative; padding: 56px 0 40px; }
@@ -290,6 +293,7 @@
         <a href="#pricing">Free &amp; Premium</a>
         <a href="#faq">FAQ</a>
         <a href="workouts/">Workout library</a>
+        <a href="timer/">Timer</a>
       </nav>
       <a class="btn" href="#download">Get the app</a>
     </div>
@@ -536,6 +540,7 @@
       <div>© <span id="year">2026</span> SnapWOD</div>
       <nav>
         <a href="workouts/">Workout library</a>
+        <a href="timer/">Workout timer</a>
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Use</a>

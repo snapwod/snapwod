@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync, mkdirSync, statSync, readdirSync, unlinkSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { SITE, OG_IMAGE, IOS_STORE_URL, ANDROID_STORE_URL, ANDROID_PACKAGE, esc, jsonLd, FONTS, BASE_CSS, header, footer } from "./site.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(here, "..");
@@ -15,12 +16,7 @@ const DOCS = path.join(ROOT, "docs");
 const OUT = path.join(DOCS, "workouts");
 const DATA = path.join(here, "workouts.json");
 
-const SITE = "https://snapwod.github.io/snapwod/";
 const LIB = SITE + "workouts/";
-const OG_IMAGE = SITE + "og-image.png";
-const IOS_STORE_URL = "https://apps.apple.com/us/app/snapwod/id6755497026";
-const ANDROID_STORE_URL = "https://play.google.com/store/apps/details?id=com.anonymous.wodbrain";
-const ANDROID_PACKAGE = "com.anonymous.wodbrain";
 // qrcodejs from cdnjs, pinned with SRI (same file docs/tv.html uses). Loaded on desktop only.
 const QR_SRC = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
 const QR_SRI = "sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==";
@@ -37,9 +33,6 @@ const bySlug = new Map(workouts.map((w) => [w.slug, w]));
 const LASTMOD = statSync(DATA).mtime.toISOString().slice(0, 10);
 
 // ---------- helpers ----------
-const esc = (s) =>
-  String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-const jsonLd = (obj) => JSON.stringify(obj, null, 2).replace(/</g, "\\u003c");
 const pageUrl = (w) => LIB + w.slug;
 const minutes = (w) => w.capMinutes ?? w.durationMinutes;
 
@@ -113,74 +106,6 @@ function pageTitle(w) {
   const short = `${w.name} Workout: ${w.headline}`;
   return short.length <= 80 ? short : `${w.name} Workout: Rx, Scaling & Timer | SnapWOD`;
 }
-
-// ---------- shared page parts ----------
-const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@700&display=swap" rel="stylesheet" />`;
-
-// Same palette and type as docs/index.html and docs/open.html.
-const BASE_CSS = `
-    :root {
-      --bg: #040406; --surface: #111115; --surface-2: #17171d; --line: #26262e;
-      --text: #ffffff; --muted: #a1a1aa; --cyan: #00e0ff; --green: #30d158; --orange: #ff9f0a;
-    }
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0; color: var(--text); background: var(--bg);
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.55;
-      -webkit-font-smoothing: antialiased; overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; }
-    .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
-    .display { font-family: Rajdhani, Inter, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; line-height: 0.95; margin: 0; }
-    .cyan { color: var(--cyan); }
-    header.top {
-      position: sticky; top: 0; z-index: 20; background: rgba(4, 4, 6, 0.85);
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
-    .brand { display: flex; align-items: center; gap: 10px; }
-    .brand img { width: 32px; height: 32px; border-radius: 8px; outline: 1px solid var(--line); }
-    .brand span { font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 22px; }
-    .nav a.lib { font-size: 15px; color: var(--muted); }
-    .nav a.lib:hover { color: var(--text); }
-    .pill {
-      display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 5px 12px; border-radius: 999px; border: 1.5px solid currentColor;
-      background: color-mix(in srgb, currentColor 10%, transparent);
-    }
-    .pill.hero { color: var(--orange); } .pill.girls { color: var(--cyan); } .pill.classic { color: var(--green); }
-    .badges { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: center; }
-    .badges img { height: 46px; width: auto; display: block; }
-    footer.foot { border-top: 1px solid var(--line); margin-top: 56px; padding: 26px 0 40px; font-size: 14px; color: var(--muted); }
-    footer.foot .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
-    footer.foot nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-    footer.foot a:hover { color: var(--text); }
-    .crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; }
-    .crumbs a:hover { color: var(--text); }
-    .crumbs span[aria-hidden] { margin: 0 6px; }`;
-
-const header = (rel) => `<header class="top">
-    <div class="wrap nav">
-      <a class="brand" href="${rel}"><img src="${rel}snapwod-logo.png" alt="" width="32" height="32" /><span>SnapWOD</span></a>
-      <a class="lib" href="${rel}workouts/">Workout library</a>
-    </div>
-  </header>`;
-
-const footer = (rel) => `<footer class="foot">
-    <div class="wrap">
-      <div>© 2026 SnapWOD</div>
-      <nav>
-        <a href="${rel}">SnapWOD app</a>
-        <a href="${rel}workouts/">Workout library</a>
-        <a href="${rel}support.html">Support</a>
-        <a href="${rel}privacy.html">Privacy</a>
-      </nav>
-    </div>
-  </footer>`;
 
 // ---------- workout page ----------
 const WORKOUT_CSS = `
@@ -485,6 +410,7 @@ const INDEX_CSS = `
     .intro-block { padding: 30px 0 8px; }
     .intro-block h1 { font-size: clamp(44px, 11vw, 80px); margin: 14px 0 14px; }
     .intro-block p { color: var(--muted); margin: 0; max-width: 620px; }
+    .intro-block p.timer-link { margin-top: 12px; font-size: 15px; font-weight: 600; }
     .tools { position: sticky; top: 60px; z-index: 10; background: rgba(4, 4, 6, 0.92); padding: 14px 0 12px; margin-top: 18px;
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
     .search { width: 100%; font: inherit; font-size: 17px; color: var(--text); background: var(--surface); border: 1px solid var(--line);
@@ -621,6 +547,7 @@ ${jsonLd(ld)}
       <span class="pill girls">Workout library</span>
       <h1 class="display">Benchmark &amp; <span class="cyan">Hero workouts</span></h1>
       <p>The classic named workouts, from Fran and Cindy to Murph and DT. Each one has the standard Rx, a typical time cap, scaling options and pacing tips, plus a button that opens it in SnapWOD with the timer ready to go.</p>
+      <p class="timer-link"><a href="../timer/" class="cyan">Need a clock right now? Use the free online WOD timer →</a></p>
     </div>
 
     <div class="tools">

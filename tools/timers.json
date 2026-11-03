@@ -1,0 +1,431 @@
+[
+  {
+    "slug": "index",
+    "nav": "All timers",
+    "title": "Online WOD Timer: EMOM, Tabata, AMRAP, For Time | SnapWOD",
+    "description": "Free online WOD timer for EMOM, Tabata, AMRAP, For Time and intervals. Big clock, 3-2-1 beeps, get-ready countdown and a screen that stays on. No sign-up.",
+    "ogTitle": "Free online WOD timer",
+    "h1": ["Free online", "WOD timer"],
+    "short": "WOD timer",
+    "lead": "Pick a format, set the numbers and press Start. Big clock, 3-2-1 beeps and a get-ready countdown, right in your browser.",
+    "mode": "amrap",
+    "defaults": { "minutes": 20 },
+    "restore": true,
+    "expect": { "mode": "AMRAP", "totalSeconds": 1200, "blocks": 1 },
+    "sections": [
+      {
+        "h": "Which timer do I need?",
+        "p": ["Most workouts on a gym whiteboard use one of five clocks. Choose the tab above, or open the page for each format for pacing tips and example workouts:"],
+        "ul": [
+          "[EMOM timer](emom): a new round starts at the top of every minute. Whatever time is left in the minute is your rest.",
+          "[Tabata timer](tabata): 8 rounds of 20 seconds of all-out work and 10 seconds of rest, 4 minutes in total.",
+          "[AMRAP timer](amrap): as many rounds and reps as possible before the clock runs down.",
+          "[For Time timer](for-time): the clock counts up while you race through the work, with a time cap to stop at.",
+          "[Interval timer](interval) and [HIIT timer](hiit): your own work and rest lengths, repeated for as many rounds as you like."
+        ]
+      },
+      {
+        "h": "How to use it",
+        "p": [
+          "Set the numbers, press **Start** and put the phone where you can see it. A 10 second get-ready countdown gives you time to get to the bar; change it, or set it to 0, under the settings. You hear three short beeps before every block ends and a long beep when the next one starts. The screen stays on while the clock runs, and the tab title shows the time left, so you can keep an eye on it from another tab.",
+          "On a laptop, **Space** starts and pauses, **R** resets and **F** goes full screen, which turns a spare screen into a gym clock. On iPhone, beeps follow the ring/silent switch: turn silent mode off to hear them.",
+          "Nothing to install and no account. Your last settings and the sound setting are remembered on this device only."
+        ]
+      }
+    ],
+    "examples": [
+      { "slug": "cindy", "note": "The classic 20 minute AMRAP: set the AMRAP tab to 20." },
+      { "slug": "fran", "note": "Short and fast: For Time with a 10 minute cap." },
+      { "slug": "chelsea", "note": "Every minute for 30 minutes: EMOM, 30 minutes, every 1:00." }
+    ]
+  },
+  {
+    "slug": "emom",
+    "nav": "EMOM",
+    "title": "EMOM Timer: Free Every Minute on the Minute Clock | SnapWOD",
+    "description": "Free EMOM timer with a beep at the top of every minute. Set total minutes and the interval (E2MOM, E3MOM too), with 3-2-1 beeps and a round counter.",
+    "ogTitle": "EMOM timer: every minute on the minute",
+    "h1": ["EMOM", "timer"],
+    "short": "EMOM timer",
+    "lead": "Every minute on the minute: a new round starts at the top of each minute, and the time left over is your rest.",
+    "mode": "emom",
+    "defaults": { "minutes": 10, "every": 60 },
+    "expect": { "mode": "EMOM", "totalSeconds": 600, "blocks": 10 },
+    "sections": [
+      {
+        "h": "What is an EMOM?",
+        "p": [
+          "EMOM stands for every minute on the minute. When the clock hits the top of a minute you do a set amount of work, such as 3 power cleans or 12 calories on the bike, then rest until the next minute starts. The faster you move, the more rest you earn. An E2MOM or E3MOM works the same way with a 2 or 3 minute window, which suits heavier lifts and longer sets: pick it under **Every**.",
+          "This timer counts down each interval, shows the round you are on and beeps 3-2-1 before every new minute, so you never have to watch the clock mid-set."
+        ]
+      },
+      {
+        "h": "How to pace an EMOM",
+        "ul": [
+          "Aim to finish the work in 35 to 45 seconds of each minute. If you only get 5 seconds of rest by round three, cut the reps now rather than missing rounds later.",
+          "For strength EMOMs (one heavy single or double each minute), keep the load you could hit for every round, not your best single.",
+          "Alternating EMOMs are common: odd minutes one movement, even minutes another. Set the total minutes to cover every station, for example 20 minutes for 4 movements done 5 times each.",
+          "If you fail a minute, rest through it and start again at the next one. That is the format working as intended."
+        ]
+      }
+    ],
+    "examples": [
+      { "slug": "chelsea", "note": "5 pull-ups, 10 push-ups and 15 air squats every minute for 30 minutes." },
+      { "slug": "kalsu", "note": "100 thrusters with 5 burpees at the top of every minute: an EMOM inside a For Time workout." }
+    ]
+  },
+  {
+    "slug": "tabata",
+    "nav": "Tabata",
+    "title": "Tabata Timer: Free 20/10 Interval Clock with Beeps | SnapWOD",
+    "description": "Free Tabata timer: 8 rounds of 20 seconds work and 10 seconds rest, with 3-2-1 beeps and a round counter. Change rounds, work and rest for your own intervals.",
+    "ogTitle": "Tabata timer: 20 seconds on, 10 off",
+    "h1": ["Tabata", "timer"],
+    "short": "Tabata timer",
+    "lead": "Eight rounds of 20 seconds flat out and 10 seconds rest. Four minutes, and they feel a lot longer.",
+    "mode": "tabata",
+    "defaults": { "rounds": 8, "work": 20, "rest": 10 },
+    "expect": { "mode": "TABATA", "totalSeconds": 240, "blocks": 16 },
+    "sections": [
+      {
+        "h": "What is a Tabata?",
+        "p": [
+          "A Tabata interval is 20 seconds of maximum effort followed by 10 seconds of rest, repeated 8 times for 4 minutes in all. It is named after Dr. Izumi Tabata, whose 1996 study on this protocol found big gains in both aerobic and anaerobic fitness from very short sessions.",
+          "In the gym it is usually done with simple movements you can go hard on safely: air squats, push-ups, sit-ups, rowing or the assault bike. A common way to score it is the lowest number of reps in any of the 8 rounds, which rewards holding your pace rather than sprinting the first two."
+        ]
+      },
+      {
+        "h": "How to get the most from it",
+        "ul": [
+          "Count your reps in each work period and try to keep the number within one or two of your first round.",
+          "Use the 10 seconds to breathe and reset your position, not to walk away from the bar or mat.",
+          "Several Tabatas back to back make a longer workout: 4 movements of 8 rounds each is 16 minutes. Set the rounds to 32, or run the timer again for each movement with a minute of rest between.",
+          "Change the work and rest to make it your own: 30/15 or 40/20 are popular, and the [interval timer](interval) has more room for that."
+        ]
+      }
+    ],
+    "examples": [
+      { "slug": "tabata-something-else", "note": "Eight Tabata rounds each of pull-ups, push-ups, sit-ups and squats: 32 rounds, 16 minutes." },
+      { "slug": "fight-gone-bad", "note": "Not a Tabata, but another interval classic: one-minute stations with a rest between rounds." }
+    ]
+  },
+  {
+    "slug": "amrap",
+    "nav": "AMRAP",
+    "title": "AMRAP Timer: Free As Many Rounds As Possible Clock | SnapWOD",
+    "description": "Free AMRAP timer: set the minutes, press start and get 3-2-1 beeps before the clock runs out. Big countdown, get-ready count and a screen that stays awake.",
+    "ogTitle": "AMRAP timer: as many rounds as possible",
+    "h1": ["AMRAP", "timer"],
+    "short": "AMRAP timer",
+    "lead": "As many rounds as possible before the clock runs out. Set the minutes and go.",
+    "mode": "amrap",
+    "defaults": { "minutes": 20 },
+    "expect": { "mode": "AMRAP", "totalSeconds": 1200, "blocks": 1 },
+    "sections": [
+      {
+        "h": "What is an AMRAP?",
+        "p": [
+          "AMRAP means as many rounds (or reps) as possible. You get a fixed amount of time and a short list of movements, and you cycle through them until the clock stops. Your score is the rounds you finished plus the reps into the next one, written as 7 + 12, for example.",
+          "Because the time is fixed, everyone in a class finishes together, which is why AMRAPs are so common for group workouts. Short ones of 5 to 8 minutes are close to a sprint; 15 to 20 minutes is the classic length; 30 minutes or more is endurance work."
+        ]
+      },
+      {
+        "h": "How to pace an AMRAP",
+        "ul": [
+          "Find a pace you could hold for the whole time and keep it for the first third, even if it feels easy. Most people go out too fast and stall in the middle.",
+          "Break sets early and on purpose: 5 + 5 pull-ups with a breath between is faster over 20 minutes than 10 then a long rest.",
+          "Keep moving between stations. Transitions add up across 15 rounds.",
+          "Count rounds with something simple, like a poker chip or a tally on the whiteboard, so you are not doing maths while tired."
+        ]
+      }
+    ],
+    "examples": [
+      { "slug": "cindy", "note": "The best-known 20 minute AMRAP: 5 pull-ups, 10 push-ups, 15 air squats." },
+      { "slug": "mary", "note": "Cindy's harder sister: handstand push-ups, pistols and pull-ups." },
+      { "slug": "nicole", "note": "A run and max pull-ups, repeated for 20 minutes." }
+    ]
+  },
+  {
+    "slug": "for-time",
+    "nav": "For Time",
+    "title": "For Time Timer with Time Cap: Free WOD Stopwatch | SnapWOD",
+    "description": "Free For Time timer: the clock counts up while you work, tap Done for your time, and it stops at the time cap. Get-ready countdown, beeps, big display.",
+    "ogTitle": "For Time timer with a time cap",
+    "h1": ["For Time", "timer"],
+    "short": "For Time timer",
+    "lead": "The clock counts up while you race through the work. Tap Done when you finish, or it stops at the time cap.",
+    "mode": "fortime",
+    "defaults": { "cap": 20 },
+    "expect": { "mode": "FOR_TIME", "totalSeconds": 1200, "blocks": 1, "capSeconds": 1200 },
+    "sections": [
+      {
+        "h": "How For Time works",
+        "p": [
+          "A For Time workout is a fixed amount of work done as fast as possible. Your score is the time on the clock when you finish, so lower is better. Most gyms add a time cap: if you are still going when the cap is reached, you stop and record the reps you completed instead.",
+          "This timer counts up from zero after the get-ready countdown. Tap **Done** when you finish and the clock freezes on your time. If you reach the cap, it stops by itself with a long beep."
+        ]
+      },
+      {
+        "h": "Setting a time cap",
+        "p": ["A good cap lets most people finish while stopping anyone who would otherwise be there all day. A rule of thumb is about one and a half times the time you expect a solid athlete to take."],
+        "ul": [
+          "Short couplets like 21-15-9: 8 to 10 minutes.",
+          "Three to five rounds with a run: 15 to 25 minutes.",
+          "Long chippers and Hero workouts: 40 to 60 minutes."
+        ]
+      },
+      {
+        "h": "Pacing tips",
+        "p": ["Plan your set breaks before you start, write them on the board and stick to them. On a short workout, the second round is usually where time is won or lost: keep moving even when the reps get small."]
+      }
+    ],
+    "examples": [
+      { "slug": "fran", "note": "21-15-9 thrusters and pull-ups. Most gyms cap it at 10 minutes." },
+      { "slug": "grace", "note": "30 clean and jerks for time." },
+      { "slug": "helen", "note": "3 rounds of a run, kettlebell swings and pull-ups, about 15 minutes." }
+    ]
+  },
+  {
+    "slug": "interval",
+    "nav": "Intervals",
+    "title": "Interval Timer: Free Work/Rest Timer with Beeps | SnapWOD",
+    "description": "Free interval timer: set work, rest and rounds (40/20 x 10 to start) for circuits, running and bike intervals. 3-2-1 beeps, round counter, big clock.",
+    "ogTitle": "Interval timer: work, rest, repeat",
+    "h1": ["Interval", "timer"],
+    "short": "Interval timer",
+    "lead": "Set your own work and rest, choose how many rounds, and let the beeps tell you when to go and when to stop.",
+    "mode": "interval",
+    "defaults": { "work": 40, "rest": 20, "rounds": 10 },
+    "expect": { "mode": "INTERVAL", "totalSeconds": 600, "blocks": 20 },
+    "sections": [
+      {
+        "h": "Choosing work and rest",
+        "p": [
+          "The work-to-rest ratio decides what an interval session trains. Long work with short rest, such as 40 seconds on and 20 off, keeps your heart rate high and builds the engine for longer workouts. Short work with long rest, such as 20 seconds on and 40 off, lets you go close to flat out every round and trains speed and power.",
+          "This timer runs work, then rest, for every round, and shows which round you are on and what comes next. The total time is shown under the settings so you know what you are signing up for."
+        ]
+      },
+      {
+        "h": "Ways to use it",
+        "ul": [
+          "**Circuits**: one movement per round, cycling through 4 or 5 stations. 10 rounds of 40/20 is two laps of five stations.",
+          "**Rowing, running and bike**: 8 to 10 rounds of 1 minute hard, 1 minute easy is a classic session.",
+          "**Skill work**: 30 seconds of double-unders or handstand practice, 30 seconds of rest, for 10 minutes.",
+          "**Strength accessory work**: 45 seconds of work, 75 seconds of rest, with a heavier load."
+        ]
+      }
+    ],
+    "examples": [
+      { "slug": "fight-gone-bad", "note": "Five one-minute stations, three rounds, a minute of rest between rounds." },
+      { "slug": "tabata-something-else", "note": "Tabata intervals: 20 seconds on, 10 off, 32 rounds." }
+    ]
+  },
+  {
+    "slug": "hiit",
+    "nav": "HIIT",
+    "title": "HIIT Timer: Free 30/15 High-Intensity Intervals | SnapWOD",
+    "description": "Free HIIT timer set to 30 seconds work and 15 seconds rest for 12 rounds. Change the work, rest and rounds; 3-2-1 beeps and a big clock you can read mid-set.",
+    "ogTitle": "HIIT timer: 30 on, 15 off",
+    "h1": ["HIIT", "timer"],
+    "short": "HIIT timer",
+    "lead": "High-intensity interval training: 30 seconds hard, 15 seconds rest, 12 rounds. Nine minutes, done.",
+    "mode": "interval",
+    "defaults": { "work": 30, "rest": 15, "rounds": 12 },
+    "expect": { "mode": "INTERVAL", "totalSeconds": 540, "blocks": 24 },
+    "sections": [
+      {
+        "h": "What makes it HIIT",
+        "p": [
+          "HIIT is short bursts of hard work separated by short rests. The work periods should feel like an 8 or 9 out of 10: hard enough that you are glad to see the rest, but not so hard that your form falls apart by round six. A 2:1 ratio like 30/15 is a good default for most people.",
+          "Twelve rounds of 30/15 takes 9 minutes. That makes it a good finisher after strength work, or a complete session on a busy day with a warm-up before and a walk after."
+        ]
+      },
+      {
+        "h": "A simple 9 minute HIIT session",
+        "p": ["Cycle through four movements three times, one per work period:"],
+        "ul": [
+          "Jumping squats or air squats",
+          "Push-ups (on the knees or against a bench to scale)",
+          "Kettlebell swings or burpees",
+          "Mountain climbers or a plank hold"
+        ]
+      },
+      {
+        "h": "Making it harder or easier",
+        "p": ["To progress, add rounds before you shorten the rest: 16 rounds of 30/15 is 12 minutes. New to it? Start with 20/20 for 8 rounds. Low-impact options like the bike, rower or step-ups work just as well as jumping."]
+      }
+    ],
+    "examples": [
+      { "slug": "fight-gone-bad", "note": "Longer intervals: one-minute stations for 17 minutes." },
+      { "slug": "tabata-something-else", "note": "Shorter and harder: 20 seconds on, 10 off." }
+    ]
+  },
+  {
+    "slug": "20-minute-amrap",
+    "nav": "20 min AMRAP",
+    "title": "20 Minute AMRAP Timer: Free Countdown with Beeps | SnapWOD",
+    "description": "A free 20 minute AMRAP timer, ready to start: big countdown, 10 second get-ready, 3-2-1 beeps at the end. Plus classic 20 minute AMRAP workouts to try.",
+    "ogTitle": "20 minute AMRAP timer",
+    "h1": ["20 minute", "AMRAP timer"],
+    "short": "20 min AMRAP",
+    "lead": "Twenty minutes on the clock, ready to go. Press Start, then move until it beeps.",
+    "mode": "amrap",
+    "defaults": { "minutes": 20 },
+    "expect": { "mode": "AMRAP", "totalSeconds": 1200, "blocks": 1 },
+    "sections": [
+      {
+        "h": "Why 20 minutes?",
+        "p": [
+          "Twenty minutes is the most common AMRAP length: long enough that pacing matters more than raw speed, short enough to stay hard all the way through. Many of the best-known benchmark workouts use it, which makes it easy to compare your score with past efforts.",
+          "Plan for about a 7 out of 10 effort for the first 5 minutes. If your rounds are still the same speed at minute 15, you paced it well; if they are slowing, start the next one a little easier."
+        ]
+      },
+      {
+        "h": "Scoring",
+        "p": ["Write down rounds plus extra reps, such as 14 + 8. If you scale a movement, note it next to the score so you can compare like with like next time."]
+      }
+    ],
+    "examples": [
+      { "slug": "cindy", "note": "5 pull-ups, 10 push-ups, 15 air squats. Good scores run past 20 rounds." },
+      { "slug": "mary", "note": "Handstand push-ups, pistols and pull-ups." },
+      { "slug": "nate", "note": "Muscle-ups, handstand push-ups and heavy kettlebell swings." },
+      { "slug": "danny", "note": "Box jumps, push presses and pull-ups." }
+    ]
+  },
+  {
+    "slug": "12-minute-amrap",
+    "nav": "12 min AMRAP",
+    "title": "12 Minute AMRAP Timer: Free Countdown Clock | SnapWOD",
+    "description": "Free 12 minute AMRAP timer with a get-ready countdown and 3-2-1 beeps, plus three 12 minute AMRAP workouts you can do with basic gym kit.",
+    "ogTitle": "12 minute AMRAP timer",
+    "h1": ["12 minute", "AMRAP timer"],
+    "short": "12 min AMRAP",
+    "lead": "A 12 minute AMRAP, set and ready. Short enough to push hard from the first round.",
+    "mode": "amrap",
+    "defaults": { "minutes": 12 },
+    "expect": { "mode": "AMRAP", "totalSeconds": 720, "blocks": 1 },
+    "sections": [
+      {
+        "h": "Pacing a 12 minute AMRAP",
+        "p": [
+          "Twelve minutes sits between a sprint and a grind. You can work at a higher intensity than in a 20 minute piece, but not flat out: plan to go steady for the first 4 minutes, hold on through the middle 4, and empty the tank in the last 4.",
+          "Keep the round short, three movements of 30 to 60 seconds in total, so you finish several rounds and have a clear score."
+        ]
+      },
+      {
+        "h": "Three 12 minute AMRAPs to try",
+        "ul": [
+          "**Engine**: 10 calorie row, 10 wall-ball shots, 10 box jumps.",
+          "**Bodyweight**: 5 burpees, 10 sit-ups, 15 air squats, 20 alternating lunges.",
+          "**Barbell**: 6 deadlifts, 6 hang power cleans, 6 front squats with a light to moderate bar."
+        ]
+      }
+    ],
+    "examples": [
+      { "slug": "cindy", "note": "Want longer? The classic 20 minute AMRAP." }
+    ]
+  },
+  {
+    "slug": "10-minute-emom",
+    "nav": "10 min EMOM",
+    "title": "10 Minute EMOM Timer: Free Every Minute Clock | SnapWOD",
+    "description": "Free 10 minute EMOM timer: 10 rounds, a beep at the top of every minute and 3-2-1 beeps before it. Ideas for strength, skill and conditioning EMOMs.",
+    "ogTitle": "10 minute EMOM timer",
+    "h1": ["10 minute", "EMOM timer"],
+    "short": "10 min EMOM",
+    "lead": "Ten rounds, one every minute. Ready to start.",
+    "mode": "emom",
+    "defaults": { "minutes": 10, "every": 60 },
+    "expect": { "mode": "EMOM", "totalSeconds": 600, "blocks": 10 },
+    "sections": [
+      {
+        "h": "What fits in 10 minutes",
+        "p": [
+          "A 10 minute EMOM is a compact block that fits before or after the main workout. It is most often used for strength or skill practice, where the rest built into every minute keeps quality high.",
+          "Keep each minute's work to 20 to 40 seconds. If you are finishing with only a few seconds left, lower the reps or the load."
+        ]
+      },
+      {
+        "h": "10 minute EMOM ideas",
+        "ul": [
+          "**Strength**: 2 power cleans each minute at about 70% of your best.",
+          "**Skill**: 3 to 5 strict pull-ups or a 20 second handstand hold.",
+          "**Conditioning**: 12 calories on the bike or 15 kettlebell swings.",
+          "**Alternating**: odd minutes 10 push-ups, even minutes 12 goblet squats."
+        ]
+      }
+    ],
+    "examples": [
+      { "slug": "chelsea", "note": "The same idea for 30 minutes: 5 pull-ups, 10 push-ups, 15 squats." }
+    ]
+  },
+  {
+    "slug": "20-minute-emom",
+    "nav": "20 min EMOM",
+    "title": "20 Minute EMOM Timer: Free Every Minute Clock | SnapWOD",
+    "description": "Free 20 minute EMOM timer, ready to go: 20 rounds with beeps every minute. Switch to E2MOM for 10 heavier rounds. Plus alternating EMOM ideas.",
+    "ogTitle": "20 minute EMOM timer",
+    "h1": ["20 minute", "EMOM timer"],
+    "short": "20 min EMOM",
+    "lead": "Twenty minutes, a new round every minute. Change Every to 2:00 for an E2MOM.",
+    "mode": "emom",
+    "defaults": { "minutes": 20, "every": 60 },
+    "expect": { "mode": "EMOM", "totalSeconds": 1200, "blocks": 20 },
+    "sections": [
+      {
+        "h": "Making 20 minutes work",
+        "p": [
+          "Twenty minutes is a long time to repeat one movement, so most 20 minute EMOMs rotate. Four stations done five times each is the classic layout: minute 1 is station 1, minute 2 is station 2, and so on, with the round counter telling you where you are.",
+          "For heavy lifting, switch **Every** to 2:00. That gives you 10 sets of a lift with time to rest and reload between them."
+        ]
+      },
+      {
+        "h": "A 4-station 20 minute EMOM",
+        "ul": [
+          "Minute 1: 12 calorie row",
+          "Minute 2: 10 dumbbell thrusters",
+          "Minute 3: 15 sit-ups",
+          "Minute 4: rest, or a 30 second plank"
+        ]
+      }
+    ],
+    "examples": [
+      { "slug": "chelsea", "note": "The classic 30 minute EMOM, if 20 feels too easy." },
+      { "slug": "kalsu", "note": "Burpees at the top of every minute, thrusters in between." }
+    ]
+  },
+  {
+    "slug": "30-minute-emom",
+    "nav": "30 min EMOM",
+    "title": "30 Minute EMOM Timer: Free Clock for Long EMOMs | SnapWOD",
+    "description": "Free 30 minute EMOM timer: 30 rounds with a beep every minute, a round counter and 3-2-1 beeps. Built for Chelsea and other long EMOM workouts.",
+    "ogTitle": "30 minute EMOM timer",
+    "h1": ["30 minute", "EMOM timer"],
+    "short": "30 min EMOM",
+    "lead": "Thirty rounds, one every minute, with a round counter so you never lose your place.",
+    "mode": "emom",
+    "defaults": { "minutes": 30, "every": 60 },
+    "expect": { "mode": "EMOM", "totalSeconds": 1800, "blocks": 30 },
+    "sections": [
+      {
+        "h": "Surviving a 30 minute EMOM",
+        "p": [
+          "Thirty minutes of work every minute is as much a test of consistency as fitness. The reps that take 30 seconds in round one can take 50 by round twenty, and then the rest is gone.",
+          "Choose a workload you can finish in about 35 seconds while fresh. If you miss a minute, rest through it and pick up again at the next one; your score is the number of rounds completed. The round counter and the beeps keep track, so all you have to do is start on the beep."
+        ]
+      },
+      {
+        "h": "Ideas for 30 minutes",
+        "ul": [
+          "Three stations done ten times each: row, burpees, kettlebell swings.",
+          "Every minute 3 pull-ups, 6 push-ups and 9 air squats for a scaled version of Chelsea.",
+          "An E3MOM with Every set to 3:00 for ten rounds of a longer piece, such as a 400 m run plus 10 thrusters."
+        ]
+      }
+    ],
+    "examples": [
+      { "slug": "chelsea", "note": "The benchmark 30 minute EMOM: 5 pull-ups, 10 push-ups, 15 air squats." },
+      { "slug": "kalsu", "note": "5 burpees every minute until 100 thrusters are done." }
+    ]
+  }
+]

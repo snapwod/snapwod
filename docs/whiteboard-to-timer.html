@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Whiteboard to Timer: Turn a Photo of the WOD into a Workout Clock | SnapWOD</title>
+  <meta name="description" content="Take a photo of the gym whiteboard and SnapWOD builds the timer: EMOMs, AMRAPs, For Time with a cap, intervals, Tabata and multi-part sessions with the rest built in. Free on iPhone and Android." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#040406" />
+  <link rel="canonical" href="https://snapwod.co.uk/whiteboard-to-timer" />
+  <link rel="icon" href="snapwod-logo.png" />
+  <link rel="apple-touch-icon" href="snapwod-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SnapWOD" />
+  <meta property="og:title" content="Turn a photo of the whiteboard into a workout timer" />
+  <meta property="og:description" content="Take a photo of the gym whiteboard and SnapWOD builds the timer: EMOMs, AMRAPs, For Time with a cap, intervals, Tabata and multi-part sessions with the rest built in. Free on iPhone and Android." />
+  <meta property="og:url" content="https://snapwod.co.uk/whiteboard-to-timer" />
+  <meta property="og:image" content="https://snapwod.co.uk/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Turn a photo of the whiteboard into a workout timer" />
+  <meta name="twitter:description" content="Take a photo of the gym whiteboard and SnapWOD builds the timer: EMOMs, AMRAPs, For Time with a cap, intervals, Tabata and multi-part sessions with the rest built in. Free on iPhone and Android." />
+  <meta name="twitter:image" content="https://snapwod.co.uk/og-image.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "SnapWOD",
+          "item": "https://snapwod.co.uk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Whiteboard to timer",
+          "item": "https://snapwod.co.uk/whiteboard-to-timer"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is it free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SnapWOD is free on iPhone and Android, with 2 smart reads a month and the basic reader without limits. Premium adds up to 100 smart reads a month and cloud backup for up to 30 saved workouts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it read handwriting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, with a smart read. Clear block capitals work best. Check the preview before you start, and take the photo again if something was misread."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I paste a workout from my gym's app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Copy the workout text from your gym's app, website or a programming page and paste it into SnapWOD instead of taking a photo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The timer and the basic reader work offline. A smart read needs an internet connection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which formats does it understand?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EMOM (including E2MOM and E3MOM), AMRAP, For Time with a cap, intervals, Tabata and multi-part sessions with rest between the parts."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Rajdhani:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #040406; --surface: #111115; --surface-2: #17171d; --line: #26262e;
+      --text: #ffffff; --muted: #a1a1aa; --cyan: #00e0ff; --green: #30d158; --orange: #ff9f0a;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; color: var(--text); background: var(--bg);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.55;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+    .display { font-family: Rajdhani, Inter, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.01em; line-height: 0.95; margin: 0; }
+    .cyan { color: var(--cyan); }
+    header.top {
+      position: sticky; top: 0; z-index: 20; background: rgba(4, 4, 6, 0.85);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand img { width: 32px; height: 32px; border-radius: 8px; outline: 1px solid var(--line); }
+    .brand span { font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 22px; }
+    .nav-r { display: flex; align-items: center; gap: 18px; white-space: nowrap; }
+    @media (max-width: 360px) { .nav-r { gap: 12px; } .nav a.lib { font-size: 14px; } }
+    .nav a.lib { font-size: 15px; color: var(--muted); }
+    .nav a.lib:hover { color: var(--text); }
+    .pill {
+      display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 999px; border: 1.5px solid currentColor;
+      background: color-mix(in srgb, currentColor 10%, transparent);
+    }
+    .pill.hero { color: var(--orange); } .pill.girls { color: var(--cyan); } .pill.classic { color: var(--green); }
+    .badges { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: center; }
+    .badges img { height: 46px; width: auto; display: block; }
+    footer.foot { border-top: 1px solid var(--line); margin-top: 56px; padding: 26px 0 40px; font-size: 14px; color: var(--muted); }
+    footer.foot .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
+    footer.foot nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    footer.foot a:hover { color: var(--text); }
+    .crumbs { font-size: 14px; color: var(--muted); margin: 18px 0 0; }
+    .crumbs a:hover { color: var(--text); }
+    .crumbs span[aria-hidden] { margin: 0 6px; }
+    main { padding-bottom: 8px; }
+    .hero-block { padding: 20px 0 4px; }
+    h1.display { font-size: clamp(40px, 11vw, 68px); overflow-wrap: anywhere; }
+    .headline { font-size: 18px; color: var(--muted); margin: 12px 0 0; }
+    .ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .ticks li { display: flex; gap: 12px; align-items: flex-start; color: #d4d4d8; font-size: 16px; }
+    .ticks li::before {
+      content: ""; flex: none; width: 20px; height: 20px; margin-top: 3px; border-radius: 50%;
+      background: var(--cyan) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3L15 7' fill='none' stroke='%23001014' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .ticks b { color: var(--text); }
+    section.block { margin-top: 34px; }
+    section.block h2 { font-size: 30px; margin: 0 0 12px; }
+    section.block h3 { font-size: 17px; margin: 18px 0 6px; }
+    section.block p { color: #d4d4d8; margin: 0 0 12px; }
+    section.block ul, section.block ol { color: #d4d4d8; margin: 0 0 12px; padding-left: 22px; }
+    section.block li { margin: 0 0 6px; }
+    section.block a { color: var(--cyan); }
+    section.block b { color: var(--text); }
+    .steps { list-style: none; padding: 0 !important; display: grid; gap: 10px; counter-reset: s; }
+    .steps li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px 12px 52px; position: relative; margin: 0 !important; }
+    .steps li::before { content: counter(s); position: absolute; left: 16px; top: 8px; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 28px; color: var(--cyan); }
+    .board { display: grid; gap: 10px; }
+    .board > div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+    .board .lbl { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+    .board pre { margin: 0; font: 600 16px/1.5 ui-monospace, Consolas, monospace; color: var(--text); white-space: pre-wrap; }
+    .board ol { margin: 0; padding-left: 20px; }
+    .tbl { overflow-x: auto; margin: 0 0 12px; }
+    table { border-collapse: collapse; width: 100%; font-size: 15px; }
+    th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); color: #d4d4d8; }
+    thead th { color: var(--text); font-size: 14px; border-bottom: 2px solid var(--line); }
+    tbody th { color: var(--text); font-weight: 600; white-space: nowrap; }
+    td.us { color: var(--text); }
+    .src { font-size: 13px; color: var(--muted); }
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; margin: 0 0 10px; }
+    summary { cursor: pointer; font-weight: 600; color: var(--text); }
+    details p { margin: 8px 0 0 !important; }
+    .get { margin-top: 40px; text-align: center; padding: 26px 18px; border-radius: 20px; border: 1px solid var(--line);
+      background: radial-gradient(60% 90% at 25% 100%, rgba(0, 224, 255, 0.16), transparent 70%), radial-gradient(50% 80% at 85% 0%, rgba(48, 209, 88, 0.12), transparent 70%), var(--surface); }
+    .get h2 { font-size: 32px; margin: 0 0 10px; }
+    .get p { color: var(--muted); margin: 0 auto 18px; max-width: 460px; font-size: 16px; }
+    /* Phones: one card per row, each answer labelled with its product. */
+    @media (max-width: 699px) {
+      table, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      tbody tr { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 8px 14px 10px; margin: 0 0 10px; }
+      tbody th, td { border: 0; padding: 5px 0; }
+      tbody th { font-family: Rajdhani, sans-serif; font-size: 20px; text-transform: uppercase; }
+      td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+      td.us::before { color: var(--cyan); }
+    }
+    @media (min-width: 700px) { .board { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap nav">
+      <a class="brand" href=""><img src="snapwod-logo.png" alt="" width="32" height="32" /><span>SnapWOD</span></a>
+      <div class="nav-r"><a class="lib" href="timer/">Timer</a><a class="lib" href="workouts/">Workout library</a></div>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="crumbs"><a href="./">SnapWOD</a><span aria-hidden="true">›</span>Whiteboard to timer</p>
+    <section class="hero-block">
+      <h1 class="display">Whiteboard <span class="cyan">to timer</span></h1>
+      <p class="headline">Take a photo of the gym whiteboard, or paste the workout from your gym's app, and SnapWOD builds the timer for you. No programming every interval by hand.</p>
+    </section>
+
+    <section class="block" aria-labelledby="how-h">
+      <h2 class="display" id="how-h">How it works</h2>
+      <ol class="steps">
+        <li><b>Snap the board.</b> Open SnapWOD and take a photo of the whiteboard. Copied the workout from your gym's app or a programming site? Paste the text instead.</li>
+        <li><b>Check the preview.</b> SnapWOD shows each part it found, with the time, the rounds and the rest. If something's off, take the photo again or type the workout in.</li>
+        <li><b>Start the clock.</b> The timer beeps you through every part and keeps running with your phone locked. Coaching a class? Put it on the gym TV.</li>
+      </ol>
+    </section>
+
+    <section class="block" aria-labelledby="ex-h">
+      <h2 class="display" id="ex-h">An example</h2>
+      <div class="board">
+        <div>
+          <p class="lbl">On the whiteboard</p>
+          <pre>A) EMOM 12
+1: 12 cal row
+2: 10 burpees
+3: 15 wall balls
+
+Rest 3:00
+
+B) AMRAP 10
+5 pull-ups
+10 push-ups
+15 air squats</pre>
+        </div>
+        <div>
+          <p class="lbl">The timer SnapWOD builds</p>
+          <ol>
+            <li><b>EMOM 12:00</b>, 12 one-minute rounds rotating through the row, the burpees and the wall balls, with each minute's movement on screen.</li>
+            <li><b>Rest 3:00</b>, counted down, with a beep before part B.</li>
+            <li><b>AMRAP 10:00</b>, with the three movements on screen.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="what-h">
+      <h2 class="display" id="what-h">What it reads</h2>
+      <ul class="ticks">
+        <li><span><b>EMOM</b>, including E2MOM and E3MOM, and alternating stations minute by minute.</span></li>
+        <li><span><b>AMRAP</b> of any length.</span></li>
+        <li><span><b>For Time</b>, with the time cap if the board has one.</span></li>
+        <li><span><b>Intervals and Tabata</b>: work and rest times, rounds and sets.</span></li>
+        <li><span><b>Multi-part sessions</b>: a strength piece, then a conditioning piece, with the rest between them built in.</span></li>
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="read-h">
+      <h2 class="display" id="read-h">Smart read and the basic reader</h2>
+      <p>SnapWOD has two ways to read a workout.</p>
+      <p><b>Smart read</b> handles the whole whiteboard: several parts, the movements for each minute, rest between parts, and messy handwriting. You get 2 smart reads a month free, and up to 100 a month with Premium.</p>
+      <p><b>The basic reader</b> runs on your phone, free and unlimited, and works offline. It is good for a single format with the time written clearly, such as "EMOM 12" or "AMRAP 20". For a session with several parts, use a smart read.</p>
+      <p>Either way, check the preview before you start. Clear block capitals read best; a photo taken square-on, without glare, reads better than one from across the room.</p>
+    </section>
+
+    <section class="block" aria-labelledby="tv-h">
+      <h2 class="display" id="tv-h">On the gym TV</h2>
+      <p>Coaches can put the timer on any TV with a web browser. Open <a href="tv">snapwod.co.uk/tv</a> on the TV, type the six-letter code from the phone, and run the class from the phone. The TV shows the clock, the movements for the current part, the round and what's next. Nothing to install on the TV. See how it compares with a <a href="smartwod-alternative">timer app or a wall clock</a>.</p>
+    </section>
+
+    <section class="block" aria-labelledby="free-h">
+      <h2 class="display" id="free-h">Just need a quick timer?</h2>
+      <p>The <a href="timer/">free web timer</a> runs EMOM, AMRAP, For Time, Tabata and intervals in your browser with no install. The <a href="workouts/">workout library</a> has the benchmark WODs ready to run.</p>
+    </section>
+
+    <section class="block" aria-labelledby="faq-h">
+      <h2 class="display" id="faq-h">Questions</h2>
+      <details><summary>Is it free?</summary><p>Yes. SnapWOD is free on iPhone and Android, with 2 smart reads a month and the basic reader without limits. Premium adds up to 100 smart reads a month and cloud backup for up to 30 saved workouts.</p></details>
+      <details><summary>Can it read handwriting?</summary><p>Yes, with a smart read. Clear block capitals work best. Check the preview before you start, and take the photo again if something was misread.</p></details>
+      <details><summary>Can I paste a workout from my gym&#39;s app?</summary><p>Yes. Copy the workout text from your gym's app, website or a programming page and paste it into SnapWOD instead of taking a photo.</p></details>
+      <details><summary>Does it work offline?</summary><p>The timer and the basic reader work offline. A smart read needs an internet connection.</p></details>
+      <details><summary>Which formats does it understand?</summary><p>EMOM (including E2MOM and E3MOM), AMRAP, For Time with a cap, intervals, Tabata and multi-part sessions with rest between the parts.</p></details>
+    </section>
+
+    <section class="get">
+      <h2 class="display">Snap the board. <span class="cyan">Start the clock.</span></h2>
+      <p>Free on iPhone and Android. No account needed.</p>
+      <div class="badges">
+        <a href="https://apps.apple.com/us/app/snapwod/id6755497026" rel="noopener"><img src="app-store-badge.svg" alt="Download on the App Store" width="138" height="46" loading="lazy" /></a>
+        <a href="https://play.google.com/store/apps/details?id=com.anonymous.wodbrain" rel="noopener"><img src="google-play-badge.svg" alt="Get it on Google Play" width="155" height="46" loading="lazy" /></a>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap">
+      <div>© 2026 SnapWOD</div>
+      <nav>
+        <a href="">SnapWOD app</a>
+        <a href="workouts/">Workout library</a>
+        <a href="timer/">Workout timer</a>
+        <a href="whiteboard-to-timer">Whiteboard to timer</a>
+        <a href="smartwod-alternative">Compare gym timers</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

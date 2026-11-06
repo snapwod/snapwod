@@ -75,6 +75,8 @@ export const footer = (rel) => `<footer class="foot">
         <a href="${rel}">SnapWOD app</a>
         <a href="${rel}workouts/">Workout library</a>
         <a href="${rel}timer/">Workout timer</a>
+        <a href="${rel}whiteboard-to-timer">Whiteboard to timer</a>
+        <a href="${rel}smartwod-alternative">Compare gym timers</a>
         <a href="${rel}support.html">Support</a>
         <a href="${rel}privacy.html">Privacy</a>
       </nav>

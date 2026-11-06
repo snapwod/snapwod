@@ -298,7 +298,7 @@ for (const p of pages) {
   const title = attr(html, /<title>([^<]*)<\/title>/);
   const desc = attr(html, /<meta name="description" content="([^"]*)"/);
   const canonical = attr(html, /<link rel="canonical" href="([^"]*)"/);
-  const want = "https://snapwod.github.io/snapwod/timer/" + (p.slug === "index" ? "" : p.slug);
+  const want = "https://snapwod.co.uk/timer/" + (p.slug === "index" ? "" : p.slug);
   if (canonical !== want) problems.push(`canonical ${canonical} != ${want}`);
   if (!sitemap.includes(`<loc>${want}</loc>`)) problems.push("not in sitemap.xml");
   if (!title || titles.has(title)) problems.push(`title missing or shared with ${titles.get(title)}`);

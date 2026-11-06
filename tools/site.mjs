@@ -1,7 +1,7 @@
 // Shared parts of the generated pages (tools/build-workouts.mjs, tools/build-timers.mjs):
 // site constants, the header/footer and the base CSS, so every generated page has the same nav.
 
-export const SITE = "https://snapwod.github.io/snapwod/";
+export const SITE = "https://snapwod.co.uk/";
 export const OG_IMAGE = SITE + "og-image.png";
 export const IOS_STORE_URL = "https://apps.apple.com/us/app/snapwod/id6755497026";
 export const ANDROID_STORE_URL = "https://play.google.com/store/apps/details?id=com.anonymous.wodbrain";
